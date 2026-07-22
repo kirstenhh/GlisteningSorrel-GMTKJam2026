@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cspqxyikwkm0y"]
+
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_331n6"]
+[ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="2_wm0gd"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_cmcyh"]
+[ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/extras/scripts/level_loader.gd" id="4_85cn0"]
+[ext_resource type="Script" uid="uid://83veu5qxi754" path="res://examples/scripts/level_and_state_manager.gd" id="5_j5msg"]
+[ext_resource type="PackedScene" uid="uid://dopojsq6hgf0w" path="res://examples/scenes/windows/game_won_window.tscn" id="6_l5ds3"]
+[ext_resource type="PackedScene" uid="uid://cs7sowj3lbtqr" path="res://examples/scenes/windows/level_lost_window.tscn" id="7_t2nl2"]
+[ext_resource type="PackedScene" uid="uid://c41vf3670ktkv" path="res://examples/scenes/windows/level_won_window.tscn" id="8_ijmc0"]
+[ext_resource type="Script" uid="uid://wjq7li836lwj" path="res://addons/maaacks_game_template/extras/scripts/scene_lister.gd" id="9_4wgqn"]
+[ext_resource type="PackedScene" uid="uid://dtg1ybcm2582r" path="res://examples/scenes/loading_screen/level_loading_screen.tscn" id="10_3vtva"]
+[ext_resource type="Script" uid="uid://8s0uemv7v820" path="res://examples/scenes/game_scene/configurable_sub_viewport.gd" id="11_ho5bg"]
+[ext_resource type="Script" uid="uid://5ggijacbr2os" path="res://examples/scenes/game_scene/game_timer.gd" id="12_n3sc5"]
+
+[node name="GameUI" type="Control" unique_id=1609552811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuController" type="Node" parent="." unique_id=1685173287 node_paths=PackedStringArray("focused_viewport")]
+script = ExtResource("1_331n6")
+pause_menu_packed = ExtResource("2_wm0gd")
+focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
+
+[node name="BackgroundMusicPlayer" parent="." unique_id=986713811 instance=ExtResource("3_cmcyh")]
+
+[node name="LevelLoader" type="Node" parent="." unique_id=1047451806 node_paths=PackedStringArray("level_container", "level_loading_screen")]
+script = ExtResource("4_85cn0")
+level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
+level_loading_screen = NodePath("../LevelLoadingScreen")
+
+[node name="LevelManager" type="Node" parent="." unique_id=1350972375 node_paths=PackedStringArray("level_loader", "scene_lister")]
+script = ExtResource("5_j5msg")
+level_loader = NodePath("../LevelLoader")
+starting_level_path = "res://examples/scenes/game_scene/levels/level_1.tscn"
+scene_lister = NodePath("SceneLister")
+game_won_scene = ExtResource("6_l5ds3")
+level_lost_scene = ExtResource("7_t2nl2")
+level_won_scene = ExtResource("8_ijmc0")
+
+[node name="SceneLister" type="Node" parent="LevelManager" unique_id=673614733]
+script = ExtResource("9_4wgqn")
+files = Array[String](["res://examples/scenes/game_scene/levels/level_1.tscn", "res://examples/scenes/game_scene/levels/level_2.tscn", "res://examples/scenes/game_scene/levels/level_3.tscn"])
+directory = "res://examples/scenes/game_scene/levels"
+
+[node name="LevelLoadingScreen" parent="." unique_id=816430938 instance=ExtResource("10_3vtva")]
+visible = false
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer" unique_id=204786699]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+script = ExtResource("11_ho5bg")
+
+[node name="GameTimer" type="Node" parent="." unique_id=116840261]
+script = ExtResource("12_n3sc5")
