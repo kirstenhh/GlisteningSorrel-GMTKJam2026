@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ofht8a0rsnog"]
 
 [ext_resource type="Script" uid="uid://bqjf44bj4ekru" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
+position = Vector2(411, 463)
