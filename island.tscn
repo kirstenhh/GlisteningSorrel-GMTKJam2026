@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cgedcbhx3pu0k"]
+
+[ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="1_0iamf"]
+
+[node name="Island" type="Node" unique_id=528553649]
+
+[node name="Map" parent="." unique_id=1269290182 instance=ExtResource("1_0iamf")]
