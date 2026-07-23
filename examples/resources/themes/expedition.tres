@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://c2rwjauxmsgrp"]
 
+[ext_resource type="FontFile" uid="uid://bej3wagtkfex5" path="res://Graphics/Fonts/CaskaydiaCoveNerdFontPropo-Regular.ttf" id="1_lm6ys"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0sbc"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -87,6 +89,7 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 
 [resource]
+default_font = ExtResource("1_lm6ys")
 Button/styles/hover = SubResource("StyleBoxFlat_g0sbc")
 Button/styles/normal = SubResource("StyleBoxFlat_krvwn")
 Button/styles/pressed = SubResource("StyleBoxFlat_gfyr3")

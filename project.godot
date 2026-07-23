@@ -13,6 +13,7 @@ config_version=5
 config/name="GlisteningSorrel"
 run/main_scene="res://examples/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [audio]
@@ -23,6 +24,7 @@ buses/default_bus_layout="uid://bbrewbtxs8g5c"
 
 AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
+TextManager="*uid://d3qvsk17re04p"
 
 [display]
 
@@ -32,6 +34,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+
+[gui]
+
+theme/custom="res://examples/resources/themes/expedition.tres"
 
 [input]
 
@@ -70,6 +76,11 @@ interact={
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="interaction"
 
 [maaacks_game_template]
 

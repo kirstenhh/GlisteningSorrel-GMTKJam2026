@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://fyytatkqkmau"]
+
+[ext_resource type="Script" uid="uid://du6qxhg60ef2d" path="res://Items/base_item.gd" id="1_o1itp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
+size = Vector2(34, 20)
+
+[node name="BunkerItem" type="Area2D" unique_id=125580172]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_o1itp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535373112]
+shape = SubResource("RectangleShape2D_vpaae")
