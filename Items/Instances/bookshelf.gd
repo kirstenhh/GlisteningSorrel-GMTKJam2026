@@ -9,7 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func update_text(): 
+func update_text(post): 
 	
 	TextManager.text_queue.push_back("There's a strange book here! It's missing a page...")
 	TextManager.text_queue.push_back("The previous page has some text, though.")

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://2r8c86wa6gjw" path="res://Graphics/Character/oldman_rune_sheet.png" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bkm1d1he5d1kp" path="res://Graphics/Character/oldman_walk_sheet.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dtcp83ic7dj4w" path="res://Graphics/Character/oldman_attack_sheet.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://d0p4gqi705fuh" path="res://Graphics/Items/frame.png" id="5_sweqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
 radius = 31.016125
@@ -216,6 +215,9 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=381903264]
 script = ExtResource("1_hqtel")
 
+[node name="CarryItem" type="Node2D" parent="." unique_id=668863539]
+position = Vector2(0, -40)
+
 [node name="InteractArea" type="Area2D" parent="." unique_id=1832256863]
 position = Vector2(0, -3.5)
 collision_layer = 0
@@ -234,12 +236,8 @@ sprite_frames = SubResource("SpriteFrames_vpaae")
 animation = &"carry"
 frame_progress = 0.5316787
 
-[node name="CarryItem" type="Sprite2D" parent="." unique_id=286068456]
-visible = false
-position = Vector2(0, -23)
-texture = ExtResource("5_sweqy")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1741964471]
+zoom = Vector2(2, 2)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]

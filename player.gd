@@ -3,13 +3,16 @@ extends CharacterBody2D
 
 @export var speed = 300
 @export var controlling = true
+@export var carrying = false
 
 var action = false #TODO true till interact animation is done
 var available_interactions = []
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		if available_interactions and controlling:
+		if carrying and controlling:
+			await $CarryItem.get_child(0).get_node("Pickup").interact.call()
+		elif available_interactions and controlling:
 			await available_interactions[0].interact.call()
 		
 func _process(_delta:float) -> void:
@@ -51,7 +54,7 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 
 
 func nearest(a1, a2):
-	var a1_dist = global_position.distance_to(a1)
-	var a2_dist = global_position.distance_to(a2)
+	var a1_dist = global_position.distance_to(a1.global_position)
+	var a2_dist = global_position.distance_to(a2.global_position)
 	return a1_dist < a2_dist
 		
