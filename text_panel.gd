@@ -11,3 +11,4 @@ func _process(delta: float) -> void:
 	pass
 func show_message(val) -> void:
 	$BottomText.text = val
+	print(val)

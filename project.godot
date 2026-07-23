@@ -28,8 +28,12 @@ TextManager="*uid://d3qvsk17re04p"
 
 [display]
 
+window/size/initial_position_type=3
+window/size/borderless=true
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+display_server/driver.linuxbsd="wayland"
 
 [editor_plugins]
 

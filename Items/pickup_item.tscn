@@ -6,6 +6,7 @@
 size = Vector2(34, 20)
 
 [node name="Pickup" type="Area2D" unique_id=125580172]
+z_index = 1003
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_2vssv")

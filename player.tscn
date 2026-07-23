@@ -232,7 +232,7 @@ shape = SubResource("RectangleShape2D_634y6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538409770]
 sprite_frames = SubResource("SpriteFrames_vpaae")
 animation = &"carry"
-frame_progress = 0.7795044
+frame_progress = 0.5316787
 
 [node name="CarryItem" type="Sprite2D" parent="." unique_id=286068456]
 visible = false

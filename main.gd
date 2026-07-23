@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		print("moving text queue along")
+		print("Interacitng")
 		if TextManager.text_queue:
 			$UI/TextPanel.show_message(TextManager.text_queue.pop_front())
 		else:
@@ -17,15 +17,13 @@ func _input(event: InputEvent) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	#Start and end the text tree
 	if not text_on and TextManager.text_queue: # start a text interaction
-		print("Show text")
 		text_on=true
 		$Player.controlling = false
 		$UI/TextPanel.visible=true
-		$UI/TextPanel.show_message(TextManager.text_queue.pop_front())
-	elif text_on and not TextManager.text_queue: #text is still on, but queue is empty
+	elif not text_on: #text is still on, but queue is empty
 		$UI/TextPanel.visible=false
 		$Player.controlling = true
-
 		

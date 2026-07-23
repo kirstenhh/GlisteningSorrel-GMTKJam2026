@@ -15,3 +15,4 @@ func update_text():
 	TextManager.text_queue.push_back("The previous page has some text, though.")
 	TextManager.text_queue.push_back("It says, 'Turn the safe dial clockwise, counterclockwise")
 	TextManager.text_queue.push_back("and clockwise to the following values: ...")
+	TextManager.text_queue.push_back("Then the torn page. The rest of the book is empty.")
