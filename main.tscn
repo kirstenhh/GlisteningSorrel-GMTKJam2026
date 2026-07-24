@@ -41,7 +41,8 @@ size = Vector2(67, 50)
 script = ExtResource("1_ig7tw")
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
-z_index = 1000
+z_index = 1002
+z_as_relative = false
 position = Vector2(715, 236)
 scale = Vector2(1.8, 1.8)
 speed = 150
@@ -156,7 +157,8 @@ metadata/_edit_lock_ = true
 [node name="FilingCabinet" type="Area2D" parent="BunkerItems" unique_id=2088344099]
 
 [node name="CountdownComputer" type="StaticBody2D" parent="." unique_id=2032045861]
-z_index = 1003
+z_index = 1001
+z_as_relative = false
 position = Vector2(2643, -291)
 scale = Vector2(1.9269764, 2.1321788)
 script = ExtResource("13_vivmo")
