@@ -5,9 +5,9 @@ extends CharacterBody2D
 @export var controlling = true
 @export var carrying = false
 
-var action = false #TODO true till interact animation is done
 var available_examinations = []
 var available_pickups = []
+var prev_direction = Vector2(-1,0) # For controlling the Idle animation
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and controlling:
@@ -28,30 +28,41 @@ func _physics_process(_delta: float) -> void:
 	var direction = Vector2.ZERO
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
-	
 	if not controlling:
 		return
-	elif direction:
+	elif direction: #Moving
 		velocity.x = direction.x * speed
 		velocity.y = direction.y * speed
 		if carrying: 
-			$AnimatedSprite2D.animation = "carry"
+			handle_animation("carry", direction)
 		else:
-			$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.play()
-		if direction.x != 0:
-			rotation_degrees = 90 * direction.x
-		elif direction.y > 0:
-			rotation_degrees = 180
-		elif direction.y < 0: 
-			rotation_degrees = 0
-	elif not action:
-		$AnimatedSprite2D.animation = "idle"
+			handle_animation("walk", direction)
+		prev_direction = direction
+		#if direction.x != 0:
+			#rotation_degrees = 90 * direction.x
+		#elif direction.y > 0:
+			#rotation_degrees = 180
+		#elif direction.y < 0: 
+			#rotation_degrees = 0
+	else:
+		handle_animation("idle", prev_direction)
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
+	$AnimatedSprite2D.play()
 	move_and_slide()
 	
 
+func handle_animation(action: String, direction: Vector2):
+	$AnimatedSprite2D.flip_h = false
+	if direction == Vector2(-1,0): #left
+		$AnimatedSprite2D.animation = action+"-side"
+		$AnimatedSprite2D.flip_h = true
+	elif direction == Vector2(1,0): #right
+		$AnimatedSprite2D.animation = action+"-side"
+	elif direction == Vector2(0,-1): #up
+		$AnimatedSprite2D.animation = action+"-up"
+	else: #down : elif direction == Vector2(0,1): #down
+		$AnimatedSprite2D.animation = action+"-down"
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
 	if area.examinable:
