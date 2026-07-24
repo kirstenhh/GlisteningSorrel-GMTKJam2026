@@ -1,7 +1,7 @@
 extends Timer
 
 var MachineCode = ResetCodes()
-
+signal GameOver
 func ResetCodes() -> String:
 	var val = randi_range(1000000000,9999999999)
 	return str(val)
@@ -50,9 +50,10 @@ func _on_timeout() -> void:
 	TextManager.text_queue.push_back("You have not entered the code in time, the world as we know it ended")
 	TextManager.text_queue.push_back("Press a button to go to the main menu")
 	
-
+	GameOver.emit()
 	#resets game
-	# get_tree().reload_current_scene() #to reset game
-	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+	#get_tree().reload_current_scene() #to reset game
+	
+	
 	#both should set new codes
 	
