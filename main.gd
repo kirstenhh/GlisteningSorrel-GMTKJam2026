@@ -1,36 +1,65 @@
 extends Node
 # THIS IS THE MAIN GAME PROGRAM
 # at least until we decide if we go full OOP or if we do other things
+enum Game_State{
+	NEW_GAME,
+	PLAYING, #Player has control and is moving about
+	READING, #Interacting with a UI element (incl. entering code)
+	GAME_OVER
+}
+var current_state = Game_State.NEW_GAME
 
-var text_on = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") or event.is_action_pressed("examine"):
-		var code = $UI/Clock.MachineCode
-		if TextManager.text_queue:
-			var text = TextManager.text_queue.pop_front()
-			for i in range(len(code)):
-				text = text.replace("$code"+str(i), code[i])
-			$UI/TextPanel.show_message(text)
-		else:
-			text_on = false
-			$UI/TextPanel.show_message("")
+		match current_state:
+			Game_State.PLAYING:
+				$Player.controlling = true
+				$UI/TextPanel.hide_panel()
+				
+				if TextManager.text_queue:
+					current_state=Game_State.READING
+					var text = TextManager.text_queue.pop_front()
+					print("message: "+text)
+					$UI/TextPanel.show_message(text)
+			Game_State.READING:
+				if TextManager.text_queue:
+					var text = TextManager.text_queue.pop_front()
+					print("message: "+text)
+					$UI/TextPanel.show_message(text)
+				else:
+					current_state = Game_State.PLAYING
+					$UI/TextPanel.hide_panel()
+			Game_State.GAME_OVER:
+				print("GAME OVER. ")
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Start and end the text tree
-	if not text_on and TextManager.text_queue: # start a text interaction
-		text_on=true
-		$Player.controlling = false
-		$UI/TextPanel.visible=true
-		$UI/Clock.enterCode("4815")
-	elif not text_on: #text is still on, but queue is empty
-		$UI/TextPanel.visible=false
-		$Player.controlling = true
+	if not current_state==Game_State.READING and TextManager.text_queue: # start a text interaction
+		current_state=Game_State.READING
+	match current_state:
+		Game_State.NEW_GAME:
+			current_state = Game_State.PLAYING
+		Game_State.PLAYING:
+			$Player.controlling = true
+			#$UI/TextPanel.hide()
+			if TextManager.text_queue:
+				current_state=Game_State.READING
+				var text = TextManager.text_queue.pop_front()
+				print("message: "+text)
+				$UI/TextPanel.show_message(text)
+		Game_State.READING:
+			$Player.controlling = false
+			
+		Game_State.GAME_OVER:
+			print("GAME OVER. ")
+
 	#udpate timer on corner of screen
 	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
 
@@ -69,3 +98,8 @@ func _on_move_through_door(to_bunker: bool) -> void:
 		# move character to just outside door
 		$Player.position = $BunkerDoor.global_position
 		$Player/Camera2D.make_current()
+
+
+func _on_enter_code_requested() -> void:
+	$UI/CodeEntryBox.visible = true
+	$Player.controlling = false

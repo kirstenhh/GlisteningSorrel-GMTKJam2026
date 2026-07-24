@@ -11,7 +11,7 @@ var available_interactions = []
 var prev_direction = Vector2(-1,0) # For controlling the Idle animation
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and controlling:
+	if controlling and event.is_action_pressed("interact"):
 		# Check for interactions FIRST, because they're often more important
 		if available_interactions:
 			if carrying:
