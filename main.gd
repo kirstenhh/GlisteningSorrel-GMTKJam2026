@@ -4,35 +4,39 @@ extends Node
 enum Game_State{
 	NEW_GAME,
 	PLAYING, #Player has control and is moving about
-	READING, #Interacting with a UI element (incl. entering code)
+	READING, #Text box is on screen
+	TYPING, #Interact with UI elements (entering code)
 	GAME_OVER
 }
 var current_state = Game_State.NEW_GAME
-
+var next_state = Game_State.PLAYING
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 	
 func _input(event: InputEvent) -> void:
+	
 	if event.is_action_pressed("interact") or event.is_action_pressed("examine"):
 		match current_state:
 			Game_State.PLAYING:
 				$Player.controlling = true
 				$UI/TextPanel.hide_panel()
-				
 				if TextManager.text_queue:
 					current_state=Game_State.READING
 					var text = TextManager.text_queue.pop_front()
-					print("message: "+text)
 					$UI/TextPanel.show_message(text)
 			Game_State.READING:
 				if TextManager.text_queue:
 					var text = TextManager.text_queue.pop_front()
-					print("message: "+text)
 					$UI/TextPanel.show_message(text)
 				else:
 					current_state = Game_State.PLAYING
 					$UI/TextPanel.hide_panel()
+			Game_State.TYPING:
+				print("Consider this an Enter")
+				$UI/CodeEntryBox.hide()
+				next_state = Game_State.PLAYING
+				# Submit code for checking, popup Yes or No
 			Game_State.GAME_OVER:
 				print("GAME OVER. ")
 		
@@ -46,6 +50,7 @@ func _process(_delta: float) -> void:
 	match current_state:
 		Game_State.NEW_GAME:
 			current_state = Game_State.PLAYING
+			#$UI/TextPanel.hide_panel()
 		Game_State.PLAYING:
 			$Player.controlling = true
 			#$UI/TextPanel.hide()
@@ -56,15 +61,19 @@ func _process(_delta: float) -> void:
 				$UI/TextPanel.show_message(text)
 		Game_State.READING:
 			$Player.controlling = false
-			
+		Game_State.TYPING:
+			$Player.controlling = false
+			$UI/CodeEntryBox.show()
 		Game_State.GAME_OVER:
 			print("GAME OVER. ")
+	if next_state: 
+		current_state = next_state
+		next_state = null
 
 	#udpate timer on corner of screen
 	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
 
 
-	
 
 func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 	print("Picking up " + my_name)
@@ -101,5 +110,7 @@ func _on_move_through_door(to_bunker: bool) -> void:
 
 
 func _on_enter_code_requested() -> void:
-	$UI/CodeEntryBox.visible = true
-	$Player.controlling = false
+	$UI/CodeEntryBox.show()
+	print("Entering Code: ")
+	next_state = Game_State.TYPING
+	
