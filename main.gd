@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 		text_on=true
 		$Player.controlling = false
 		$UI/TextPanel.visible=true
+		$UI/Clock.enterCode("4815")
 	elif not text_on: #text is still on, but queue is empty
 		$UI/TextPanel.visible=false
 		$Player.controlling = true

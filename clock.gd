@@ -7,10 +7,10 @@ func ResetCodes() -> String:
 
 func enterCode(code: String) -> void:
 	#base code is static, will need to implement random code digits
-	var finalcode = "4815162342"
+	var finalcode = MachineCode
 	#check each number
 	var corrects = 0
-	for n in 10:
+	for n in len(code):
 		print(n," digit,",finalcode[n],"=?",code[n])
 		if finalcode[n] == code[n]:
 			print(n," digit correct")
@@ -18,7 +18,7 @@ func enterCode(code: String) -> void:
 		else:
 			break
 	#After checking, add time on each valid correct values
-	wait_time = 108+corrects*30
+	wait_time = 108+((corrects-3)*27)
 	start()
 
 # Called when the node enters the scene tree for the first time.
