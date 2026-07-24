@@ -9,8 +9,12 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") or event.is_action_pressed("examine"):
+		var code = $UI/Clock.MachineCode
 		if TextManager.text_queue:
-			$UI/TextPanel.show_message(TextManager.text_queue.pop_front())
+			var text = TextManager.text_queue.pop_front()
+			for i in range(len(code)):
+				text = text.replace("$code"+str(i), code[i])
+			$UI/TextPanel.show_message(text)
 		else:
 			text_on = false
 			$UI/TextPanel.show_message("")

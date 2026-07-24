@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
 [ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="13_vivmo"]
 [ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="14_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
@@ -23,6 +24,13 @@ radius = 66.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(29, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
+radius = 16.039063
+height = 86.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
+size = Vector2(22, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
 radius = 22.437576
@@ -43,7 +51,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(715, 236)
+position = Vector2(2889, -260)
 scale = Vector2(1.8, 1.8)
 speed = 150
 metadata/_edit_group_ = true
@@ -107,18 +115,18 @@ visible = false
 
 [node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
 
-[node name="Post-it" type="Area2D" parent="PickupItems" unique_id=911791467]
+[node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
 z_index = 1003
 position = Vector2(494, -158)
 metadata/_edit_group_ = true
 
-[node name="Pickable" parent="PickupItems/Post-it" unique_id=2007570362 instance=ExtResource("5_4c57u")]
+[node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
 
-[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Post-it" unique_id=1421000627]
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
 texture = ExtResource("6_efxa6")
 metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Post-it" unique_id=635833049]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
 polygon = PackedVector2Array(-12, -13, 13, -12, 13, 11, -11, 11)
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
@@ -149,12 +157,23 @@ shape = SubResource("RectangleShape2D_lquwl")
 metadata/_edit_lock_ = true
 
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
+z_index = 1001
+z_as_relative = false
+position = Vector2(2702, -304)
 
-[node name="Speaker" type="Area2D" parent="BunkerItems" unique_id=1124293498]
+[node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
 
-[node name="Projector" type="Area2D" parent="BunkerItems" unique_id=7525576]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar/Examinable" unique_id=1444202143]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_82xsv")
 
-[node name="FilingCabinet" type="Area2D" parent="BunkerItems" unique_id=2088344099]
+[node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Calendar" unique_id=2071898091]
+scale = Vector2(1.655, 1)
+texture = ExtResource("13_074og")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar" unique_id=41171291]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_cegan")
 
 [node name="CountdownComputer" type="StaticBody2D" parent="." unique_id=2032045861]
 z_index = 1001
@@ -222,6 +241,6 @@ zoom = Vector2(1.45, 1.45)
 
 [node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
 
-[connection signal="picked_up" from="PickupItems/Post-it/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
