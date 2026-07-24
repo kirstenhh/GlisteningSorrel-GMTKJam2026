@@ -2,7 +2,7 @@
 
 [sub_resource type="Animation" id="Animation_35xln"]
 resource_name = "BuildupAndFlash"
-length = 3.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -10,7 +10,7 @@ tracks/0/path = NodePath(".:color:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
+"times": PackedFloat32Array(0, 2.5666666, 4.9666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.3, 1.0]

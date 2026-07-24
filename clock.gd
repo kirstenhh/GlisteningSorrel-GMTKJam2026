@@ -44,11 +44,15 @@ func _on_timeout() -> void:
 	print("Timeout! end of the game")
 	#implement white flash
 	$WhiteLight/Flash.play("BuildupAndFlash")
-	
+	$WhiteLight.color.a=0
 	$WhiteLight.visible=true
 	await $WhiteLight/Flash.animation_finished
-	#resets whole Main scene
-	get_tree().reload_current_scene()
-	#sets new codes
+	TextManager.text_queue.push_back("You have not entered the code in time, the world as we know it ended")
+	TextManager.text_queue.push_back("Press a button to go to the main menu")
 	
-	print("new code is ",MachineCode)
+
+	#resets game
+	# get_tree().reload_current_scene() #to reset game
+	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+	#both should set new codes
+	
