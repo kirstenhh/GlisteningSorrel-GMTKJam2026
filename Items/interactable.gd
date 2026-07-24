@@ -5,7 +5,8 @@ extends Area2D
 @export var pickable = false
 @export var interactable = true
 # Interaction item: general category
-# can take an argument -> can be used to interact
+# can take an argument -> can be used to interact with objects
+# Or can be used for single interactions, e.g. bunker door and countdown computer
 var interact: Callable = func(argument = false):
 	print("interact called on "+item_name)
 

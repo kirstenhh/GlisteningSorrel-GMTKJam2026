@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
+[ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="13_vivmo"]
+[ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="14_2cqfq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
 radius = 66.0
@@ -21,8 +23,18 @@ radius = 66.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(29, 32)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
+radius = 22.437576
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("14_2cqfq")
+region = Rect2(101.15346, 39.574085, 23.74614, 24.425915)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
+size = Vector2(20, 22.043175)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(32, 95)
+size = Vector2(67, 50)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -112,7 +124,12 @@ z_index = 100
 position = Vector2(853, 84)
 script = ExtResource("4_7mycd")
 
-[node name="Examinable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("9_4c57u")]
+[node name="Interactable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf/Interactable" unique_id=306371886]
+shape = SubResource("CircleShape2D_vpaae")
+
+[node name="Examinable" parent="BunkerItems/Bookshelf" unique_id=725690860 instance=ExtResource("9_4c57u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf/Examinable" unique_id=1461482804]
 shape = SubResource("CircleShape2D_vpaae")
@@ -127,6 +144,33 @@ scale = Vector2(2.1588185, 2.1588185)
 shape = SubResource("RectangleShape2D_lquwl")
 metadata/_edit_lock_ = true
 
+[node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
+
+[node name="Speaker" type="Area2D" parent="BunkerItems" unique_id=1124293498]
+
+[node name="Projector" type="Area2D" parent="BunkerItems" unique_id=7525576]
+
+[node name="FilingCabinet" type="Area2D" parent="BunkerItems" unique_id=2088344099]
+
+[node name="CountdownComputer" type="StaticBody2D" parent="." unique_id=2032045861]
+z_index = 1003
+position = Vector2(2643, -291)
+scale = Vector2(1.9269764, 2.1321788)
+script = ExtResource("13_vivmo")
+metadata/_edit_group_ = true
+
+[node name="Interactable" parent="CountdownComputer" unique_id=1245748126 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CountdownComputer/Interactable" unique_id=624090385]
+shape = SubResource("CircleShape2D_2cqfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CountdownComputer" unique_id=922288942]
+texture = SubResource("AtlasTexture_vivmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CountdownComputer" unique_id=885906027]
+position = Vector2(0, -1.1724854)
+shape = SubResource("RectangleShape2D_yaehf")
+
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
 position = Vector2(227, 156)
@@ -136,7 +180,7 @@ to_bunker = true
 [node name="Interactable" parent="BunkerDoor" unique_id=523443114 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor/Interactable" unique_id=1908059038]
-position = Vector2(0, -0.5)
+position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="Sprite2D" type="Sprite2D" parent="BunkerDoor" unique_id=701842360]

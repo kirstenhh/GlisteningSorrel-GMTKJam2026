@@ -10,6 +10,9 @@ extends Area2D
 # Used for revealing codes and clues, etc.
 var examine: Callable = func():
 	print("examine called on "+item_name)
+	TextManager.push_item_texts(item_name)
+	#Codes: override this so you can push an additional item, 
+	# or TODO push_item_texts with a format% string 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
