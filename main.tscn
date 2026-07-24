@@ -11,9 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://cgedcbhx3pu0k" path="res://island.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
+radius = 66.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(29, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
+size = Vector2(32, 95)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -100,9 +109,13 @@ polygon = PackedVector2Array(-12, -13, 13, -12, 13, 11, -11, 11)
 
 [node name="Bookshelf" type="StaticBody2D" parent="BunkerItems" unique_id=462743417]
 z_index = 100
+position = Vector2(853, 84)
 script = ExtResource("4_7mycd")
 
 [node name="Examinable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("9_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf/Examinable" unique_id=1461482804]
+shape = SubResource("CircleShape2D_vpaae")
 
 [node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Bookshelf" unique_id=2136924462]
 scale = Vector2(2.1588185, 2.1588185)
@@ -114,4 +127,44 @@ scale = Vector2(2.1588185, 2.1588185)
 shape = SubResource("RectangleShape2D_lquwl")
 metadata/_edit_lock_ = true
 
+[node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
+z_index = 900
+position = Vector2(227, 156)
+script = ExtResource("12_w48qg")
+to_bunker = true
+
+[node name="Interactable" parent="BunkerDoor" unique_id=523443114 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor/Interactable" unique_id=1908059038]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="Sprite2D" type="Sprite2D" parent="BunkerDoor" unique_id=701842360]
+rotation = 1.5707964
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("12_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor" unique_id=1574998465]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="BunkerStairs" type="Area2D" parent="." unique_id=1960416490]
+z_index = 900
+position = Vector2(2548, -280)
+script = ExtResource("12_w48qg")
+
+[node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
+position = Vector2(-4, -23.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
 [connection signal="picked_up" from="PickupItems/Post-it/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
+[connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
