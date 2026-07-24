@@ -14,8 +14,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and controlling:
 		# Check for interactions FIRST, because they're often more important
 		if available_interactions:
-			await available_interactions[0].interact.call()
-		if carrying: #Carrying an item -> it gets priority
+			await available_interactions[0].interact.call($CarryItem.get_child(0))
+		elif carrying: #Carrying an item -> it gets priority
 			#NB: The picked up item will signal the main scene, which checks for combinables
 			await $CarryItem.get_child(0).get_node("Pickable").pickup.call()
 		elif available_pickups: # pick up nearest item

@@ -165,6 +165,10 @@ visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_vpaae")
 
+[node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
+z_index = 1000
+position = Vector2(2857, -45)
+
 [connection signal="picked_up" from="PickupItems/Post-it/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
