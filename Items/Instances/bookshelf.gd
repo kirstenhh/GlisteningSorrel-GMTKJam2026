@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	#TextManager.text_queue.push_back("and clockwise to the following values: ...")
 	#TextManager.text_queue.push_back("Then the torn page. The rest of the book is empty.")
 
-func use_item(item: Node2D):
-	if item.has_node("Pickable"):
-		print("Item is "+item.get_node("Pickable").item_name)
-	if item.get_node("Pickable").item_name == interact_item:
+func use_item(item_name: String):
+	if !item_name:
+		return
+	if item_name == interact_item:
 		print("This is my interactor! Clue to follow.")

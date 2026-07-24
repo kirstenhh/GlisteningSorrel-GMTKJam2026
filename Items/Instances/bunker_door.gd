@@ -12,5 +12,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func move_to_bunker():
+func move_to_bunker(any=false):
 	move_through_door.emit(to_bunker)

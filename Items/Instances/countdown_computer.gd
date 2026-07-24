@@ -11,7 +11,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func code_entry_dialog():
+#TODO dialog for user
+func code_entry_dialog(any=false):
 	print("Entering a code!")
 	#Temp: Just enters the code for you
-	var clock = get_node("/root/Main/UI/Clock").enterCode("4815")
+	var clock = get_node("/root/Main/UI/Clock")
+	var code = clock.MachineCode
+	clock.enterCode(code)

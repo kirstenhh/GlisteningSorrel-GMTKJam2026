@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 			$UI/TextPanel.show_message(TextManager.text_queue.pop_front())
 		else:
 			text_on = false
+			$UI/TextPanel.show_message("")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +23,7 @@ func _process(_delta: float) -> void:
 		text_on=true
 		$Player.controlling = false
 		$UI/TextPanel.visible=true
+		$UI/Clock.enterCode("4815")
 	elif not text_on: #text is still on, but queue is empty
 		$UI/TextPanel.visible=false
 		$Player.controlling = true
