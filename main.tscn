@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://dmo66cjyh7o3h" path="res://Items/Instances/bookshelf.gd" id="4_7mycd"]
+[ext_resource type="Theme" uid="uid://c2rwjauxmsgrp" path="res://examples/resources/themes/expedition.tres" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cwv6eyye8hlwq" path="res://Graphics/Items/library.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c05lv7xuqm807" path="res://Graphics/Items/post-it.png" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cgedcbhx3pu0k" path="res://island.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(29, 32)
@@ -52,6 +54,27 @@ offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "I'm on an island somewhere"
+
+[node name="TimerCorner" type="Panel" parent="UI" unique_id=1365576027]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme = ExtResource("4_efxa6")
+
+[node name="TimeLeft" type="Label" parent="UI/TimerCorner" unique_id=246613689]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+theme = ExtResource("4_efxa6")
+theme_override_font_sizes/font_size = 22
+text = "108"
+
+[node name="Clock" parent="UI" unique_id=935449348 instance=ExtResource("10_4c57u")]
+one_shot = true
+autostart = true
 
 [node name="Island" parent="." unique_id=528553649 instance=ExtResource("7_272bh")]
 

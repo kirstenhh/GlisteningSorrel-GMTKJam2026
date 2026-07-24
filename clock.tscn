@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bcdwpojqqv6fx"]
+
+[ext_resource type="Script" uid="uid://b04fppuj66l88" path="res://clock.gd" id="1_venu5"]
+
+[node name="Clock" type="Timer" unique_id=935449348]
+wait_time = 108.0
+script = ExtResource("1_venu5")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

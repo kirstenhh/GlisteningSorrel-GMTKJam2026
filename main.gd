@@ -25,7 +25,8 @@ func _process(_delta: float) -> void:
 	elif not text_on: #text is still on, but queue is empty
 		$UI/TextPanel.visible=false
 		$Player.controlling = true
-		
+	#udpate timer on corner of screen
+	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
 
 
 	
