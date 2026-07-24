@@ -3,6 +3,7 @@ extends Area2D
 @export var item_name = "blank"
 @export var examinable = true
 @export var pickable = true
+@export var interactable = false
 
 signal picked_up(my_name: String, carried: bool)
 var carried = false

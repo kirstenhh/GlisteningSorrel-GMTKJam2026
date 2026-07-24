@@ -635,7 +635,7 @@ shape = SubResource("RectangleShape2D_634y6")
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vpaae")
 animation = &"interact-side"
-frame_progress = 0.78663003
+frame_progress = 0.71377665
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1741964471]
 zoom = Vector2(2, 2)

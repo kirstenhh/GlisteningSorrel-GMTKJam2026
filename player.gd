@@ -7,10 +7,14 @@ extends CharacterBody2D
 
 var available_examinations = []
 var available_pickups = []
+var available_interactions = []
 var prev_direction = Vector2(-1,0) # For controlling the Idle animation
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and controlling:
+		# Check for interactions FIRST, because they're often more important
+		if available_interactions:
+			await available_interactions[0].interact.call()
 		if carrying: #Carrying an item -> it gets priority
 			#NB: The picked up item will signal the main scene, which checks for combinables
 			await $CarryItem.get_child(0).get_node("Pickable").pickup.call()
@@ -31,6 +35,7 @@ func _physics_process(_delta: float) -> void:
 	if not controlling:
 		return
 	elif direction: #Moving
+		# TODO normalize speed (diagonals are too fast right now)
 		velocity.x = direction.x * speed
 		velocity.y = direction.y * speed
 		if carrying: 
@@ -54,12 +59,12 @@ func _physics_process(_delta: float) -> void:
 
 func handle_animation(action: String, direction: Vector2):
 	$AnimatedSprite2D.flip_h = false
-	if direction == Vector2(-1,0): #left
+	if direction.x < 0: #left
 		$AnimatedSprite2D.animation = action+"-side"
 		$AnimatedSprite2D.flip_h = true
-	elif direction == Vector2(1,0): #right
+	elif direction.x > 0: #right
 		$AnimatedSprite2D.animation = action+"-side"
-	elif direction == Vector2(0,-1): #up
+	elif direction.y < 0: #up
 		$AnimatedSprite2D.animation = action+"-up"
 	else: #down : elif direction == Vector2(0,1): #down
 		$AnimatedSprite2D.animation = action+"-down"
@@ -69,6 +74,8 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		available_examinations.push_back(area)
 	if area.pickable:
 		available_pickups.push_back(area)
+	if area.interactable:
+		available_interactions.push_back(area)
 	# TODO combinable
 
 
@@ -77,6 +84,8 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 		available_examinations.erase(area)
 	if area.pickable:
 		available_pickups.erase(area)
+	if area.interactable:
+		available_interactions.erase(area)
 
 
 func nearest(a1, a2):

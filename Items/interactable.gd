@@ -1,15 +1,13 @@
 extends Area2D
 
 @export var item_name = "blank"
-
-#TODO something marginally more elegant
-@export var examinable = true
+@export var examinable = false
 @export var pickable = false
-@export var interactable = false
+@export var interactable = true
 # Interaction item: just pops up text
 # Used for revealing codes and things
-var examine: Callable = func():
-	print("examine called on "+item_name)
+var interact: Callable = func():
+	print("interact called on "+item_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
