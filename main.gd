@@ -103,3 +103,11 @@ func _on_move_through_door(to_bunker: bool) -> void:
 func _on_enter_code_requested() -> void:
 	$UI/CodeEntryBox.visible = true
 	$Player.controlling = false
+
+
+func _on_clock_game_over() -> void:
+	#Handle resetting the whole game
+	current_state=Game_State.NEW_GAME
+	
+	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+	

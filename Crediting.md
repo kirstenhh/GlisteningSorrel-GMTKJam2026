@@ -8,3 +8,4 @@ https://opengameart.org/content/top-down-smart-old-man
 NerdFonts CaskaydiaCove
 https://erisesra.itch.io/character-templates-pack
 https://opengameart.org/content/futuristic-door
+https://opengameart.org/content/obsolete-computers

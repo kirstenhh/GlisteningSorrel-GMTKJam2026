@@ -241,6 +241,7 @@ zoom = Vector2(1.45, 1.45)
 [node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
 metadata/_edit_lock_ = true
 
+[connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
