@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func code_entry_dialog(any=false):
 	print("Entering a code!")
 	enter_code_requested.emit()
+	
 	#Temp: Just enters the code for you
 	var clock = get_node("/root/Main/UI/Clock")
 	var code = clock.MachineCode

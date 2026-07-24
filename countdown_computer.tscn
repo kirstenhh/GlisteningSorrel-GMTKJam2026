@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cld3o7thej7mi"]
+
+[ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="1_jh3bq"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_k31ym"]
+[ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="3_vx5b3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
+radius = 22.437576
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("3_vx5b3")
+region = Rect2(101.15346, 39.574085, 23.74614, 24.425915)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
+size = Vector2(20, 22.043175)
+
+[node name="CountdownComputer" type="StaticBody2D" unique_id=560938793]
+z_index = 1001
+z_as_relative = false
+scale = Vector2(1.9269764, 2.1321788)
+script = ExtResource("1_jh3bq")
+metadata/_edit_group_ = true
+
+[node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("2_k31ym")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=772940234]
+shape = SubResource("CircleShape2D_2cqfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=673535176]
+texture = SubResource("AtlasTexture_vivmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939186236]
+position = Vector2(0, -1.1724854)
+shape = SubResource("RectangleShape2D_yaehf")

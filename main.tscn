@@ -15,8 +15,7 @@
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
-[ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="13_vivmo"]
-[ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="14_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://countdown_computer.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
@@ -31,16 +30,6 @@ height = 86.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
-radius = 22.437576
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
-atlas = ExtResource("14_2cqfq")
-region = Rect2(101.15346, 39.574085, 23.74614, 24.425915)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
-size = Vector2(20, 22.043175)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(67, 50)
@@ -202,25 +191,8 @@ texture = ExtResource("13_074og")
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
-[node name="CountdownComputer" type="StaticBody2D" parent="." unique_id=2032045861]
-z_index = 1001
-z_as_relative = false
+[node name="CountdownComputer" parent="." unique_id=560938793 instance=ExtResource("14_yaehf")]
 position = Vector2(2643, -291)
-scale = Vector2(1.9269764, 2.1321788)
-script = ExtResource("13_vivmo")
-metadata/_edit_group_ = true
-
-[node name="Interactable" parent="CountdownComputer" unique_id=1245748126 instance=ExtResource("12_ycdy4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CountdownComputer/Interactable" unique_id=624090385]
-shape = SubResource("CircleShape2D_2cqfq")
-
-[node name="Sprite2D" type="Sprite2D" parent="CountdownComputer" unique_id=922288942]
-texture = SubResource("AtlasTexture_vivmo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CountdownComputer" unique_id=885906027]
-position = Vector2(0, -1.1724854)
-shape = SubResource("RectangleShape2D_yaehf")
 
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
