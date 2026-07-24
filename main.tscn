@@ -4,12 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://dmo66cjyh7o3h" path="res://Items/Instances/bookshelf.gd" id="4_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bg2spkt5rviag" path="res://Items/text_item.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cwv6eyye8hlwq" path="res://Graphics/Items/library.png" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bkuppqvw8poys" path="res://Items/pickup_item.tscn" id="5_kek77"]
-[ext_resource type="Texture2D" uid="uid://bm2cehim0jrla" path="res://Graphics/Items/book.png" id="6_4c57u"]
 [ext_resource type="Texture2D" uid="uid://c05lv7xuqm807" path="res://Graphics/Items/post-it.png" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cgedcbhx3pu0k" path="res://island.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(29, 32)
@@ -19,7 +18,8 @@ script = ExtResource("1_ig7tw")
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1000
-position = Vector2(576, 350)
+position = Vector2(715, 236)
+metadata/_edit_group_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
 
@@ -62,7 +62,7 @@ z_index = 1003
 position = Vector2(494, -158)
 metadata/_edit_group_ = true
 
-[node name="Pickup" parent="PickupItems/Post-it" unique_id=125580172 instance=ExtResource("5_kek77")]
+[node name="Pickable" parent="PickupItems/Post-it" unique_id=2007570362 instance=ExtResource("5_4c57u")]
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Post-it" unique_id=1421000627]
 texture = ExtResource("6_efxa6")
@@ -71,42 +71,22 @@ metadata/_edit_lock_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Post-it" unique_id=635833049]
 polygon = PackedVector2Array(-12, -13, 13, -12, 13, 11, -11, 11)
 
-[node name="Book" type="Area2D" parent="PickupItems" unique_id=509982406]
-z_index = 1003
-position = Vector2(805, -125)
-metadata/_edit_group_ = true
-
-[node name="Pickup" parent="PickupItems/Book" unique_id=128406756 instance=ExtResource("5_kek77")]
-item_name = "Book"
-
-[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Book" unique_id=777900561]
-texture = ExtResource("6_4c57u")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Book" unique_id=1156350262]
-polygon = PackedVector2Array(-15, -3, -2, -16, 16, 3, 2, 16)
-
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
 [node name="Bookshelf" type="StaticBody2D" parent="BunkerItems" unique_id=462743417]
 z_index = 100
-position = Vector2(576, 330)
 script = ExtResource("4_7mycd")
 
+[node name="Examinable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("9_4c57u")]
+
 [node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Bookshelf" unique_id=2136924462]
-position = Vector2(-178, -215)
 scale = Vector2(2.1588185, 2.1588185)
 texture = ExtResource("5_7mycd")
 metadata/_edit_lock_ = true
 
-[node name="TextItem" parent="BunkerItems/Bookshelf" unique_id=806912807 instance=ExtResource("4_lquwl")]
-position = Vector2(-178, -215)
-scale = Vector2(2.1588185, 2.1588185)
-item_name = "Bookshelf"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf" unique_id=1555104517]
-position = Vector2(-178, -215)
 scale = Vector2(2.1588185, 2.1588185)
 shape = SubResource("RectangleShape2D_lquwl")
+metadata/_edit_lock_ = true
 
-[connection signal="picked_up" from="PickupItems/Post-it/Pickup" to="." method="_on_pickup_picked_up"]
-[connection signal="picked_up" from="PickupItems/Book/Pickup" to="." method="_on_pickup_picked_up"]
+[connection signal="picked_up" from="PickupItems/Post-it/Pickable" to="." method="_on_pickable_picked_up"]

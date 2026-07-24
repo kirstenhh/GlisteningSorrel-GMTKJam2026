@@ -1,15 +1,15 @@
 extends StaticBody2D
-@onready var textitem: Area2D = $TextItem
+@onready var examinable: Area2D = $Examinable
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	textitem.interact = update_text
+	examinable.examine = update_text
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func update_text(post): 
+func update_text(): 
 	
 	TextManager.text_queue.push_back("There's a strange book here! It's missing a page...")
 	TextManager.text_queue.push_back("The previous page has some text, though.")
