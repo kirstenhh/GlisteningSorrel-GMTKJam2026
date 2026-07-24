@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cwv6eyye8hlwq" path="res://Graphics/Items/library.png" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://c05lv7xuqm807" path="res://Graphics/Items/post-it.png" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_vivmo"]
-[ext_resource type="PackedScene" uid="uid://cgedcbhx3pu0k" path="res://island.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
 [ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="13_vivmo"]
 [ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="14_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
 radius = 66.0
@@ -103,8 +103,6 @@ autostart = true
 
 [node name="WhiteLight" parent="UI/Clock" unique_id=2066108550 instance=ExtResource("6_vivmo")]
 visible = false
-
-[node name="Island" parent="." unique_id=528553649 instance=ExtResource("7_272bh")]
 
 [node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
 
@@ -219,6 +217,8 @@ z_index = 3000
 position = Vector2(2514, -342)
 anchor_mode = 0
 zoom = Vector2(1.45, 1.45)
+
+[node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
 
 [connection signal="picked_up" from="PickupItems/Post-it/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
