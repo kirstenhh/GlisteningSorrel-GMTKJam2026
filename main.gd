@@ -110,17 +110,10 @@ func _on_move_through_door(to_bunker: bool) -> void:
 
 
 func _on_enter_code_requested() -> void:
-<<<<<<< HEAD
-	$UI/CodeEntryBox.show()
 	print("Entering Code: ")
 	next_state = Game_State.TYPING
 	
-||||||| 4d3ad05
 	$UI/CodeEntryBox.visible = true
-	$Player.controlling = false
-=======
-	$UI/CodeEntryBox.visible = true
-	$Player.controlling = false
 
 
 func _on_clock_game_over() -> void:
@@ -129,4 +122,3 @@ func _on_clock_game_over() -> void:
 	
 	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
 	
->>>>>>> 1da638115cb3ec06fcfaa9e6380574de8df9c4af
