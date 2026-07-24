@@ -6,8 +6,8 @@ extends Area2D
 @export var examinable = true
 @export var pickable = false
 @export var interactable = false
-# Interaction item: just pops up text
-# Used for revealing codes and things
+# Examine item: just pops up text
+# Used for revealing codes and clues, etc.
 var examine: Callable = func():
 	print("examine called on "+item_name)
 

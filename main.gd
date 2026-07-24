@@ -59,6 +59,8 @@ func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 func _on_move_through_door(to_bunker: bool) -> void:
 	if to_bunker: 
 		$Player.global_position = $BunkerStairs.global_position # move character to bunker
+		$BunkerCamera.make_current()
 	else:
 		# move character to just outside door
 		$Player.position = $BunkerDoor.global_position
+		$Player/Camera2D.make_current()
