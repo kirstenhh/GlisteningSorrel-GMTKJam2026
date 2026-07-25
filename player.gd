@@ -50,6 +50,11 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = direction.y * speed
 		if carrying: 
 			handle_animation("carry", direction)
+			# Move holding position according to L/R orientation
+			if direction.x <0:
+				$CarryItem.position = Vector2(-10,0)
+			else:
+				$CarryItem.position = Vector2(10,0)
 		else:
 			handle_animation("walk", direction)
 		prev_direction = direction

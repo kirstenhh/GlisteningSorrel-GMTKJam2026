@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bp3s44iubjpnl"]
+
+[ext_resource type="Script" uid="uid://dmo66cjyh7o3h" path="res://Items/Instances/bookshelf.gd" id="1_7ue8p"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_c1t0j"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="3_dmqdl"]
+[ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="4_j4f8o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rndca"]
+radius = 21.0
+height = 68.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4f8o"]
+radius = 21.0
+height = 68.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("4_j4f8o")
+region = Rect2(160, 77.866, 32, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(13.896491, 21.771168)
+
+[node name="Bookshelf" type="StaticBody2D" unique_id=661832557]
+z_index = 100
+script = ExtResource("1_7ue8p")
+metadata/_edit_group_ = true
+
+[node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("2_c1t0j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1650518792]
+shape = SubResource("CapsuleShape2D_rndca")
+
+[node name="Examinable" parent="." unique_id=1954277835 instance=ExtResource("3_dmqdl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=452382168]
+shape = SubResource("CapsuleShape2D_j4f8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=367304062]
+z_index = 999
+z_as_relative = false
+texture = SubResource("AtlasTexture_ryguw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=260283296]
+position = Vector2(0, 0.50000095)
+scale = Vector2(2.1588185, 2.1588185)
+shape = SubResource("RectangleShape2D_lquwl")
+metadata/_edit_lock_ = true

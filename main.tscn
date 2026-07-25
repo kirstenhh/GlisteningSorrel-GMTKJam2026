@@ -3,17 +3,15 @@
 [ext_resource type="Script" uid="uid://bqjf44bj4ekru" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="4_5vw27"]
-[ext_resource type="Script" uid="uid://dmo66cjyh7o3h" path="res://Items/Instances/bookshelf.gd" id="4_7mycd"]
 [ext_resource type="Theme" uid="uid://c2rwjauxmsgrp" path="res://examples/resources/themes/expedition.tres" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="5_4c57u"]
-[ext_resource type="Texture2D" uid="uid://cwv6eyye8hlwq" path="res://Graphics/Items/library.png" id="5_7mycd"]
-[ext_resource type="Texture2D" uid="uid://c05lv7xuqm807" path="res://Graphics/Items/post-it.png" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_vivmo"]
 [ext_resource type="Script" uid="uid://d3ad7qmcrpbx3" path="res://code_entry_box.gd" id="7_074og"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="8_82xsv"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_getpj"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="11_ryguw"]
 [ext_resource type="Texture2D" uid="uid://epwqaqyykwi3" path="res://Graphics/Items/key-grey.png" id="12_d13ii"]
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
@@ -21,14 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
-radius = 66.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(29, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("11_ryguw")
+region = Rect2(260, 2, 12, 14)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
 radius = 16.039063
@@ -166,7 +163,8 @@ pause_menu_packed = ExtResource("9_getpj")
 
 [node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
 z_index = 1003
-position = Vector2(2783, -305)
+position = Vector2(2814, -292)
+rotation = 0.2932153
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
@@ -175,12 +173,12 @@ metadata/_edit_group_ = true
 polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_efxa6")
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_d13ii")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
-polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
+polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
@@ -204,37 +202,11 @@ polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
-[node name="Bookshelf" type="StaticBody2D" parent="BunkerItems" unique_id=462743417]
-z_index = 100
-position = Vector2(2771, -66)
-script = ExtResource("4_7mycd")
-metadata/_edit_group_ = true
-
-[node name="Interactable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("12_ycdy4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf/Interactable" unique_id=306371886]
-shape = SubResource("CircleShape2D_vpaae")
-
-[node name="Examinable" parent="BunkerItems/Bookshelf" unique_id=725690860 instance=ExtResource("9_4c57u")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf/Examinable" unique_id=1461482804]
-shape = SubResource("CircleShape2D_vpaae")
-
-[node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Bookshelf" unique_id=2136924462]
-z_index = 999
-scale = Vector2(2, 2)
-texture = ExtResource("5_7mycd")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Bookshelf" unique_id=1555104517]
-scale = Vector2(2.1588185, 2.1588185)
-shape = SubResource("RectangleShape2D_lquwl")
-metadata/_edit_lock_ = true
-
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
 z_index = 1001
 z_as_relative = false
-position = Vector2(2992, -304)
+position = Vector2(2974, -303)
+metadata/_edit_group_ = true
 
 [node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
 
@@ -251,14 +223,17 @@ position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
 [node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_ryguw")]
-position = Vector2(3077, -297)
+position = Vector2(2938, -57)
 
 [node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
-position = Vector2(2957, -62)
+position = Vector2(3185, 65)
 
 [node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
 position = Vector2(2692, -293)
 scale = Vector2(1.1, 1.1)
+
+[node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
+position = Vector2(2784, -65)
 
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
