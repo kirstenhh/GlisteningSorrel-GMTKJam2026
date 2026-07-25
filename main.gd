@@ -139,9 +139,10 @@ func _on_code_entry_submitted(new_text: String) -> void:
 	var correctCode = $UI/Clock.enterCode(new_text)
 	if correctCode: 
 		print("Correct code entered")
-		if len(correctCode)==10:
+		if len(new_text)==10:
 			print("Full code has been entered!")
 			$BunkerItems.get_node("HiddenDoor").turn_on()
+			$Map/SecretDoor.enabled = false
 	else:
 		print("Code was incorrect")
 		$UI/TextPanel.show_message("Crap that didn't work...")

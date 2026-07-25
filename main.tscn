@@ -474,6 +474,13 @@ position = Vector2(2514, -342)
 anchor_mode = 0
 zoom = Vector2(1.45, 1.45)
 
+[node name="SecretCamera" type="Camera2D" parent="." unique_id=970999797]
+z_index = 3000
+position = Vector2(2476, -516)
+anchor_mode = 0
+enabled = false
+zoom = Vector2(4, 4)
+
 [node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
 metadata/_edit_lock_ = true
 
