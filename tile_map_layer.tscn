@@ -1036,7 +1036,6 @@ tile_set = ExtResource("1_0ugm7")
 z_index = 995
 z_as_relative = false
 tile_map_data = PackedByteArray("AABQAPb/AAAZAAoAAAA=")
-enabled = false
 tile_set = ExtResource("1_0ugm7")
 
 [node name="SecretHallway" type="TileMapLayer" parent="." unique_id=498291805]

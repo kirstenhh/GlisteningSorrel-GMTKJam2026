@@ -6,6 +6,9 @@ signal reveal_hidden_room
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interactable.interact = reveal_room
+	$AnimatedSprite2D.visible = false
+	$CollisionShape2D.disabled = true
+	$Interactable/CollisionShape2D.disabled = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,13 +16,17 @@ func _process(_delta: float) -> void:
 	pass
 
 func reveal_room(any):
+	$AnimatedSprite2D.animation = "open"
+	$StaticBody2D/CollisionShape2D.disabled = true
+	$AnimatedSprite2D.play()
 	reveal_hidden_room.emit()
 
 func turn_on():
-	print("setting myself available")
-	$Sprite2D.visible = true
+	print("Showing the door")
+	$AnimatedSprite2D.visible = true
 	$CollisionShape2D.disabled = false
 	$Interactable/CollisionShape2D.disabled = false
+	$StaticBody2D/CollisionShape2D.disabled = false
 
 # TODO: ## Player enters the area at the top of the stairs,
 	## and "walks out" of the bunker
