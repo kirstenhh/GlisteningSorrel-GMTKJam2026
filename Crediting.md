@@ -20,3 +20,11 @@ https://ivoryred.itch.io/pixel-poker-cards
 https://opengameart.org/content/retro-items
 https://opengameart.org/content/lpc-but-not-really-bean-bag-and-really-old-tv
 https://opengameart.org/content/wooden-house-with-animated-door-pixel-art
+
+
+
+
+Music & sounds:
+https://opengameart.org/content/the-ascent
+https://opengameart.org/content/weird-rocket-launch-sound
+https://opengameart.org/content/mandatory-overtime
