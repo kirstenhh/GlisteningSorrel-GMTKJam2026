@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://xautefyefpwx"]
+
+[ext_resource type="Script" uid="uid://bqjf44bj4ekru" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="4_5vw27"]
+[ext_resource type="Theme" uid="uid://c2rwjauxmsgrp" path="res://examples/resources/themes/expedition.tres" id="4_efxa6"]
+[ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="5_4c57u"]
+[ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_vivmo"]
+[ext_resource type="Script" uid="uid://d3ad7qmcrpbx3" path="res://code_entry_box.gd" id="7_074og"]
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="8_82xsv"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_getpj"]
+[ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="11_ryguw"]
+[ext_resource type="Texture2D" uid="uid://epwqaqyykwi3" path="res://Graphics/Items/key-grey.png" id="12_d13ii"]
+[ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dm5f8piyxn0n2" path="res://Graphics/Items/Record.png" id="13_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
+[ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="14_0odxb"]
+[ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
+[ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
+[ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
+[ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="21_0odxb"]
+||||||| 4352e06
+=======
+[ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
+>>>>>>> 1e30237248bbd310370da3a115342100ed5e8127
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("11_ryguw")
+region = Rect2(260, 2, 12, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
+size = Vector2(9, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6jrf"]
+size = Vector2(18, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
+radius = 16.039063
+height = 86.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
+size = Vector2(22, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
+size = Vector2(71.5, 111)
+
+[node name="Main" type="Node" unique_id=1576945948]
+script = ExtResource("1_ig7tw")
+
+[node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
+z_index = 1002
+z_as_relative = false
+position = Vector2(516, 165)
+speed = 500
+metadata/_edit_group_ = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
+
+[node name="TextPanel" type="Panel" parent="UI" unique_id=500023554]
+visible = false
+z_index = 2000
+z_as_relative = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -561.0
+offset_top = -135.0
+offset_right = 558.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_5vw27")
+
+[node name="BottomText" type="Label" parent="UI/TextPanel" unique_id=967562446]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.5
+offset_top = -70.0
+offset_right = 108.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "I'm on an island somewhere"
+
+[node name="TimerCorner" type="Panel" parent="UI" unique_id=1365576027]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_bottom = 28.0
+grow_horizontal = 0
+theme = ExtResource("4_efxa6")
+
+[node name="TimeLeft" type="Label" parent="UI/TimerCorner" unique_id=246613689]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+theme = ExtResource("4_efxa6")
+theme_override_font_sizes/font_size = 22
+text = "108"
+horizontal_alignment = 1
+
+[node name="Clock" parent="UI" unique_id=935449348 instance=ExtResource("10_4c57u")]
+wait_time = 108.0
+one_shot = true
+autostart = true
+
+[node name="WhiteLight" parent="UI/Clock" unique_id=2066108550 instance=ExtResource("6_vivmo")]
+visible = false
+
+[node name="CodeEntryBox" type="Panel" parent="UI" unique_id=450718812]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -41.0
+offset_right = 99.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_074og")
+
+[node name="LineEdit" type="LineEdit" parent="UI/CodeEntryBox" unique_id=1622714093]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -13.5
+offset_right = 57.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+backspace_deletes_composite_character_enabled = true
+
+[node name="SpinBox" type="SpinBox" parent="UI/CodeEntryBox" unique_id=1899000834]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -15.0
+offset_right = 70.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 9999999999.0
+update_on_text_changed = true
+select_all_on_focus = true
+
+[node name="PauseMenuController" type="Node" parent="UI" unique_id=1500193671]
+script = ExtResource("8_82xsv")
+pause_menu_packed = ExtResource("9_getpj")
+
+[node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
+
+[node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
+z_index = 1003
+position = Vector2(2814, -292)
+rotation = 0.2932153
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo/Pickable" unique_id=1446898644]
+polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_d13ii")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
+polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
+
+[node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
+z_index = 1003
+position = Vector2(108, -493)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Key/Pickable" unique_id=1913903500]
+position = Vector2(4, 7)
+polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Key" unique_id=1991149103]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_d13ii")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Key" unique_id=447262044]
+position = Vector2(4, 7)
+polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
+
+[node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=1158253289]
+z_index = 999
+position = Vector2(553, 224)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Vinyl" unique_id=224278843 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl/Pickable" unique_id=1118929349]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_lswn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Vinyl" unique_id=1292383291]
+scale = Vector2(0.262, 0.262)
+texture = ExtResource("13_1u8w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl" unique_id=634890182]
+shape = SubResource("RectangleShape2D_lswn8")
+
+[node name="VinylPlayer" type="Area2D" parent="PickupItems" unique_id=858364847]
+z_index = 999
+position = Vector2(588, 222)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer" unique_id=485569989]
+shape = SubResource("RectangleShape2D_a6jrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/VinylPlayer" unique_id=359294740]
+scale = Vector2(0.298, 0.298)
+texture = ExtResource("14_0odxb")
+
+[node name="Pickable" parent="PickupItems/VinylPlayer" unique_id=100978763 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer/Pickable" unique_id=735499638]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_a6jrf")
+
+[node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
+
+[node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
+z_index = 1001
+z_as_relative = false
+position = Vector2(2974, -303)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar/Examinable" unique_id=1444202143]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_82xsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Calendar" unique_id=2071898091]
+scale = Vector2(1.655, 1)
+texture = ExtResource("13_074og")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar" unique_id=41171291]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_cegan")
+
+[node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_ryguw")]
+position = Vector2(2938, -57)
+
+[node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
+position = Vector2(3185, 65)
+
+[node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
+position = Vector2(2692, -293)
+scale = Vector2(1.1, 1.1)
+
+[node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
+position = Vector2(2784, -65)
+
+[node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
+position = Vector2(3368, -252)
+metadata/_edit_group_ = true
+
+[node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
+z_index = 900
+position = Vector2(227, 156)
+script = ExtResource("12_w48qg")
+to_bunker = true
+
+[node name="Interactable" parent="BunkerDoor" unique_id=523443114 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor/Interactable" unique_id=1908059038]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="Sprite2D" type="Sprite2D" parent="BunkerDoor" unique_id=701842360]
+rotation = 1.5707964
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("12_dg77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor" unique_id=1574998465]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="BunkerStairs" type="Area2D" parent="." unique_id=1960416490]
+z_index = 900
+position = Vector2(2548, -280)
+script = ExtResource("12_w48qg")
+
+[node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
+position = Vector2(-1.75, -10.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_vpaae")
+
+[node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
+z_index = 3000
+position = Vector2(2514, -342)
+anchor_mode = 0
+zoom = Vector2(1.45, 1.45)
+
+[node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
+metadata/_edit_lock_ = true
+
+[node name="Cabin" parent="." unique_id=69376337 instance=ExtResource("23_d13ii")]
+position = Vector2(1302.0001, -1922)
+scale = Vector2(0.7, 0.7)
+
+[connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
+[connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
+[connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
+[connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
+[connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
+[connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]

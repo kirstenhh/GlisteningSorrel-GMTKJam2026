@@ -21,13 +21,13 @@ var text_sets = {
 	"Speaker": ["That's a big speaker, there's an Amp, but where is the CD player?"],
 	"Speaker-first":["I put the record over here.", "The cover says it's the Top $code6 Rock Songs of 2004", "I really wish I could play it."],
 	"Speaker-second":["I've got a great sound setup here!", "A real old-school system...", "Now if only I had something to play on it."],
-	"Speaker-unlocked": ["Hold on, this isn't Rock & Roll, That's Beethoven Symphony No. $code7 !?","Why would someone put this in the sleeve for my rock album?"],
+	"Speaker-unlocked": ["Yay, finally some music!", "Hold on, this isn't Rock & Roll, this is Beethoven's Symphony No. $code7 !?","Why would someone put this in the sleeve for my rock album?"],
 	"Key": ["That's a rather small key, definitely not for a door, maybe a padlock?"],
 	"Drive": ["Hey that's a floppy disk! The label says 'Test Results August'"],
 	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
 	"FilingCabinet-unlocked": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."],
 	"Centrifuge": ["That's an Atomic Centrifuge... How do I know it's an Atomic Centrifuge?"],
-	"Cabin" : ["A wooden cabin !? hold on I heard Oscar was making a lot of trips outside, is that what he was doing?","Dumbass forgot about the door... how was he the Chief Engineer?"]
+	"Cabin" : ["A wooden cabin !? hold on I heard Oscar was making a lot of trips outside, is that what he was doing?","Dumbass forgot about the door... how was he the Chief Engineer?"], 
 }
 func _ready() -> void:
 	pass # Replace with function body.
