@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
-[ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://countdown_computer.tscn" id="14_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
@@ -245,10 +245,11 @@ shape = SubResource("RectangleShape2D_cegan")
 position = Vector2(652, 153)
 
 [node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
-position = Vector2(3156, -288)
+position = Vector2(2957, -62)
 
-[node name="CountdownComputer" parent="." unique_id=560938793 instance=ExtResource("14_yaehf")]
-position = Vector2(2643, -291)
+[node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
+position = Vector2(2692, -293)
+scale = Vector2(1.1, 1.1)
 
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
@@ -302,6 +303,6 @@ metadata/_edit_lock_ = true
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
-[connection signal="enter_code_requested" from="CountdownComputer" to="." method="_on_enter_code_requested"]
+[connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
