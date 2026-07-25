@@ -2,12 +2,21 @@ extends StaticBody2D
 @onready var examinable: Area2D = $Examinable
 @onready var interactable: Area2D = $Interactable
 @export var unlocked = false
-var interact_item = "Key"
 
+@onready var code_entry: Container = $SafeCodeEntryBox/HBoxContainer
+var line_edits = []
+
+
+signal safe_text_submitted
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	examinable.examine = examine
-	interactable.interact = use_item
+	interactable.interact = safe_enter_code
+	for i in range(1,4):
+		line_edits.push_back(code_entry.get_node("SpinBox"+str(i)).get_line_edit())
+	for edit in line_edits:
+		edit.context_menu_enabled = false
+		edit.connect("text_submitted", _on_safe_text_submitted)     
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,14 +34,19 @@ func examine():
 	else:
 		TextManager.push_item_texts(name)
 
-func use_item(interactor_name: String):
-	if !interactor_name:
-		return
-	if interactor_name == interact_item:
-		TextManager.push_item_texts(name+"-unlocked")
-		$Sprite2D.visible = false
-		$Sprite2D_after.visible = true
-		unlocked = true
-		#TextManager.text_queue.push_back("Wow, I can combine these!")
-		return true
-		
+func safe_enter_code(any: String):
+	$SafeCodeEntryBox.show()
+	
+	#TextManager.text_queue.push_back("Wow, I can combine these!")
+	return false
+
+func code_success():
+	print("Safe says: that worked!")
+	$SafeCodeEntryBox.hide()
+	TextManager.push_item_texts(name+"-unlocked")
+	$Sprite2D.visible = false
+	$Sprite2D_after.visible = true
+	unlocked = true
+	
+func _on_safe_text_submitted(new_text:String):   
+	safe_text_submitted.emit(line_edits[0].text,line_edits[1].text,line_edits[2].text)

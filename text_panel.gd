@@ -12,8 +12,13 @@ func show_message(text) -> void:
 	show()
 	visible = true
 	var code = get_node("../Clock").MachineCode
+	var safe_code = get_node("../Clock").SafeCode
+	print("Safe code"+safe_code)
 	for i in range(len(code)):
 		text = text.replace("$code"+str(i), code[i])
+	for i in range(len(safe_code)):
+		text = text.replace("$safe"+str(i), safe_code[i])
+		
 
 	$BottomText.text = text
 	

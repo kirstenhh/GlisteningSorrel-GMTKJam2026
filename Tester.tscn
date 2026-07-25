@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://by7tb5g5guvfv" path="res://Graphics/Items/post-it-green-torn-right.png" id="12_8pavy"]
 [ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="12_davsg"]
 [ext_resource type="Texture2D" uid="uid://bq7pcrqvfuexj" path="res://Graphics/Items/vhs.png" id="12_qis3j"]
+[ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_a2oqo"]
 [ext_resource type="Texture2D" uid="uid://dompwuu401c25" path="res://Graphics/Items/pixel_icons_by_oceansdream.png" id="13_fhiw2"]
 [ext_resource type="Texture2D" uid="uid://cl3bgl8xyni4" path="res://Graphics/Items/Deck of cards ( full cards ).png" id="14_bvv68"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="14_qfpot"]
@@ -35,10 +36,22 @@ font_size = 26
 font_color = Color(0.7764706, 0, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
-size = Vector2(5, 9)
+size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pavy"]
+size = Vector2(6, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2oqo"]
+size = Vector2(5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyxuo"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfea7"]
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhiw2"]
-size = Vector2(10, 5)
+size = Vector2(14, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvv68"]
 size = Vector2(7.5, 8)
@@ -204,16 +217,14 @@ label_settings = SubResource("LabelSettings_vpaae")
 [node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=397889782]
 z_index = 999
 position = Vector2(592, 205)
-metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Vinyl" unique_id=2007570362 instance=ExtResource("10_kfea7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl/Pickable" unique_id=2074346785]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_pijmw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Vinyl" unique_id=1307024330]
-scale = Vector2(0.262, 0.262)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_rivor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl" unique_id=2096545681]
@@ -221,22 +232,40 @@ shape = SubResource("RectangleShape2D_pijmw")
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=419373475]
 z_index = 999
-position = Vector2(570, 189)
+position = Vector2(558, 210)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=835851858 instance=ExtResource("10_kfea7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt/Pickable" unique_id=1159040775]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_pijmw")
+position = Vector2(3.25, -0.5)
+shape = SubResource("RectangleShape2D_8pavy")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=1103530688]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_8pavy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt" unique_id=843001917]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_pijmw")
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_a2oqo")
+
+[node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=1278715464]
+z_index = 999
+position = Vector2(546, 187)
+scale = Vector2(1.8, 1.8)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/JournalPage" unique_id=1862796706 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/JournalPage/Pickable" unique_id=841174640]
+shape = SubResource("RectangleShape2D_dyxuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/JournalPage" unique_id=860922708]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_a2oqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/JournalPage" unique_id=921053859]
+shape = SubResource("RectangleShape2D_kfea7")
 
 [node name="Film" type="Area2D" parent="PickupItems" unique_id=27475184]
 z_index = 999
@@ -249,16 +278,16 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_fhiw2")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Film" unique_id=899637881]
-scale = Vector2(0.262, 0.262)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_qis3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Film" unique_id=1528273308]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_fhiw2")
 
 [node name="Drive" type="Area2D" parent="PickupItems" unique_id=1495130508]
 z_index = 999
 position = Vector2(692, 203)
+scale = Vector2(1.2, 1.2)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Drive" unique_id=1276678901 instance=ExtResource("10_kfea7")]
@@ -293,6 +322,7 @@ shape = SubResource("RectangleShape2D_ugtri")
 [node name="MP3Player" type="Area2D" parent="PickupItems" unique_id=1529554237]
 z_index = 999
 position = Vector2(663, 204)
+scale = Vector2(1.4, 1.4)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/MP3Player" unique_id=1775478909 instance=ExtResource("10_kfea7")]
@@ -409,11 +439,13 @@ metadata/_edit_lock_ = true
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/PostIt/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/JournalPage/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Film/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Drive/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/MP3Player/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="safe_text_submitted" from="BunkerItems/Safe" to="." method="_on_safe_text_submitted"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
