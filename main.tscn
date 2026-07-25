@@ -42,7 +42,7 @@ size = Vector2(9, 11)
 size = Vector2(18, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp4k"]
-size = Vector2(5.5, 9.5)
+size = Vector2(7, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
 size = Vector2(5, 10)
@@ -75,10 +75,10 @@ height = 34.78897
 size = Vector2(22, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(71.5, 111)
+size = Vector2(54, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
-size = Vector2(75.375, 113.5)
+size = Vector2(50.375, 99.5)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -225,7 +225,7 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
-position = Vector2(108, -493)
+position = Vector2(776, -1114)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
@@ -245,7 +245,8 @@ polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
 [node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=1158253289]
 z_index = 999
-position = Vector2(468, 172)
+position = Vector2(111, -979)
+scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Vinyl" unique_id=224278843 instance=ExtResource("5_4c57u")]
@@ -263,7 +264,7 @@ shape = SubResource("RectangleShape2D_lswn8")
 
 [node name="VinylPlayer" type="Area2D" parent="PickupItems" unique_id=858364847]
 z_index = 999
-position = Vector2(540, 170)
+position = Vector2(1039, -1977)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer" unique_id=485569989]
@@ -280,14 +281,15 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_a6jrf")
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=184713537]
-z_index = 999
-position = Vector2(431, 173)
+z_index = 1400
+z_as_relative = false
+position = Vector2(2979, 68)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=1778024735 instance=ExtResource("5_4c57u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt/Pickable" unique_id=353488691]
-position = Vector2(3.25, -0.25)
+position = Vector2(2.5, -0.5)
 shape = SubResource("RectangleShape2D_qsp4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=645511199]
@@ -299,8 +301,10 @@ position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_kq58d")
 
 [node name="Deck" type="Area2D" parent="PickupItems" unique_id=70233442]
-z_index = 999
-position = Vector2(504, 171)
+z_index = 1100
+z_as_relative = false
+position = Vector2(1232, -1522)
+scale = Vector2(1.5, 1.5)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Deck" unique_id=1093716125 instance=ExtResource("5_4c57u")]
@@ -317,8 +321,8 @@ shape = SubResource("RectangleShape2D_seu75")
 
 [node name="MP3Player" type="Area2D" parent="PickupItems" unique_id=50341540]
 z_index = 999
-position = Vector2(583, 170)
-scale = Vector2(1.4, 1.4)
+position = Vector2(199, -1696)
+scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/MP3Player" unique_id=187472683 instance=ExtResource("5_4c57u")]
@@ -337,8 +341,8 @@ shape = SubResource("RectangleShape2D_htxhm")
 
 [node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=857816856]
 z_index = 999
-position = Vector2(546, 187)
-scale = Vector2(1.8, 1.8)
+position = Vector2(-72, 304.00003)
+scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/JournalPage" unique_id=807303915 instance=ExtResource("5_4c57u")]
@@ -389,7 +393,7 @@ position = Vector2(2938, -57)
 position = Vector2(3185, 65)
 
 [node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
-position = Vector2(2733, -295.99997)
+position = Vector2(2684, -293.99997)
 scale = Vector2(1.1, 1.1)
 
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
@@ -409,11 +413,10 @@ to_bunker = true
 [node name="Interactable" parent="BunkerDoor" unique_id=523443114 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerDoor/Interactable" unique_id=1908059038]
-position = Vector2(0.5, 2)
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="Sprite2D" type="Sprite2D" parent="BunkerDoor" unique_id=701842360]
-rotation = 1.5707964
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("12_dg77c")
 
@@ -424,18 +427,18 @@ shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="BunkerStairs" type="Area2D" parent="." unique_id=1960416490]
 z_index = 900
-position = Vector2(2548, -280)
+position = Vector2(2763, -280)
 collision_layer = 0
 script = ExtResource("12_w48qg")
 
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(-1.75, -10.5)
+position = Vector2(5, -20)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-position = Vector2(16.3125, -12.75)
+position = Vector2(4, -20)
 shape = SubResource("RectangleShape2D_xuqvo")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
@@ -448,7 +451,7 @@ zoom = Vector2(1.45, 1.45)
 metadata/_edit_lock_ = true
 
 [node name="Cabin" parent="." unique_id=69376337 instance=ExtResource("23_d13ii")]
-position = Vector2(1302.0001, -1922)
+position = Vector2(1152.0001, -2058)
 scale = Vector2(0.7, 0.7)
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
