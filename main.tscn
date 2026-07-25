@@ -54,7 +54,7 @@ script = ExtResource("1_ig7tw")
 z_index = 1002
 z_as_relative = false
 position = Vector2(516, 165)
-speed = 500
+speed = 100
 metadata/_edit_group_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
@@ -282,7 +282,8 @@ scale = Vector2(1.1, 1.1)
 position = Vector2(2784, -65)
 
 [node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
-position = Vector2(3368, -252)
+position = Vector2(2742, -63)
+scale = Vector2(1.242, 1.242)
 metadata/_edit_group_ = true
 
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
