@@ -54,7 +54,6 @@ script = ExtResource("1_ig7tw")
 z_index = 1002
 z_as_relative = false
 position = Vector2(516, 165)
-scale = Vector2(1.8, 1.8)
 speed = 150
 metadata/_edit_group_ = true
 
