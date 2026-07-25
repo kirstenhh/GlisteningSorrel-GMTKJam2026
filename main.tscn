@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4pseeackm84" path="res://Items/Instances/VideoPlayer.tscn" id="20_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="21_0odxb"]
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
+[ext_resource type="AudioStream" uid="uid://dqy2o7yy7ktm2" path="res://Sounds/the_ascent_version_b.mp3" id="31_seu75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
@@ -464,6 +465,10 @@ metadata/_edit_lock_ = true
 [node name="Cabin" parent="." unique_id=69376337 instance=ExtResource("23_d13ii")]
 position = Vector2(1152.0001, -2058)
 scale = Vector2(0.7, 0.7)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=483676437]
+stream = ExtResource("31_seu75")
+autoplay = true
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
