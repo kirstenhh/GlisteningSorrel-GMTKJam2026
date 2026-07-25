@@ -212,11 +212,11 @@ script = ExtResource("8_82xsv")
 pause_menu_packed = ExtResource("9_getpj")
 
 [node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
-position = Vector2(2676, -208)
+position = Vector2(195, -14)
 
 [node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
 z_index = 1003
-position = Vector2(2814, -291)
+position = Vector2(150, -85)
 rotation = 0.2932153
 metadata/_edit_group_ = true
 
@@ -293,7 +293,7 @@ shape = SubResource("RectangleShape2D_a6jrf")
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=184713537]
 z_index = 1400
 z_as_relative = false
-position = Vector2(2979, 68)
+position = Vector2(315, 274)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=1778024735 instance=ExtResource("5_4c57u")]
@@ -351,7 +351,7 @@ shape = SubResource("RectangleShape2D_htxhm")
 
 [node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=857816856]
 z_index = 999
-position = Vector2(-1857, 350)
+position = Vector2(457, 120)
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
@@ -371,12 +371,12 @@ shape = SubResource("RectangleShape2D_4k2k6")
 position = Vector2(2676, -208)
 
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
-position = Vector2(2784, -65)
+position = Vector2(120, 141)
 
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
 z_index = 1001
 z_as_relative = false
-position = Vector2(2974, -300)
+position = Vector2(310, -94)
 
 [node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
 
@@ -401,20 +401,20 @@ position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
 [node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
-position = Vector2(3185, 65)
+position = Vector2(521, 271)
 
 [node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
-position = Vector2(2684, -293.99997)
+position = Vector2(20, -87.99997)
 scale = Vector2(1.1, 1.1)
 
 [node name="FilingCabinet" parent="BunkerItems" unique_id=385364315 instance=ExtResource("18_ryguw")]
-position = Vector2(2938, -57)
+position = Vector2(274, 149)
 
 [node name="Safe" parent="BunkerItems" unique_id=570615803 instance=ExtResource("19_htxhm")]
 position = Vector2(460, -80)
 
 [node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
-position = Vector2(2742, -63)
+position = Vector2(77.999756, 143.00003)
 scale = Vector2(1.242, 1.242)
 metadata/_edit_group_ = true
 
