@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bef7gbxw0epqt" path="res://Items/Instances/HiddenDoor.tscn" id="28_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://de3ao5d8xmj0n" path="res://Graphics/Atlas/base_out_atlas.png" id="29_ok6jj"]
-[ext_resource type="AudioStream" uid="uid://dqy2o7yy7ktm2" path="res://Sounds/the_ascent_version_b.mp3" id="31_seu75"]
+[ext_resource type="AudioStream" uid="uid://bf708qcx70rkp" path="res://Sounds/Mandatory Overtime.mp3" id="35_0rl1p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
@@ -84,10 +84,10 @@ atlas = ExtResource("29_ok6jj")
 region = Rect2(803.79224, 313.6168, 33.919067, 16.523346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(54, 68)
+size = Vector2(32, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
-size = Vector2(50.375, 99.5)
+size = Vector2(32, 99.5)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -95,7 +95,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2865, -205)
+position = Vector2(2853, -211)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -371,7 +371,7 @@ shape = SubResource("RectangleShape2D_4k2k6")
 position = Vector2(2676, -208)
 
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
-position = Vector2(120, 141)
+position = Vector2(108, 140)
 
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
 z_index = 1001
@@ -408,18 +408,18 @@ position = Vector2(20, -87.99997)
 scale = Vector2(1.1, 1.1)
 
 [node name="FilingCabinet" parent="BunkerItems" unique_id=385364315 instance=ExtResource("18_ryguw")]
-position = Vector2(274, 149)
+position = Vector2(263, 150)
 
 [node name="Safe" parent="BunkerItems" unique_id=570615803 instance=ExtResource("19_htxhm")]
 position = Vector2(460, -80)
 
 [node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
-position = Vector2(77.999756, 143.00003)
+position = Vector2(81, 142)
 scale = Vector2(1.242, 1.242)
 metadata/_edit_group_ = true
 
 [node name="VideoPlayer" parent="BunkerItems" unique_id=1663984713 instance=ExtResource("20_jq2sk")]
-position = Vector2(78.999756, 146.00002)
+position = Vector2(38, 148)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="HiddenDoor" parent="BunkerItems" unique_id=1467128344 instance=ExtResource("28_0rl1p")]
@@ -461,11 +461,11 @@ script = ExtResource("12_w48qg")
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(5, -20)
+position = Vector2(6, -20)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-position = Vector2(4, -20)
+position = Vector2(6, -20)
 shape = SubResource("RectangleShape2D_xuqvo")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
@@ -489,7 +489,7 @@ position = Vector2(1152.0001, -2058)
 scale = Vector2(0.7, 0.7)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=483676437]
-stream = ExtResource("31_seu75")
+stream = ExtResource("35_0rl1p")
 volume_db = -15.0
 autoplay = true
 bus = &"Music"
