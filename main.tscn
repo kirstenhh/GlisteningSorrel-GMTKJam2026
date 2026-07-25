@@ -47,7 +47,7 @@ script = ExtResource("1_ig7tw")
 z_index = 1002
 z_as_relative = false
 position = Vector2(516, 165)
-speed = 150
+speed = 100
 metadata/_edit_group_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
@@ -181,7 +181,7 @@ polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
 
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
-position = Vector2(404, 77)
+position = Vector2(108, -493)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
@@ -199,8 +199,9 @@ polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
 [node name="Bookshelf" type="StaticBody2D" parent="BunkerItems" unique_id=462743417]
 z_index = 100
-position = Vector2(853, 84)
+position = Vector2(2771, -66)
 script = ExtResource("4_7mycd")
+metadata/_edit_group_ = true
 
 [node name="Interactable" parent="BunkerItems/Bookshelf" unique_id=532054259 instance=ExtResource("12_ycdy4")]
 
@@ -213,7 +214,8 @@ shape = SubResource("CircleShape2D_vpaae")
 shape = SubResource("CircleShape2D_vpaae")
 
 [node name="Sprite2D" type="Sprite2D" parent="BunkerItems/Bookshelf" unique_id=2136924462]
-scale = Vector2(2.1588185, 2.1588185)
+z_index = 999
+scale = Vector2(2, 2)
 texture = ExtResource("5_7mycd")
 metadata/_edit_lock_ = true
 
@@ -242,7 +244,7 @@ position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
 [node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_ryguw")]
-position = Vector2(652, 153)
+position = Vector2(3077, -297)
 
 [node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
 position = Vector2(2957, -62)
