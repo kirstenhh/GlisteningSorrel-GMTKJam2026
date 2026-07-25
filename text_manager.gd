@@ -23,7 +23,7 @@ var text_sets = {
 	"Key": ["That's a rather small key, definitely not for a door, maybe a padlock?"],
 	"Drive": ["Hey that's a floppy disk! The label says 'Test Results August'"],
 	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
-	"FilingCabinet-Key": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."],
+	"FilingCabinet-unlocked": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."],
 	"Centrifuge": ["That's an Atomic Centrifuge... How do I know it's an Atomic Centrifuge?"]
 }
 func _ready() -> void:
