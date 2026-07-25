@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
 [ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="14_0odxb"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
+[ext_resource type="Texture2D" uid="uid://781wvgwp723g" path="res://Graphics/Items/post-it-green-torn-left.png" id="17_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
@@ -38,14 +39,17 @@ size = Vector2(9, 11)
 size = Vector2(18, 10)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
-radius = 16.039063
-height = 86.0
+radius = 10.692871
+height = 34.78897
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(71.5, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
+size = Vector2(75.375, 113.5)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -252,11 +256,11 @@ shape = SubResource("RectangleShape2D_a6jrf")
 z_index = 1001
 z_as_relative = false
 position = Vector2(2974, -303)
-metadata/_edit_group_ = true
 
 [node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar/Examinable" unique_id=1444202143]
+visible = false
 scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CapsuleShape2D_82xsv")
 
@@ -264,7 +268,14 @@ shape = SubResource("CapsuleShape2D_82xsv")
 scale = Vector2(1.655, 1)
 texture = ExtResource("13_074og")
 
+[node name="Sprite2D_postit" type="Sprite2D" parent="BunkerItems/Calendar" unique_id=1798767554]
+z_index = 1
+position = Vector2(-8, 2)
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("17_a6jrf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar" unique_id=41171291]
+visible = false
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
@@ -311,6 +322,7 @@ shape = SubResource("RectangleShape2D_vpaae")
 [node name="BunkerStairs" type="Area2D" parent="." unique_id=1960416490]
 z_index = 900
 position = Vector2(2548, -280)
+collision_layer = 0
 script = ExtResource("12_w48qg")
 
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
@@ -320,9 +332,8 @@ position = Vector2(-1.75, -10.5)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-visible = false
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_vpaae")
+position = Vector2(16.3125, -12.75)
+shape = SubResource("RectangleShape2D_xuqvo")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
 z_index = 3000

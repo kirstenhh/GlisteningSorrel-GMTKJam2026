@@ -12,19 +12,54 @@
 [ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="10_h5g8q"]
 [ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="10_kfea7"]
 [ext_resource type="Texture2D" uid="uid://dm5f8piyxn0n2" path="res://Graphics/Items/Record.png" id="11_rivor"]
+[ext_resource type="Texture2D" uid="uid://by7tb5g5guvfv" path="res://Graphics/Items/post-it-green-torn-right.png" id="12_8pavy"]
 [ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="12_davsg"]
+[ext_resource type="Texture2D" uid="uid://bq7pcrqvfuexj" path="res://Graphics/Items/vhs.png" id="12_qis3j"]
+[ext_resource type="Texture2D" uid="uid://dompwuu401c25" path="res://Graphics/Items/pixel_icons_by_oceansdream.png" id="13_fhiw2"]
+[ext_resource type="Texture2D" uid="uid://cl3bgl8xyni4" path="res://Graphics/Items/Deck of cards ( full cards ).png" id="14_bvv68"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="14_qfpot"]
+[ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="16_hpn03"]
+[ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="18_8pavy"]
+[ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_smfxn"]
+[ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_a2oqo"]
+[ext_resource type="PackedScene" uid="uid://csjq7sk7oji7d" path="res://Items/Instances/PersonalComputer.tscn" id="20_dyxuo"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="20_s42vd"]
+[ext_resource type="PackedScene" uid="uid://16ijmre4q2qk" path="res://Items/Instances/Safe.tscn" id="21_kfea7"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="21_tlyev"]
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="22_85cdj"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="23_27ykt"]
+[ext_resource type="PackedScene" uid="uid://cn4pseeackm84" path="res://Items/Instances/VideoPlayer.tscn" id="24_3f0ui"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpaae"]
 font_size = 26
 font_color = Color(0.7764706, 0, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
-size = Vector2(9, 11)
+size = Vector2(5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhiw2"]
+size = Vector2(10, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvv68"]
+size = Vector2(7.5, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvv68"]
+atlas = ExtResource("13_fhiw2")
+region = Rect2(75.32031, 77.53906, 17.675781, 15.59375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugtri"]
+size = Vector2(6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eit8"]
+atlas = ExtResource("14_bvv68")
+region = Rect2(42.683594, 350.6831, 61.75, 88.9104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1r43"]
+size = Vector2(6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brsvb"]
+atlas = ExtResource("13_fhiw2")
+region = Rect2(99.138794, 119.77595, 21.067062, 24.224052)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77s7r"]
 size = Vector2(18, 10)
@@ -32,13 +67,13 @@ size = Vector2(18, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(67, 50)
 
-[node name="Main" type="Node" unique_id=1576945948]
+[node name="Tester" type="Node" unique_id=1576945948]
 script = ExtResource("1_2eit8")
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_brsvb")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(529, 219)
+position = Vector2(2859, -231)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -155,10 +190,10 @@ script = ExtResource("8_a2oqo")
 pause_menu_packed = ExtResource("9_dyxuo")
 
 [node name="TestSilly" type="Label" parent="UI" unique_id=1596477204]
-offset_left = 373.0
-offset_top = 42.0
-offset_right = 649.0
-offset_bottom = 106.0
+offset_left = 386.0
+offset_top = -73.0
+offset_right = 828.0
+offset_bottom = 29.0
 text = "Kiiiiiiilll meeeeeeeeee
 I am the tester scene 
 Doomed to be full of nonsense"
@@ -168,7 +203,7 @@ label_settings = SubResource("LabelSettings_vpaae")
 
 [node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=397889782]
 z_index = 999
-position = Vector2(553, 224)
+position = Vector2(592, 205)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Vinyl" unique_id=2007570362 instance=ExtResource("10_kfea7")]
@@ -184,9 +219,99 @@ texture = ExtResource("11_rivor")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl" unique_id=2096545681]
 shape = SubResource("RectangleShape2D_pijmw")
 
+[node name="PostIt" type="Area2D" parent="PickupItems" unique_id=419373475]
+z_index = 999
+position = Vector2(570, 189)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/PostIt" unique_id=835851858 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt/Pickable" unique_id=1159040775]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_pijmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=1103530688]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_8pavy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt" unique_id=843001917]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_pijmw")
+
+[node name="Film" type="Area2D" parent="PickupItems" unique_id=27475184]
+z_index = 999
+position = Vector2(625, 209)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Film" unique_id=1268824313 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Film/Pickable" unique_id=1644144181]
+shape = SubResource("RectangleShape2D_fhiw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Film" unique_id=899637881]
+scale = Vector2(0.262, 0.262)
+texture = ExtResource("12_qis3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Film" unique_id=1528273308]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fhiw2")
+
+[node name="Drive" type="Area2D" parent="PickupItems" unique_id=1495130508]
+z_index = 999
+position = Vector2(692, 203)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Drive" unique_id=1276678901 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Drive/Pickable" unique_id=1996831946]
+shape = SubResource("RectangleShape2D_bvv68")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Drive" unique_id=924863445]
+scale = Vector2(0.432, 0.432)
+texture = SubResource("AtlasTexture_bvv68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Drive" unique_id=1789891240]
+shape = SubResource("RectangleShape2D_bvv68")
+
+[node name="Deck" type="Area2D" parent="PickupItems" unique_id=184454366]
+z_index = 999
+position = Vector2(510, 211)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Deck" unique_id=1762657684 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck/Pickable" unique_id=1629770520]
+shape = SubResource("RectangleShape2D_ugtri")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Deck" unique_id=1402583562]
+scale = Vector2(0.087, 0.087)
+texture = SubResource("AtlasTexture_2eit8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck" unique_id=217838581]
+shape = SubResource("RectangleShape2D_ugtri")
+
+[node name="MP3Player" type="Area2D" parent="PickupItems" unique_id=1529554237]
+z_index = 999
+position = Vector2(663, 204)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/MP3Player" unique_id=1775478909 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/MP3Player/Pickable" unique_id=1799262165]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_u1r43")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/MP3Player" unique_id=610193126]
+scale = Vector2(0.262, 0.262)
+texture = SubResource("AtlasTexture_brsvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/MP3Player" unique_id=706757218]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_u1r43")
+
 [node name="VinylPlayer" type="Area2D" parent="PickupItems" unique_id=1508600215]
 z_index = 999
-position = Vector2(588, 222)
+position = Vector2(535, 210)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer" unique_id=998474078]
@@ -204,12 +329,33 @@ shape = SubResource("RectangleShape2D_77s7r")
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
-[node name="Speaker" parent="BunkerItems" unique_id=570615803 instance=ExtResource("10_h5g8q")]
-position = Vector2(582, 162)
+[node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("16_hpn03")]
+position = Vector2(293, 86)
+
+[node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_smfxn")]
+position = Vector2(357, 76)
+
+[node name="Cabin" parent="BunkerItems" unique_id=94451146 instance=ExtResource("18_8pavy")]
+position = Vector2(797, -87)
+
+[node name="Centrifuge" parent="BunkerItems" unique_id=2014265351 instance=ExtResource("19_a2oqo")]
+position = Vector2(429, 82)
+
+[node name="PersonalComputer" parent="BunkerItems" unique_id=1397828170 instance=ExtResource("20_dyxuo")]
+position = Vector2(517, 86)
+
+[node name="Safe" parent="BunkerItems" unique_id=725918377 instance=ExtResource("21_kfea7")]
+position = Vector2(572, 88)
 
 [node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("20_s42vd")]
 position = Vector2(2692, -293)
 scale = Vector2(1.1, 1.1)
+
+[node name="Speaker" parent="BunkerItems" unique_id=1118890124 instance=ExtResource("10_h5g8q")]
+position = Vector2(619, 84)
+
+[node name="VideoPlayer" parent="BunkerItems" unique_id=270539248 instance=ExtResource("24_3f0ui")]
+position = Vector2(670, 88)
 
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
@@ -262,6 +408,11 @@ metadata/_edit_lock_ = true
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/PostIt/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Film/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Drive/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/MP3Player/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]

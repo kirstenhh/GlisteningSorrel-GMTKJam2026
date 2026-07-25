@@ -17,3 +17,5 @@ https://opengameart.org/content/speaker
 https://opengameart.org/content/turntables-animated
 https://opengameart.org/content/various-inventory-24-pixel-icon-set
 https://ivoryred.itch.io/pixel-poker-cards
+https://opengameart.org/content/retro-items
+https://opengameart.org/content/lpc-but-not-really-bean-bag-and-really-old-tv
