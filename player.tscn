@@ -616,7 +616,7 @@ animations = [{
 script = ExtResource("1_hqtel")
 
 [node name="CarryItem" type="Node2D" parent="." unique_id=668863539]
-position = Vector2(0, -30)
+position = Vector2(10, 0)
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1832256863]
 position = Vector2(0, -3.5)
