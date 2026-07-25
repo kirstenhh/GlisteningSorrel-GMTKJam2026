@@ -1,16 +1,24 @@
 extends Timer
 
 var MachineCode = ResetCodes()
+var SafeCode = ResetSafeCode()
 signal GameOver
 func ResetCodes() -> String:
-	var val = randi_range(1000000000,9999999999)
-	val = ""
+	var val = ""
 	for i in range(10):
 		val+= str(randi_range(1,9))
 	print("Code is: "+val)
 	
 	return val
+func ResetSafeCode() -> String:
+	var val = ""
+	for i in range(6):
+		val+= str(randi_range(1,9))
+	print("safe Code is: "+val)
 	
+	return val
+	
+
 ## Returns to position of the number, still a String
 # Consider 1st character is at position 0
 func GetCodeNumber(pos: int) -> String:

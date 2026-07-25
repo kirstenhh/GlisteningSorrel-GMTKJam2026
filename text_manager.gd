@@ -10,9 +10,9 @@ var text_sets = {
 	#Digit 5
 	"PostIt":["Oh that's the rest of the Post-it Note on the calendar!","It only has one number on it, $code4"],
 	#Digit 6
-	"Deck": ["Great! a Deck of playing cards! I can play Solitaire while waiting for the countdown","Ah Crap, all the $code5 are missing, who would remove exactly those?"],
+	"Vinyl": ["A Vinyl record! 'The Top $code5 rock songs of 2004' Great!","I wonder if Driveshaft is in there? Shame I don't have a record player. I'll put it by the speaker for now."],
 	#Digit 7
-	"Vinyl": ["A Vinyl record! 'The Top $code6 rock songs of 2004' Great!","I wonder if Driveshaft is in there? Shame I don't have a record player. I'll put it by the speaker for now."],
+	"Deck": ["Great! a Deck of playing cards! I can play Solitaire while waiting for the countdown","Ah Crap, all the $code6 are missing, who would remove exactly those?"],
 	#Digit 8
 	"Speaker": ["That's a big speaker, there's an even an amp.","but where could the CD player be?"],
 	"VinylPlayer": ["Ah a Vinyl Player! I bet I can connect it to the speaker and play that rock album I found."],
@@ -23,6 +23,7 @@ var text_sets = {
 	"MP3Player": ["Hey, it's an MP3 player! With earphones, even!","wasn't expecting to find this in the forest.", "Finally, some music!", "...","Aaaaand it's just someone repeating '$code8, $code8, $code8' over and over again.", "Actually, that voice sounds familiar.", "Is that ME???"],
 	#Digit 10 
 	"Safe":["Huh, a safe. Looks like it's locked.", "Wonder what's inside?"],
+	"JournalPage": ["This must be the missing page from that journal!", "It says: $safe0$safe1 $safe2$safe3 $safe4$safe5.", "Now I can finally see what's in the safe!"],
 	"Safe-unlocked":["Wow, this safe is full of equipment!", "I have no idea what that thing is, but it looks like a tricorder dunked in warning paint.", "Oh, there's a number on the inside of the door!", "It says, '$code9', and under it:", "And to hell with you all."],
 	
 	#----Clues------------------------------------

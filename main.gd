@@ -117,7 +117,6 @@ func _on_move_through_door(to_bunker: bool) -> void:
 func _on_enter_code_requested() -> void:
 	print("Entering Code: ")
 	next_state = Game_State.TYPING
-	
 	$UI/CodeEntryBox.show_panel()
 
 
@@ -142,3 +141,14 @@ func _on_code_entry_submitted(new_text: String) -> void:
 		current_state = Game_State.READING
 		return
 	current_state = Game_State.PLAYING
+
+
+	
+
+
+func _on_safe_text_submitted(no1,no2,no3) -> void:
+	var safecode = str(no1)+str(no2)+str(no3)
+	print("Safe text submitted: "+safecode)
+	if safecode == $UI/Clock.SafeCode:
+		print("success!")
+	$BunkerItems/Safe.code_success()
