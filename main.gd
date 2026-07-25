@@ -13,6 +13,10 @@ var next_state = Game_State.PLAYING #-> updates current_state at the next proces
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextManager.reset()
+	$BunkerCamera.make_current() #start inside of bunker, so use this camera
+	$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I? (press E to Examine things)")
+	TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
+	TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
 func _input(event: InputEvent) -> void:
 	
@@ -50,6 +54,7 @@ func _process(_delta: float) -> void:
 		current_state=Game_State.READING
 	match current_state:
 		Game_State.NEW_GAME:
+			
 			current_state = Game_State.PLAYING
 			#$UI/TextPanel.hide_panel()
 		Game_State.PLAYING:
@@ -132,4 +137,8 @@ func _on_code_entry_submitted(new_text: String) -> void:
 		print("Correct code entered")
 	else:
 		print("Code was incorrect")
+		$UI/TextPanel.show_message("Crap that didn't work...")
+		TextManager.push_item_texts("Hopefully nobody listens to Cybersec and have the code written down somewhere...")
+		current_state = Game_State.READING
+		return
 	current_state = Game_State.PLAYING

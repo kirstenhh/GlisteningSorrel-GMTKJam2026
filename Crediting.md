@@ -16,3 +16,4 @@ https://opengameart.org/content/wooden-house-with-animated-door-pixel-art
 https://opengameart.org/content/speaker
 https://opengameart.org/content/turntables-animated
 https://opengameart.org/content/various-inventory-24-pixel-icon-set
+https://ivoryred.itch.io/pixel-poker-cards
