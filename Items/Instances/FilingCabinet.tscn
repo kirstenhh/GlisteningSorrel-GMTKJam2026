@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bxaudy3mb6a8d"]
+
+[ext_resource type="Script" uid="uid://cc5rmgmbrjg7q" path="res://Items/Instances/filing_cabinet.gd" id="1_bxc47"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_2kxhq"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_x6yaw"]
+[ext_resource type="Texture2D" uid="uid://bwhqj4oji3hcf" path="res://Graphics/Items/Filing-Cabinet-Tall.png" id="4_kjnij"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
+radius = 13.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
+size = Vector2(20, 47)
+
+[node name="FilingCabinet" type="StaticBody2D" unique_id=570615803]
+z_index = 999
+script = ExtResource("1_bxc47")
+
+[node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_2kxhq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_x6yaw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
+scale = Vector2(2, 2)
+texture = ExtResource("4_kjnij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_pijmw")

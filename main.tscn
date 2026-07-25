@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://countdown_computer.tscn" id="14_yaehf"]
-[ext_resource type="Texture2D" uid="uid://bwhqj4oji3hcf" path="res://Graphics/Items/Filing-Cabinet-Tall.png" id="17_getpj"]
-[ext_resource type="Script" uid="uid://cc5rmgmbrjg7q" path="res://Items/Instances/filing_cabinet.gd" id="17_ryguw"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
+[ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
 radius = 66.0
@@ -36,13 +36,6 @@ height = 86.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
-radius = 13.0
-height = 70.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
-size = Vector2(20, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(67, 50)
@@ -173,17 +166,18 @@ pause_menu_packed = ExtResource("9_getpj")
 
 [node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
 z_index = 1003
-position = Vector2(494, -158)
+position = Vector2(2783, -305)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_efxa6")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
-polygon = PackedVector2Array(-12, -13, 13, -12, 13, 11, -11, 11)
+polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
 
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
@@ -247,30 +241,11 @@ texture = ExtResource("13_074og")
 position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_cegan")
 
-[node name="FilingCabinet" type="StaticBody2D" parent="BunkerItems" unique_id=1405416074]
-z_index = 999
+[node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_ryguw")]
 position = Vector2(652, 153)
-script = ExtResource("17_ryguw")
 
-[node name="Examinable" parent="BunkerItems/FilingCabinet" unique_id=1414444784 instance=ExtResource("9_4c57u")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/FilingCabinet/Examinable" unique_id=919992546]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_ugtri")
-
-[node name="Interactable" parent="BunkerItems/FilingCabinet" unique_id=1792339329 instance=ExtResource("12_ycdy4")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/FilingCabinet/Interactable" unique_id=759605234]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_ugtri")
-
-[node name="Sprite2D" type="Sprite2D" parent="BunkerItems/FilingCabinet" unique_id=1150815342]
-scale = Vector2(2, 2)
-texture = ExtResource("17_getpj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/FilingCabinet" unique_id=2059609885]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_pijmw")
+[node name="Centrifuge" parent="BunkerItems" unique_id=177923626 instance=ExtResource("19_d13ii")]
+position = Vector2(3156, -288)
 
 [node name="CountdownComputer" parent="." unique_id=560938793 instance=ExtResource("14_yaehf")]
 position = Vector2(2643, -291)

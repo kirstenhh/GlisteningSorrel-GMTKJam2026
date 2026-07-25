@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://6edkatwcu0iy"]
+
+[ext_resource type="Script" uid="uid://i4sjmfrwprl" path="res://Items/Instances/centrifuge.gd" id="1_jl4mo"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_2kxhq"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_x6yaw"]
+[ext_resource type="Texture2D" uid="uid://c1ggybemrpx2t" path="res://Graphics/Items/lab.png" id="4_47qxy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
+radius = 36.0
+height = 86.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqaso"]
+atlas = ExtResource("4_47qxy")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
+size = Vector2(56, 39)
+
+[node name="Centrifuge" type="StaticBody2D" unique_id=570615803]
+z_index = 999
+script = ExtResource("1_jl4mo")
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_2kxhq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_x6yaw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_vqaso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_pijmw")
