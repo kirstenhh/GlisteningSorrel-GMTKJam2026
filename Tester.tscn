@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqjf44bj4ekru" path="res://main.gd" id="1_2eit8"]
 [ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_brsvb"]
+[ext_resource type="PackedScene" uid="uid://bef7gbxw0epqt" path="res://Items/Instances/HiddenDoor.tscn" id="2_dyxuo"]
 [ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="3_8itv4"]
 [ext_resource type="Theme" uid="uid://c2rwjauxmsgrp" path="res://examples/resources/themes/expedition.tres" id="4_pm5v8"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="5_8nctw"]
@@ -78,10 +79,14 @@ region = Rect2(99.138794, 119.77595, 21.067062, 24.224052)
 size = Vector2(18, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(67, 50)
+size = Vector2(50.5, 74)
 
 [node name="Tester" type="Node" unique_id=1576945948]
 script = ExtResource("1_2eit8")
+
+[node name="HiddenDoor" parent="." unique_id=1467128344 instance=ExtResource("2_dyxuo")]
+z_index = 1001
+position = Vector2(2575, -300)
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_brsvb")]
 z_index = 1002
@@ -359,17 +364,19 @@ shape = SubResource("RectangleShape2D_77s7r")
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
+[node name="HiddenDoor" parent="BunkerItems" unique_id=1820658803 instance=ExtResource("2_dyxuo")]
+
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("16_hpn03")]
 position = Vector2(293, 86)
+
+[node name="Centrifuge" parent="BunkerItems" unique_id=2014265351 instance=ExtResource("19_a2oqo")]
+position = Vector2(429, 82)
 
 [node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_smfxn")]
 position = Vector2(357, 76)
 
 [node name="Cabin" parent="BunkerItems" unique_id=94451146 instance=ExtResource("18_8pavy")]
 position = Vector2(797, -87)
-
-[node name="Centrifuge" parent="BunkerItems" unique_id=2014265351 instance=ExtResource("19_a2oqo")]
-position = Vector2(429, 82)
 
 [node name="PersonalComputer" parent="BunkerItems" unique_id=1397828170 instance=ExtResource("20_dyxuo")]
 position = Vector2(517, 86)
@@ -415,14 +422,14 @@ position = Vector2(2548, -280)
 script = ExtResource("21_tlyev")
 
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("14_qfpot")]
+position = Vector2(220, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(-4, -23.5)
+position = Vector2(3, -1)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-visible = false
-position = Vector2(0, -0.5)
+position = Vector2(219, -19)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]

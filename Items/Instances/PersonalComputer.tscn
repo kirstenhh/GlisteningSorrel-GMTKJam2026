@@ -3,14 +3,18 @@
 [ext_resource type="Script" uid="uid://degyhs320l63w" path="res://Items/Instances/personal_computer.gd" id="1_koqdm"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_pd0va"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_7pwli"]
-[ext_resource type="Texture2D" uid="uid://c5cpcg65ja57j" path="res://Graphics/Items/ibm5150.png" id="4_koqdm"]
+[ext_resource type="Texture2D" uid="uid://sg7ddusgjhh" path="res://Graphics/Items/spritesheet.png" id="4_koqdm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
 radius = 13.0
 height = 32.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gjw1"]
+atlas = ExtResource("4_koqdm")
+region = Rect2(102.5, 39.503906, 22.910156, 22.730469)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
-size = Vector2(23, 22)
+size = Vector2(16, 17)
 
 [node name="PersonalComputer" type="StaticBody2D" unique_id=570615803]
 z_index = 999
@@ -27,9 +31,9 @@ shape = SubResource("CapsuleShape2D_ugtri")
 shape = SubResource("CapsuleShape2D_ugtri")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
-scale = Vector2(0.655, 0.655)
-texture = ExtResource("4_koqdm")
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_5gjw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
-position = Vector2(0.5, 0)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_pijmw")

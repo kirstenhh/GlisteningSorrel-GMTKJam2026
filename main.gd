@@ -152,3 +152,8 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 	if safecode == $UI/Clock.SafeCode:
 		print("success!")
 	$BunkerItems/Safe.code_success()
+
+func _on_hidden_room_reached():
+	print("Revealing the hidden room")
+	
+	
