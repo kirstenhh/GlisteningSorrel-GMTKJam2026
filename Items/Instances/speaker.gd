@@ -36,12 +36,6 @@ func examine():
 	else:	 #Nothing unlocked
 		TextManager.push_item_texts(name)
 		
-	#if unlocked_second:
-		#TextManager.push_item_texts(name+"-second")
-	#elif unlocked_first:
-		#TextManager.push_item_texts(name+"-first")
-	#else:
-		#TextManager.push_item_texts(name)
 
 func use_item(interactor_name: String):
 	if !interactor_name:

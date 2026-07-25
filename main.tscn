@@ -16,17 +16,26 @@
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dm5f8piyxn0n2" path="res://Graphics/Items/Record.png" id="13_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
+[ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="14_0odxb"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
+[ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="21_0odxb"]
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
 region = Rect2(260, 2, 12, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
+size = Vector2(9, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6jrf"]
+size = Vector2(18, 10)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
 radius = 16.039063
@@ -36,7 +45,7 @@ height = 86.0
 size = Vector2(22, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(67, 50)
+size = Vector2(71.5, 111)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -45,7 +54,7 @@ script = ExtResource("1_ig7tw")
 z_index = 1002
 z_as_relative = false
 position = Vector2(516, 165)
-speed = 500
+speed = 100
 metadata/_edit_group_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
@@ -201,6 +210,42 @@ metadata/_edit_lock_ = true
 position = Vector2(4, 7)
 polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
+[node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=1158253289]
+z_index = 999
+position = Vector2(553, 224)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Vinyl" unique_id=224278843 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl/Pickable" unique_id=1118929349]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_lswn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Vinyl" unique_id=1292383291]
+scale = Vector2(0.262, 0.262)
+texture = ExtResource("13_1u8w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl" unique_id=634890182]
+shape = SubResource("RectangleShape2D_lswn8")
+
+[node name="VinylPlayer" type="Area2D" parent="PickupItems" unique_id=858364847]
+z_index = 999
+position = Vector2(588, 222)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer" unique_id=485569989]
+shape = SubResource("RectangleShape2D_a6jrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/VinylPlayer" unique_id=359294740]
+scale = Vector2(0.298, 0.298)
+texture = ExtResource("14_0odxb")
+
+[node name="Pickable" parent="PickupItems/VinylPlayer" unique_id=100978763 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer/Pickable" unique_id=735499638]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_a6jrf")
+
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
@@ -236,6 +281,11 @@ scale = Vector2(1.1, 1.1)
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]
 position = Vector2(2784, -65)
 
+[node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
+position = Vector2(2742, -63)
+scale = Vector2(1.242, 1.242)
+metadata/_edit_group_ = true
+
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
 position = Vector2(227, 156)
@@ -266,7 +316,7 @@ script = ExtResource("12_w48qg")
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(-4, -23.5)
+position = Vector2(-1.75, -10.5)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
@@ -292,6 +342,8 @@ scale = Vector2(0.7, 0.7)
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
