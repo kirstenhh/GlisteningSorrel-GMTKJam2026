@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://0kjm3ufc1mcd"]
+
+[ext_resource type="Texture2D" uid="uid://c5cpcg65ja57j" path="res://Graphics/Items/ibm5150.png" id="1_bfp6k"]
+
+[node name="GameWinScene" type="Node2D" unique_id=421514006]
+
+[node name="Game Won" type="Label" parent="." unique_id=902169712]
+offset_left = 493.0
+offset_top = 369.0
+offset_right = 597.0
+offset_bottom = 388.0
+text = "GAME IS WON"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=597384071]
+position = Vector2(553, 238)
+scale = Vector2(8, 8)
+texture = ExtResource("1_bfp6k")

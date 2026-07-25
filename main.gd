@@ -139,6 +139,9 @@ func _on_code_entry_submitted(new_text: String) -> void:
 	var correctCode = $UI/Clock.enterCode(new_text)
 	if correctCode: 
 		print("Correct code entered")
+		if len(correctCode)==10:
+			print("Full code has been entered!")
+			$BunkerItems.get_node("HiddenDoor").turn_on()
 	else:
 		print("Code was incorrect")
 		$UI/TextPanel.show_message("Crap that didn't work...")
@@ -157,3 +160,8 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 	if safecode == $UI/Clock.SafeCode:
 		print("success!")
 	$BunkerItems/Safe.code_success()
+
+func _on_hidden_room_reached():
+	print("Revealing the hidden room")
+	
+	
