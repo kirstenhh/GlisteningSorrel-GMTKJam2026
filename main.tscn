@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c05lv7xuqm807" path="res://Graphics/Items/post-it.png" id="6_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_vivmo"]
 [ext_resource type="Script" uid="uid://d3ad7qmcrpbx3" path="res://code_entry_box.gd" id="7_074og"]
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="8_82xsv"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_getpj"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
@@ -99,7 +101,7 @@ text = "108"
 horizontal_alignment = 1
 
 [node name="Clock" parent="UI" unique_id=935449348 instance=ExtResource("10_4c57u")]
-wait_time = 200.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
@@ -153,6 +155,10 @@ grow_vertical = 2
 max_value = 9999999999.0
 update_on_text_changed = true
 select_all_on_focus = true
+
+[node name="PauseMenuController" type="Node" parent="UI" unique_id=1500193671]
+script = ExtResource("8_82xsv")
+pause_menu_packed = ExtResource("9_getpj")
 
 [node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
 

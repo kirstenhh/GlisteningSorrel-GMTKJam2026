@@ -15,6 +15,7 @@ var animation_state_machine : AnimationNodeStateMachinePlayback
 @onready var new_game_confirmation = %NewGameConfirmation
 
 func load_game_scene() -> void:
+	GameState.reset()
 	GameState.start_game()
 	super.load_game_scene()
 

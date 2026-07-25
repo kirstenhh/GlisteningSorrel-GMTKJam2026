@@ -8,7 +8,7 @@ extends "res://addons/maaacks_game_template/base/nodes/menus/options_menu/pagina
 ## to get a float of the desired mouse sensitivity and apply it to the camera motion.
 ## Refer to the documentation on Options Menu Setup for more.
 @export var show_input_sensitivity := false
-
+@export var game_persistence := false
 
 func _ready():
 	var inputs_actions := AppSettings.get_action_names()
@@ -18,4 +18,7 @@ func _ready():
 			continue
 		if get("tab_%d/title" % iter) == "Inputs":
 			set("tab_%d/hidden" % iter, not show_input_sensitivity)
+			continue
+		if get("tab_%d/title" % iter) == "Game":
+			set("tab_%d/hidden" % iter, not game_persistence)
 			continue

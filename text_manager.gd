@@ -35,3 +35,6 @@ func push_item_texts(item_name: String, code= ""):
 	var current_texts = text_sets[item_name]
 	for text in current_texts:
 		text_queue.push_back(text)
+
+func reset():
+	text_queue = []

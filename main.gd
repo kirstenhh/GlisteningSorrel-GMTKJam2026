@@ -12,7 +12,7 @@ var current_state = Game_State.NEW_GAME
 var next_state = Game_State.PLAYING #-> updates current_state at the next process tick
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	TextManager.reset()
 	
 func _input(event: InputEvent) -> void:
 	
@@ -27,8 +27,11 @@ func _input(event: InputEvent) -> void:
 					var text = TextManager.text_queue.pop_front()
 					$UI/TextPanel.show_message(text)
 			Game_State.READING:
+				print("reading: ")
+				
 				if TextManager.text_queue:
 					var text = TextManager.text_queue.pop_front()
+					print(text)
 					$UI/TextPanel.show_message(text)
 				else:
 					current_state = Game_State.PLAYING
