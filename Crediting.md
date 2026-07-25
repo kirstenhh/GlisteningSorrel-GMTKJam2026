@@ -12,3 +12,4 @@ https://opengameart.org/content/obsolete-computers
 https://opengameart.org/content/pixel-art-laboratory-props
 https://opengameart.org/content/pixel-art-laboffice-tiles
 https://0-mem0ry.itch.io/midcentury-modern-furniture-set-free
+https://opengameart.org/content/wooden-house-with-animated-door-pixel-art
