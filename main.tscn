@@ -170,6 +170,9 @@ metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo/Pickable" unique_id=1446898644]
+polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
+
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_d13ii")
@@ -184,6 +187,10 @@ position = Vector2(108, -493)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Key/Pickable" unique_id=1913903500]
+position = Vector2(4, 7)
+polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Key" unique_id=1991149103]
 scale = Vector2(0.5, 0.5)

@@ -11,7 +11,6 @@ var carried = false
 # Interaction: item is attached to player 
 
 var examine: Callable = func():
-	print("I am being examined: "+item_name)
 	TextManager.push_item_texts(item_name)
 
 var pickup: Callable = func():

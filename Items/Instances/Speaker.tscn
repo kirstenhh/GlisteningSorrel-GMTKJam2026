@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cxbl6o8o7qx0f"]
+
+[ext_resource type="Script" uid="uid://bmyhr26pecx0r" path="res://Items/Instances/speaker.gd" id="1_782kr"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_mje1s"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_sv4uc"]
+[ext_resource type="Texture2D" uid="uid://babppmgt144kl" path="res://Graphics/Items/speaker.png" id="4_782kr"]
+[ext_resource type="Texture2D" uid="uid://cc104sl46ihd2" path="res://Graphics/Items/speaker-vinyl.png" id="5_mje1s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
+size = Vector2(12, 18)
+
+[node name="Speaker" type="StaticBody2D" unique_id=570615803]
+z_index = 999
+script = ExtResource("1_782kr")
+
+[node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_mje1s")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
+position = Vector2(-7, 4)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_sv4uc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
+position = Vector2(-7, 4)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
+position = Vector2(-6.7500005, 3.1953125)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_782kr")
+
+[node name="Sprite2D_after" type="Sprite2D" parent="." unique_id=1489169175]
+visible = false
+position = Vector2(-7, 3)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_mje1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
+position = Vector2(-7, 4)
+shape = SubResource("RectangleShape2D_pijmw")
