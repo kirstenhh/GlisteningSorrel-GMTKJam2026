@@ -12,5 +12,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
+
 func move_to_bunker(any=false):
 	move_through_door.emit(to_bunker)
+
+# TODO: ## Player enters the area at the top of the stairs,
+	## and "walks out" of the bunker
+#func _on_area_entered(area: Area2D) -> void:
+
+	#print("move to the outside")
+	#print(to_bunker)
+	#move_through_door.emit(to_bunker)

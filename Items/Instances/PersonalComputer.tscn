@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://csjq7sk7oji7d"]
+
+[ext_resource type="Script" uid="uid://degyhs320l63w" path="res://Items/Instances/personal_computer.gd" id="1_koqdm"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_pd0va"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_7pwli"]
+[ext_resource type="Texture2D" uid="uid://c5cpcg65ja57j" path="res://Graphics/Items/ibm5150.png" id="4_koqdm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
+radius = 13.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
+size = Vector2(23, 22)
+
+[node name="PersonalComputer" type="StaticBody2D" unique_id=570615803]
+z_index = 999
+script = ExtResource("1_koqdm")
+
+[node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_pd0va")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_7pwli")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("4_koqdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_pijmw")

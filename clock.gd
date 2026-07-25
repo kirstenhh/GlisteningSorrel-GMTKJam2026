@@ -4,7 +4,12 @@ var MachineCode = ResetCodes()
 signal GameOver
 func ResetCodes() -> String:
 	var val = randi_range(1000000000,9999999999)
-	return str(val)
+	val = ""
+	for i in range(10):
+		val+= str(randi_range(1,9))
+	print("Code is: "+val)
+	
+	return val
 	
 ## Returns to position of the number, still a String
 # Consider 1st character is at position 0
@@ -15,7 +20,6 @@ func enterCode(code: String):
 	
 	#check each number
 	if len(code)>=4 and len(code)<=10:
-		print(MachineCode.substr(0, len(code)-1))
 		if code == MachineCode.substr(0, len(code)):
 			wait_time = len(code)*27
 			start()

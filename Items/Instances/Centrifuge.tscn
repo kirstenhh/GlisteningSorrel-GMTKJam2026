@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_x6yaw"]
 [ext_resource type="Texture2D" uid="uid://c1ggybemrpx2t" path="res://Graphics/Items/lab.png" id="4_47qxy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
-radius = 36.0
-height = 86.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpn03"]
+size = Vector2(56, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pavy"]
+size = Vector2(56, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqaso"]
 atlas = ExtResource("4_47qxy")
@@ -18,20 +20,21 @@ size = Vector2(56, 39)
 
 [node name="Centrifuge" type="StaticBody2D" unique_id=570615803]
 z_index = 999
+position = Vector2(-2, -1)
 script = ExtResource("1_jl4mo")
 metadata/_edit_group_ = true
 
 [node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_2kxhq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_ugtri")
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_hpn03")
 
 [node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_x6yaw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_ugtri")
+position = Vector2(-1, 9)
+shape = SubResource("RectangleShape2D_8pavy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
 scale = Vector2(2, 2)

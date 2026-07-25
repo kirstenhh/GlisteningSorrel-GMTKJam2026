@@ -18,5 +18,4 @@ func show_panel():
 	line_edit.edit()
 
 func _on_text_submitted(new_text:String):   
-	print("pressed enter with this text: ", new_text)
 	text_submitted.emit(new_text)

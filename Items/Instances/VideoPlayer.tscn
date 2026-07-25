@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cn4pseeackm84"]
+
+[ext_resource type="Script" uid="uid://c7eoukkh20rhd" path="res://Items/Instances/video_player.gd" id="1_a1mkv"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="2_lbmn4"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_0f7g0"]
+[ext_resource type="Texture2D" uid="uid://dd10rdnxifyc0" path="res://Graphics/Items/midcentury_modern_furnitureset.png" id="4_mrokt"]
+[ext_resource type="Texture2D" uid="uid://bor3ktmbtqxei" path="res://Graphics/Items/oldtv.png" id="5_6qi7f"]
+[ext_resource type="Texture2D" uid="uid://dhg6uneynvumh" path="res://Graphics/Items/vcr.png" id="6_3k6f4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
+radius = 21.0
+height = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koqdm"]
+atlas = ExtResource("4_mrokt")
+region = Rect2(2.84375, 95.66222, 43, 32.007813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
+size = Vector2(32, 42)
+
+[node name="VideoPlayer" type="StaticBody2D" unique_id=570615803]
+z_index = 999
+script = ExtResource("1_a1mkv")
+
+[node name="Examinable" parent="." unique_id=532054259 instance=ExtResource("2_lbmn4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=323353087]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Interactable" parent="." unique_id=1279209925 instance=ExtResource("3_0f7g0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1786576911]
+position = Vector2(-1, -5)
+shape = SubResource("CapsuleShape2D_ugtri")
+
+[node name="Sprite2D_table" type="Sprite2D" parent="." unique_id=1520269502]
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_koqdm")
+
+[node name="Sprite2D_tv" type="Sprite2D" parent="Sprite2D_table" unique_id=1501227054]
+z_index = 1
+position = Vector2(-4, -21)
+scale = Vector2(0.95312494, 0.87500006)
+texture = ExtResource("5_6qi7f")
+
+[node name="Sprite2D_vcr" type="Sprite2D" parent="Sprite2D_table" unique_id=2145858879]
+position = Vector2(15, -11)
+scale = Vector2(0.40625006, 0.40625006)
+texture = ExtResource("6_3k6f4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_pijmw")
