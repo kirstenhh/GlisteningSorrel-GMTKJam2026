@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bq5rvcbjweds4" path="res://Items/pickable.gd" id="1_dqd71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wnodc"]
-radius = 43.011627
+radius = 20.615528
 
 [node name="Pickable" type="Area2D" unique_id=2007570362]
 collision_layer = 2

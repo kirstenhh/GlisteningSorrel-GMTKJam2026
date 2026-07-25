@@ -9,6 +9,8 @@ extends Area2D
 # Or can be used for single interactions, e.g. bunker door and countdown computer
 var interact: Callable = func(argument = false):
 	print("interact called on "+item_name)
+	if argument:
+		print ("	using "+item_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -21,7 +21,9 @@ var text_sets = {
 	#Digit 8
 	"Beethoven": ["Hold on, this isn't Rock & Roll, That's Beethoven $code7th Symphony !?","Why would someone put that label on such a disk?"],
 	"Key": ["That's a rather small key, definitely not for a door, maybe a padlock?"],
-	"Drive": ["Hey that's a floppy disk! The label says 'Test Results August'"]
+	"Drive": ["Hey that's a floppy disk! The label says 'Test Results August'"],
+	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
+	"FilingCabinet-Key": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."]
 }
 func _ready() -> void:
 	pass # Replace with function body.
@@ -31,10 +33,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func push_item_texts(item_name: String, code= ""):
-	var current_texts = text_sets[item_name]
-	for text in current_texts:
-		text_queue.push_back(text)
+func push_item_texts(item_name: String):
+	if item_name in text_sets:
+		var current_texts = text_sets[item_name]
+		for text in current_texts:
+			text_queue.push_back(text)
+	else: 
+		text_queue.push_back(item_name)
 
 func reset():
 	text_queue = []

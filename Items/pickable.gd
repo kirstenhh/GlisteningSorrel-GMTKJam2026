@@ -12,7 +12,8 @@ var carried = false
 
 var examine: Callable = func():
 	print("I am being examined: "+item_name)
-	
+	TextManager.push_item_texts(item_name)
+
 var pickup: Callable = func():
 	picked_up.emit(item_name, carried)
 	carried = not carried

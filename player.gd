@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var speed = 300
 @export var controlling = true
+
+#todo: remove this, just check $CarryItem for children
 @export var carrying = false
 
 var available_examinations = []
@@ -15,7 +17,12 @@ func _input(event: InputEvent) -> void:
 		# Check for interactions FIRST, because they're often more important
 		if available_interactions:
 			if carrying:
-				await available_interactions[0].interact.call($CarryItem.get_child(0).name)
+				var returned = await available_interactions[0].interact.call($CarryItem.get_child(0).name)
+				print(returned)
+				if returned: 
+					print("Successfully used items together!")
+					$CarryItem.remove_child($CarryItem.get_child(0))
+					carrying = false
 			else:
 				await available_interactions[0].interact.call("")
 		elif carrying: #Carrying an item -> it gets priority
@@ -46,12 +53,6 @@ func _physics_process(_delta: float) -> void:
 		else:
 			handle_animation("walk", direction)
 		prev_direction = direction
-		#if direction.x != 0:
-			#rotation_degrees = 90 * direction.x
-		#elif direction.y > 0:
-			#rotation_degrees = 180
-		#elif direction.y < 0: 
-			#rotation_degrees = 0
 	else:
 		handle_animation("idle", prev_direction)
 		velocity.x = move_toward(velocity.x, 0, speed)
