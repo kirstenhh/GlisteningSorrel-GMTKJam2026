@@ -127,5 +127,9 @@ func _on_clock_game_over() -> void:
 func _on_code_entry_submitted(new_text: String) -> void:
 	print("Code entered is "+new_text)
 	$UI/CodeEntryBox.visible = false
-	$UI/Clock.enterCode(new_text)
+	var correctCode = $UI/Clock.enterCode(new_text)
+	if correctCode: 
+		print("Correct code entered")
+	else:
+		print("Code was incorrect")
 	current_state = Game_State.PLAYING

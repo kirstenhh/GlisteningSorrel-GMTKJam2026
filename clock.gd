@@ -11,24 +11,25 @@ func ResetCodes() -> String:
 func GetCodeNumber(pos: int) -> String:
 	return MachineCode[pos]
 
-func enterCode(code: String) -> void:
-	#base code is static, will need to implement random code digits
+func enterCode(code: String):
 	
 	#check each number
-	var corrects = 0
-	for n in len(code):
-		print(n," digit,",MachineCode[n],"=?",code[n])
-		if MachineCode[n] == code[n]:
-			print(n," digit correct")
-			corrects = n
-		else:
-			#don't reset/increase time if the password is wrong
-			#Maybe implement a failure mode thingy?
-			return
+	if len(code)>=4 and len(code)<=10:
+		print(MachineCode.substr(0, len(code)-1))
+		if code == MachineCode.substr(0, len(code)):
+			wait_time = len(code)*27
+			start()
+			return true
+	return false
+	#for n in len(code):
+		#print(n," digit,",MachineCode[n],"=?",code[n])
+		#if MachineCode[n] == code[n]:
+			#print(n," digits correct")
+			#corrects = n
+		#else:
+			#return
 	#After checking, add time on each valid correct values
 	#usually with the 4 base values you'd get 108, we need to modify if that's the case
-	wait_time = (corrects+1)*27
-	start()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
