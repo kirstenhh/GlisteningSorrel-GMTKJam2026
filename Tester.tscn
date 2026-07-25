@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="18_8pavy"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_smfxn"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_a2oqo"]
+[ext_resource type="Texture2D" uid="uid://de3ao5d8xmj0n" path="res://Graphics/Atlas/base_out_atlas.png" id="19_kfea7"]
 [ext_resource type="PackedScene" uid="uid://csjq7sk7oji7d" path="res://Items/Instances/PersonalComputer.tscn" id="20_dyxuo"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="20_s42vd"]
 [ext_resource type="PackedScene" uid="uid://16ijmre4q2qk" path="res://Items/Instances/Safe.tscn" id="21_kfea7"]
@@ -78,15 +79,15 @@ region = Rect2(99.138794, 119.77595, 21.067062, 24.224052)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77s7r"]
 size = Vector2(18, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pijmw"]
+atlas = ExtResource("19_kfea7")
+region = Rect2(803.79224, 313.6168, 33.919067, 16.523346)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(50.5, 74)
 
 [node name="Tester" type="Node" unique_id=1576945948]
 script = ExtResource("1_2eit8")
-
-[node name="HiddenDoor" parent="." unique_id=1467128344 instance=ExtResource("2_dyxuo")]
-z_index = 1001
-position = Vector2(2575, -300)
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_brsvb")]
 z_index = 1002
@@ -364,7 +365,14 @@ shape = SubResource("RectangleShape2D_77s7r")
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
-[node name="HiddenDoor" parent="BunkerItems" unique_id=1820658803 instance=ExtResource("2_dyxuo")]
+[node name="HiddenDoor" parent="BunkerItems" unique_id=1467128344 instance=ExtResource("2_dyxuo")]
+z_index = 1001
+position = Vector2(2575, -300)
+
+[node name="VisualCheat" type="Sprite2D" parent="BunkerItems/HiddenDoor" unique_id=1914028833]
+z_index = -1
+position = Vector2(1, -19)
+texture = SubResource("AtlasTexture_pijmw")
 
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("16_hpn03")]
 position = Vector2(293, 86)

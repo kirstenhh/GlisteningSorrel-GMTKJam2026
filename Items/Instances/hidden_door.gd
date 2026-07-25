@@ -5,7 +5,6 @@ extends Area2D
 signal reveal_hidden_room
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(interactable)
 	interactable.interact = reveal_room
 
 
@@ -15,7 +14,12 @@ func _process(_delta: float) -> void:
 
 func reveal_room(any):
 	reveal_hidden_room.emit()
-	
+
+func turn_on():
+	print("setting myself available")
+	$Sprite2D.visible = true
+	$CollisionShape2D.disabled = false
+	$Interactable/CollisionShape2D.disabled = false
 
 # TODO: ## Player enters the area at the top of the stairs,
 	## and "walks out" of the bunker
