@@ -9,7 +9,7 @@ enum Game_State{
 	GAME_OVER
 }
 var current_state = Game_State.NEW_GAME
-var next_state = Game_State.PLAYING #-> updates current_state at the next process tick
+var next_state = Game_State.PLAYING
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,7 +21,6 @@ func _input(event: InputEvent) -> void:
 			Game_State.PLAYING:
 				$Player.controlling = true
 				$UI/TextPanel.hide_panel()
-				$UI/CodeEntryBox.hide()
 				if TextManager.text_queue:
 					current_state=Game_State.READING
 					var text = TextManager.text_queue.pop_front()
@@ -34,7 +33,10 @@ func _input(event: InputEvent) -> void:
 					current_state = Game_State.PLAYING
 					$UI/TextPanel.hide_panel()
 			Game_State.TYPING:
-				pass # In case the user tries to type text
+				print("Consider this an Enter")
+				$UI/CodeEntryBox.hide()
+				next_state = Game_State.PLAYING
+				# Submit code for checking, popup Yes or No
 			Game_State.GAME_OVER:
 				print("GAME OVER. ")
 		
@@ -51,6 +53,7 @@ func _process(_delta: float) -> void:
 			#$UI/TextPanel.hide_panel()
 		Game_State.PLAYING:
 			$Player.controlling = true
+			#$UI/TextPanel.hide()
 			if TextManager.text_queue:
 				current_state=Game_State.READING
 				var text = TextManager.text_queue.pop_front()
@@ -60,7 +63,7 @@ func _process(_delta: float) -> void:
 			$Player.controlling = false
 		Game_State.TYPING:
 			$Player.controlling = false
-			$UI/CodeEntryBox.show_panel()
+			$UI/CodeEntryBox.show()
 		Game_State.GAME_OVER:
 			print("GAME OVER. ")
 	if next_state: 
@@ -71,7 +74,7 @@ func _process(_delta: float) -> void:
 	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
 
 
-#--------Events------------------------------------------------------------
+
 func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 	print("Picking up " + my_name)
 	if carried:
@@ -107,10 +110,17 @@ func _on_move_through_door(to_bunker: bool) -> void:
 
 
 func _on_enter_code_requested() -> void:
+<<<<<<< HEAD
+	$UI/CodeEntryBox.show()
 	print("Entering Code: ")
 	next_state = Game_State.TYPING
 	
-	$UI/CodeEntryBox.show_panel()
+||||||| 4d3ad05
+	$UI/CodeEntryBox.visible = true
+	$Player.controlling = false
+=======
+	$UI/CodeEntryBox.visible = true
+	$Player.controlling = false
 
 
 func _on_clock_game_over() -> void:
@@ -119,10 +129,4 @@ func _on_clock_game_over() -> void:
 	
 	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
 	
-
-
-func _on_code_entry_submitted(new_text: String) -> void:
-	print("Code entered is "+new_text)
-	$UI/CodeEntryBox.visible = false
-	$UI/Clock.enterCode(new_text)
-	current_state = Game_State.PLAYING
+>>>>>>> 1da638115cb3ec06fcfaa9e6380574de8df9c4af
