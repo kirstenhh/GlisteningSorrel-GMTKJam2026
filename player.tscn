@@ -324,7 +324,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"carry-down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -341,7 +341,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"carry-side",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -358,7 +358,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"carry-up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -375,7 +375,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle-down",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -392,7 +392,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle-side",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -409,7 +409,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle-up",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -477,7 +477,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk-down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -494,7 +494,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk-side",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -511,7 +511,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk-up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -634,8 +634,7 @@ shape = SubResource("RectangleShape2D_634y6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538409770]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vpaae")
-animation = &"interact-side"
-frame_progress = 0.1678905
+animation = &"interact-up"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1741964471]
 zoom = Vector2(2, 2)

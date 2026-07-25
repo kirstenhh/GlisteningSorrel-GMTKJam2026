@@ -27,9 +27,7 @@ var text_sets = {
 	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
 	"FilingCabinet-unlocked": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."],
 	"Centrifuge": ["That's an Atomic Centrifuge... How do I know it's an Atomic Centrifuge?"],
-	"PaperScrap": ["There's a scrap of blank paper here. Weird.", "Also, it smells lemony?" ],
-	"Candle": ["There's a candle and matches here. Wonder what that's for."],
-	"Candle-unlocked":["Hah, called it!", "Lemon juice invisible ink!", "The message reads, ", "'The '"]
+	"Cabin" : ["A wooden cabin !? hold on I heard Oscar was making a lot of trips outside, is that what he was doing?","Dumbass forgot about the door... how was he the Chief Engineer?"]
 }
 func _ready() -> void:
 	pass # Replace with function body.

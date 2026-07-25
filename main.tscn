@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_ryguw"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="21_0odxb"]
+[ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
@@ -53,7 +54,7 @@ script = ExtResource("1_ig7tw")
 z_index = 1002
 z_as_relative = false
 position = Vector2(516, 165)
-speed = 100
+speed = 500
 metadata/_edit_group_ = true
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2049720125]
@@ -330,6 +331,10 @@ zoom = Vector2(1.45, 1.45)
 
 [node name="Map" parent="." unique_id=1269290182 instance=ExtResource("17_yaehf")]
 metadata/_edit_lock_ = true
+
+[node name="Cabin" parent="." unique_id=69376337 instance=ExtResource("23_d13ii")]
+position = Vector2(1302.0001, -1922)
+scale = Vector2(0.7, 0.7)
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]

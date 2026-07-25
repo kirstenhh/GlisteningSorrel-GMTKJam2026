@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://heaq8oqyjei4"]
+
+[ext_resource type="Script" uid="uid://bvqgf52snm0cn" path="res://Items/Instances/cabin.gd" id="1_6cqk1"]
+[ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_x7gas"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="3_dho07"]
+[ext_resource type="Texture2D" uid="uid://dl1wyb30d2nbn" path="res://Graphics/Items/House_WithoutDoor.png" id="4_6cqk1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rndca"]
+radius = 47.0
+height = 222.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4f8o"]
+radius = 145.0
+height = 290.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(93.569695, 63.46064)
+
+[node name="Cabin" type="StaticBody2D" unique_id=661832557]
+z_index = 100
+script = ExtResource("1_6cqk1")
+metadata/_edit_group_ = true
+
+[node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("2_x7gas")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1650518792]
+shape = SubResource("CapsuleShape2D_rndca")
+
+[node name="Examinable" parent="." unique_id=1954277835 instance=ExtResource("3_dho07")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=452382168]
+shape = SubResource("CapsuleShape2D_j4f8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=367304062]
+z_index = 999
+z_as_relative = false
+texture = ExtResource("4_6cqk1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=260283296]
+position = Vector2(1.9999983, 1.5000014)
+scale = Vector2(2.1588185, 2.1588185)
+shape = SubResource("RectangleShape2D_lquwl")
+metadata/_edit_lock_ = true
