@@ -53,7 +53,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(516, 165)
+position = Vector2(2865, -205)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -275,7 +275,7 @@ position = Vector2(2938, -57)
 position = Vector2(3185, 65)
 
 [node name="CountdownComputer" parent="BunkerItems" unique_id=560938793 instance=ExtResource("14_yaehf")]
-position = Vector2(2692, -293)
+position = Vector2(2733, -295.99997)
 scale = Vector2(1.1, 1.1)
 
 [node name="Bookshelf" parent="BunkerItems" unique_id=661832557 instance=ExtResource("18_d13ii")]

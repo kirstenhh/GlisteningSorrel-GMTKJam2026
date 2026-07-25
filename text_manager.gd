@@ -20,8 +20,8 @@ var text_sets = {
 	#Digit 8
 	"Speaker": ["That's a big speaker, there's an Amp, but where is the CD player?"],
 	"Speaker-first":["I put the record over here.", "The cover says it's the Top $code6 Rock Songs of 2004", "I really wish I could play it."],
-	"Speaker-second":["I've got a great sound setup here!", "A real old-school system...", "Now if only I had something to play on it."],
-	"Speaker-unlocked": ["Hold on, this isn't Rock & Roll, That's Beethoven Symphony No. $code7 !?","Why would someone put this in the sleeve for my rock album?"],
+	"Speaker-second":["I've got a great sound setup here!", "Really old school system", "Now if only I had something to play on it..."],
+	"Speaker-unlocked": ["Hold on, this isn't Rock & Roll, That's Beethoven $code7th Symphony !?","Why would someone put that label on such a disk?"],
 	"Key": ["That's a rather small key, definitely not for a door, maybe a padlock?"],
 	"Drive": ["Hey that's a floppy disk! The label says 'Test Results August'"],
 	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
@@ -44,6 +44,9 @@ func push_item_texts(item_name: String):
 			text_queue.push_back(text)
 	else: 
 		text_queue.push_back(item_name)
+
+func DisplayLine()->void:
+	pass
 
 func reset():
 	text_queue = []
