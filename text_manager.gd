@@ -55,6 +55,7 @@ var text_sets = {
 	"Statue": ["What is that statue doing here? It looks thousands of years old!","At least it's not a giant foot with 4 toes..."],
 	"IpodPond": ["Hey is that an MP3 player across that pond?"],
 	"CutWood": ["Why were all these trees cut off?"],
+	"Fridge" : ["Nothing interesting in that fridge..."],
 	"WaterFall": ["If this was a video-game, you'd bet there would be a hidden cave behind that waterfall"],
 	}
 	
