@@ -52,6 +52,7 @@ func _input(event: InputEvent) -> void:
 					$UI/TextPanel.show_message(text)
 				else:
 					$UI/TextPanel.show_message("RUN.")
+					print("Running...")
 					$Ending/Cinematic.play()
 
 			Game_State.TYPING:
