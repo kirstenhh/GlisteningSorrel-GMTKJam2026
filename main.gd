@@ -165,9 +165,16 @@ func _on_code_entry_submitted(new_text: String) -> void:
 func _on_safe_text_submitted(no1,no2,no3) -> void:
 	var safecode = str(no1)+str(no2)+str(no3)
 	print("Safe text submitted: "+safecode)
+	current_state = Game_State.READING
+	
 	if safecode == $UI/Clock.SafeCode:
-		print("success!")
-	$BunkerItems/Safe.code_success()
+		$UI/TextPanel.show_message("It's opening!")
+		$BunkerItems/Safe.code_success()
+	else:
+		print("Nope")
+		$UI/TextPanel.show_message("That doesn't seem to have worked.")
+		
+		$BunkerItems/Safe.code_failure()
 
 
 func _on_reveal_hidden_room() -> void:

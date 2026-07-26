@@ -45,10 +45,10 @@ func code_success():
 	$Sprite2D.visible = false
 	$Sprite2D_after.visible = true
 	unlocked = true
+	$Interactable/CollisionShape2D.disabled = true
 
 func code_failure():
 	$SafeCodeEntryBox.hide()
-	TextManager.push_item_texts("That doesn't seem to have worked.")
 
 	
 func _on_safe_text_submitted(new_text:String):   
