@@ -29,7 +29,7 @@ func enterCode(code: String):
 	#check each number
 	if len(code)>=4 and len(code)<=10:
 		if code == MachineCode.substr(0, len(code)):
-			wait_time = len(code)*27
+			wait_time = len(code)*16 #will end up with 160 seconds on final number
 			start()
 			return true
 	return false
