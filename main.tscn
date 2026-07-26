@@ -493,6 +493,7 @@ stream = ExtResource("35_0rl1p")
 volume_db = -15.0
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
