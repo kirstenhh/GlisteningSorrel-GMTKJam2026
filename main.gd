@@ -9,17 +9,18 @@ enum Game_State{
 	GAME_OVER
 }
 var current_state = Game_State.NEW_GAME
-var next_state = Game_State.PLAYING #-> updates current_state at the next process tick
+var next_state = Game_State.READING #-> updates current_state at the next process tick
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextManager.reset()
 	$BunkerCamera.make_current() #start inside of bunker, so use this camera
+	$Player.controlling = false #blocks player from moving during intro
 	$UI/Clock/WhiteLight/Flash.play("UnFlash")
 	$UI/Clock/WhiteLight.visible=true
 	$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I? $code0$code1$code2$code3 ")
 	await $UI/Clock/WhiteLight/Flash.animation_finished
 	$UI/Clock/WhiteLight.visible=false
-	$UI/TextPanel.show_message("(press E to Examine/Read text, R to Interact/grab items)")
+	$UI/TextPanel.show_message("(press E to Examine/Read text, press R to Interact/grab items)")
 	TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
 	TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
@@ -60,8 +61,9 @@ func _process(_delta: float) -> void:
 	match current_state:
 		Game_State.NEW_GAME:
 			
-			current_state = Game_State.PLAYING
-			#$UI/TextPanel.hide_panel()
+			#current_state = Game_State.PLAYING
+			#Will shift to READING state when the panel shows up
+			$UI/TextPanel.show()
 		Game_State.PLAYING:
 			$Player.controlling = true
 			if TextManager.text_queue:
