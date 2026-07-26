@@ -13,7 +13,7 @@
 radius = 24.020824
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_634y6"]
-size = Vector2(14, 17)
+size = Vector2(14, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_634y6"]
 atlas = ExtResource("2_sweqy")
@@ -628,13 +628,13 @@ position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465831990]
-position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_634y6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=538409770]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vpaae")
-animation = &"interact-up"
+animation = &"idle-down"
+frame_progress = 0.48148748
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1741964471]
 zoom = Vector2(2, 2)
