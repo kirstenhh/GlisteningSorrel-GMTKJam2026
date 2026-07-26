@@ -14,17 +14,17 @@ var next_state = Game_State.READING #-> updates current_state at the next proces
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextManager.reset()
-	#$BunkerCamera.make_current() #start inside of bunker, so use this camera
-	#$Player.controlling = false #blocks player from moving during intro
-	#$UI/Clock/WhiteLight/Flash.play("UnFlash")
-	#$UI/Clock/WhiteLight.visible=true
-	#$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I? $code0$code1$code2$code3 ")
-	#await $UI/Clock/WhiteLight/Flash.animation_finished
-	#$UI/Clock/WhiteLight.visible=false
-	#$UI/TextPanel.show_message("(press E to Examine/Read text, press R to Interact/grab items)")
-	#TextManager.push_item_texts("(A (?) bubble indicate you can examine something, a (!) bubble indicate you can also interact or grab it)")
-	#TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
-	#TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
+	$BunkerCamera.make_current() #start inside of bunker, so use this camera
+	$Player.controlling = false #blocks player from moving during intro
+	$UI/Clock/WhiteLight/Flash.play("UnFlash")
+	$UI/Clock/WhiteLight.visible=true
+	$UI/TextPanel.show_message("What the hell was that Flash? Wait, where even am I?")
+	await $UI/Clock/WhiteLight/Flash.animation_finished
+	$UI/Clock/WhiteLight.visible=false
+	$UI/TextPanel.show_message("(press E to Examine/Read text, press R to Interact/grab items.)")
+	TextManager.push_item_texts("(A (?) bubble indicates that you can examine something, a (!) bubble indicates that you can interact with or grab it.)")
+	TextManager.push_item_texts("Hold on, I kind of recognize this place. It's a laboratory... but what for?")
+	TextManager.push_item_texts("Hey, that large computer in the corner is beeping kind of ominously...")
 	
 func _input(event: InputEvent) -> void:
 	
@@ -123,8 +123,6 @@ func _on_move_through_door(to_bunker: bool) -> void:
 		$Player.position = $BunkerDoor.global_position
 		$Player/Camera2D.make_current()
 
-func _on_move_through_hidden_door()-> void:
-	print("Moving to camera")
 
 
 func _on_enter_code_requested() -> void:
@@ -155,8 +153,8 @@ func _on_code_entry_submitted(new_text: String) -> void:
 			
 	else:
 		print("Code was incorrect")
-		$UI/TextPanel.show_message("Crap that didn't work...")
-		TextManager.push_item_texts("Hopefully nobody listens to Cybersec and have the code written down somewhere...")
+		$UI/TextPanel.show_message("Crap, that didn't work.")
+		TextManager.push_item_texts("Hopefully nobody here listens to cybersecurity advice, and they've written the code down somewhere...")
 		current_state = Game_State.READING
 		return
 	current_state = Game_State.PLAYING
