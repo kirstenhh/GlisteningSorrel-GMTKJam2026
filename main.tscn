@@ -609,12 +609,13 @@ parameters/looping = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2514.0
-offset_top = -342.0
-offset_right = 2514.0
-offset_bottom = -342.0
+offset_left = 2475.0
+offset_top = -516.00006
+offset_right = 2475.0
+offset_bottom = -516.00006
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.252, 0.252)
 ratio = 1.7778
 
 [node name="Cinematic" type="VideoStreamPlayer" parent="Ending" unique_id=176356175]
