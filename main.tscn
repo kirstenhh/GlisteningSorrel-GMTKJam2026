@@ -246,7 +246,7 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=1083153903]
 z_index = 1003
-position = Vector2(694.99976, 355)
+position = Vector2(648, 118)
 rotation = 0.2932153
 metadata/_edit_group_ = true
 
