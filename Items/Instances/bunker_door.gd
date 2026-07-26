@@ -24,3 +24,8 @@ func move_to_bunker(any=false):
 	#print("move to the outside")
 	#print(to_bunker)
 	#move_through_door.emit(to_bunker)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("entered")
+	move_through_door.emit(to_bunker)

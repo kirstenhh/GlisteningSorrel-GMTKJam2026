@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var interactable: Area2D = $Interactable
+@export var pickable =false
+@export var examinable = false
 @export var to_bunker: bool
 signal reveal_hidden_room
 # Called when the node enters the scene tree for the first time.
