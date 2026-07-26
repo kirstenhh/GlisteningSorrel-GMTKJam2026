@@ -50,6 +50,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#$TimeLeft.set_text(str(int(time_left)))
+	var clock = get_node("../Clock")
+	var label = get_node("../TimerCorner/TimeLeft")
+	var halfway = int(clock.wait_time/2)
+	var quarter = int(clock.wait_time/4)
+	
+	if int(clock.time_left) == halfway or int(clock.time_left) == quarter:
+		label.modulate = Color(1,1,1)
+		#todo small beep
+	elif clock.time_left > halfway:
+		label.modulate = Color(0,0.5,0)
+	elif clock.time_left < halfway and clock.time_left > quarter:
+		label.modulate = Color(0.7,0.5,0)
+	else: #clock.time_left< quarter:
+		label.modulate = Color(0.7,0,0)
+	
+	#print(clock.time_left +"seconds out of "+ clock.wait_time+ " remaining")
 	pass
 
 func _on_timeout() -> void:
