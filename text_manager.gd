@@ -37,7 +37,7 @@ var text_sets = {
 	"Film": ["Awesome, a VHS cassette! That's convenient.","The label says: 'Instructions for Jack'."],
 	"VideoPlayer-unlocked":["It worked!", "There's a woman on the screen.", "'Whoever's watching this, we're in big trouble. Jack, I hope you make it out.", "But if not, the next person has to know what to do.", "You have to enter the code and keep the cycler running.", "The correct code gives you more time between cycles the longer it is,","And the 10-digit code will shut off the cycler tap completely."],
 	
-	"Key": ["That's a rather small key, definitely not for a door, maybe a padlock?"],
+	"Key": ["That's a rather small key, definitely not for a door. Maybe a padlock?"],
 	"FilingCabinet": ["A filing cabinet! Maybe I can see what we were working on!", "...", "Oh, it's locked."],
 	"FilingCabinet-unlocked": ["It's the right key! Awesome!", "Wow, this thing's really empty.", "There's just one sheet for 'ZAFFER':", "WARNING: Proximity to the Zaffer Pearl during tapping is highly dangerous.", "Side effects include: severe memory loss, disorientation, and fabric disintegration.", "Side effects of close contact also include: Death.", "Charming."],
 	

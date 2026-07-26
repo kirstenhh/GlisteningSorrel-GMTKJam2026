@@ -635,6 +635,7 @@ expand = true
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
+[connection signal="safe_text_submitted" from="BunkerItems/Safe" to="." method="_on_safe_text_submitted"]
 [connection signal="body_entered" from="BunkerItems/HiddenDoor" to="BunkerItems/HiddenDoor" method="_on_body_entered"]
 [connection signal="reveal_hidden_room" from="BunkerItems/HiddenDoor" to="." method="_on_reveal_hidden_room"]
 [connection signal="game_won" from="BunkerItems/FinalComputer" to="." method="_on_game_won"]
