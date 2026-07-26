@@ -93,10 +93,10 @@ atlas = ExtResource("29_ok6jj")
 region = Rect2(803.79224, 313.6168, 33.919067, 16.523346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(32, 40)
+size = Vector2(32, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
-size = Vector2(32, 29.75)
+size = Vector2(32, 39.75)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -143,12 +143,13 @@ grow_vertical = 0
 text = "I'm on an island somewhere"
 
 [node name="TimerCorner" type="Panel" parent="UI" unique_id=1365576027]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -77.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.5
+offset_right = 38.5
 offset_bottom = 28.0
-grow_horizontal = 0
+grow_horizontal = 2
 theme = ExtResource("4_ok6jj")
 
 [node name="TimeLeft" type="Label" parent="UI/TimerCorner" unique_id=246613689]
@@ -245,7 +246,7 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=1083153903]
 z_index = 1003
-position = Vector2(694.99976, 355)
+position = Vector2(648, 118)
 rotation = 0.2932153
 metadata/_edit_group_ = true
 
@@ -264,7 +265,7 @@ polygon = PackedVector2Array(-1.734375, -5.7440186, 4.0095215, -7.4781494, 7.188
 
 [node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=1705548022]
 z_index = 1003
-position = Vector2(-263, 309)
+position = Vector2(-168, 306)
 rotation = 0.2932153
 metadata/_edit_group_ = true
 
@@ -573,7 +574,7 @@ position = Vector2(263, 150)
 position = Vector2(460, -80)
 
 [node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
-position = Vector2(81, 142)
+position = Vector2(123, 192)
 scale = Vector2(1.242, 1.242)
 metadata/_edit_group_ = true
 
@@ -624,11 +625,11 @@ script = ExtResource("12_w48qg")
 [node name="Interactable" parent="BunkerStairs" unique_id=941127353 instance=ExtResource("12_ycdy4")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(6, -49)
+position = Vector2(6, -31.5)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-position = Vector2(6, -54.875)
+position = Vector2(6, -49.875)
 shape = SubResource("RectangleShape2D_xuqvo")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
