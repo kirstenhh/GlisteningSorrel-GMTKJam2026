@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_ebt08"]
 [ext_resource type="Texture2D" uid="uid://73chy4jx7aiq" path="res://Graphics/Items/safe-box-closed.png" id="4_bhn3t"]
 [ext_resource type="Texture2D" uid="uid://c47ka7x7hdshy" path="res://Graphics/Items/safe-box-opened.png" id="5_ebt08"]
+[ext_resource type="Theme" uid="uid://6xmfbb60g7fi" path="res://examples/resources/themes/gravity.tres" id="6_ebt08"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
 radius = 16.0
@@ -40,7 +41,6 @@ texture = ExtResource("5_ebt08")
 shape = SubResource("RectangleShape2D_pijmw")
 
 [node name="SafeCodeEntryBox" type="Panel" parent="." unique_id=1686976419]
-visible = false
 z_index = 2000
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,18 +70,21 @@ grow_vertical = 2
 
 [node name="SpinBox1" type="SpinBox" parent="SafeCodeEntryBox/HBoxContainer" unique_id=1016088061]
 layout_mode = 2
+theme = ExtResource("6_ebt08")
 max_value = 99.0
 update_on_text_changed = true
 select_all_on_focus = true
 
 [node name="SpinBox2" type="SpinBox" parent="SafeCodeEntryBox/HBoxContainer" unique_id=312978539]
 layout_mode = 2
+theme = ExtResource("6_ebt08")
 max_value = 99.0
 update_on_text_changed = true
 select_all_on_focus = true
 
 [node name="SpinBox3" type="SpinBox" parent="SafeCodeEntryBox/HBoxContainer" unique_id=1460345977]
 layout_mode = 2
+theme = ExtResource("6_ebt08")
 max_value = 99.0
 update_on_text_changed = true
 select_all_on_focus = true

@@ -123,8 +123,6 @@ func _on_move_through_door(to_bunker: bool) -> void:
 		$Player.position = $BunkerDoor.global_position
 		$Player/Camera2D.make_current()
 
-func _on_move_through_hidden_door()-> void:
-	print("Moving to camera")
 
 
 func _on_enter_code_requested() -> void:
@@ -155,8 +153,8 @@ func _on_code_entry_submitted(new_text: String) -> void:
 			
 	else:
 		print("Code was incorrect")
-		$UI/TextPanel.show_message("Crap that didn't work...")
-		TextManager.push_item_texts("Hopefully nobody listens to Cybersec and have the code written down somewhere...")
+		$UI/TextPanel.show_message("Crap, that didn't work.")
+		TextManager.push_item_texts("Hopefully nobody here listens to cybersecurity advice, and they've written the code down somewhere...")
 		current_state = Game_State.READING
 		return
 	current_state = Game_State.PLAYING
