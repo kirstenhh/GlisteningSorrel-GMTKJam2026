@@ -49,12 +49,15 @@ size = Vector2(9, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6jrf"]
 size = Vector2(18, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_seu75"]
-size = Vector2(6, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1qrp"]
+size = Vector2(15, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_htxhm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1qrp"]
 atlas = ExtResource("16_qsp4k")
-region = Rect2(42.683594, 350.6831, 61.75, 88.9104)
+region = Rect2(40, 351, 65, 85.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_come4"]
+size = Vector2(14, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htxhm"]
 size = Vector2(6, 7)
@@ -334,24 +337,24 @@ texture = ExtResource("14_0odxb")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_a6jrf")
 
-[node name="Deck" type="Area2D" parent="PickupItems" unique_id=70233442]
+[node name="Deck" type="Area2D" parent="PickupItems" unique_id=752972877]
 z_index = 1100
-z_as_relative = false
-position = Vector2(1166, -1480)
-scale = Vector2(1.5, 1.5)
+position = Vector2(1165.8635, -1481.4957)
 metadata/_edit_group_ = true
 
-[node name="Pickable" parent="PickupItems/Deck" unique_id=1093716125 instance=ExtResource("5_4c57u")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck" unique_id=2060630020]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_b1qrp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck/Pickable" unique_id=1161985416]
-shape = SubResource("RectangleShape2D_seu75")
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Deck" unique_id=839149079]
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_b1qrp")
 
-[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Deck" unique_id=297058124]
-scale = Vector2(0.087, 0.087)
-texture = SubResource("AtlasTexture_htxhm")
+[node name="Pickable" parent="PickupItems/Deck" unique_id=1633184556 instance=ExtResource("5_4c57u")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck" unique_id=1571170801]
-shape = SubResource("RectangleShape2D_seu75")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Deck/Pickable" unique_id=1667754353]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_come4")
 
 [node name="MP3Player" type="Area2D" parent="PickupItems" unique_id=50341540]
 z_index = 999
@@ -629,6 +632,7 @@ expand = true
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="body_entered" from="BunkerItems/HiddenDoor" to="BunkerItems/HiddenDoor" method="_on_body_entered"]
 [connection signal="reveal_hidden_room" from="BunkerItems/HiddenDoor" to="." method="_on_reveal_hidden_room"]
