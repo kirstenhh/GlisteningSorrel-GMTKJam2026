@@ -14,7 +14,7 @@ var next_state = Game_State.READING #-> updates current_state at the next proces
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextManager.reset()
-	#Startup "cinematic"
+	# Startup "cinematic"
 	$BunkerCamera.make_current() #start inside of bunker, so use this camera
 	$Player.controlling = false #blocks player from moving during intro
 	$UI/Clock/WhiteLight/Flash.play("UnFlash")
@@ -29,7 +29,6 @@ func _ready() -> void:
 	TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
 func _input(event: InputEvent) -> void:
-	
 	if event.is_action_pressed("interact") or event.is_action_pressed("examine"):
 		match current_state:
 			Game_State.PLAYING:
@@ -48,13 +47,11 @@ func _input(event: InputEvent) -> void:
 					current_state = Game_State.PLAYING
 					$UI/TextPanel.hide_panel()
 			Game_State.GAME_WON:
-				print("win")
 				if TextManager.text_queue:
 					var text = TextManager.text_queue.pop_front()
 					$UI/TextPanel.show_message(text)
 				else:
 					$UI/TextPanel.show_message("RUN.")
-					print("Running...")
 					$Ending/Cinematic.play()
 
 			Game_State.TYPING:
@@ -146,9 +143,9 @@ func _on_code_entry_submitted(new_text: String) -> void:
 	$UI/CodeEntryBox.visible = false
 	var correctCode = $UI/Clock.enterCode(new_text)
 	if correctCode: 
-		print("Correct code entered")
+		print("hi")
+		#$BunkerItems/CountdownComputer.green_flash()
 		if len(new_text)==10:
-			print("Full code has been entered!")
 			$BunkerItems.get_node("HiddenDoor").turn_on()
 			$Map/SecretDoor.enabled = false
 			$UI/Clock.stop_timing()
@@ -179,10 +176,12 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 		$BunkerItems/Safe.code_failure()
 
 func _on_reveal_hidden_room() -> void:
-	print("Revealing the hidden room")
-	$SecretCamera.make_current()
-	#var tween = get_tree().create_tween()
+	var audioStream = $AudioStreamPlayer
+	var tween = create_tween()
+	tween.tween_property(audioStream, "volume_db",-80, 10.0)
+	tween.tween_property(audioStream, "playing", false, 0.0)
 
+	$SecretCamera.make_current()
 
 func _on_game_won() -> void:
 	current_state = Game_State.GAME_WON

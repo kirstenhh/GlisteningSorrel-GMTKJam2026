@@ -15,11 +15,15 @@ func _process(_delta: float) -> void:
 
 func open_door(any):
 	$AnimatedSprite2D.animation = "open"
+	
 	$StaticBody2D/CollisionShape2D.disabled = true
 	$AnimatedSprite2D.play()
 
 func turn_on():
 	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.modulate = Color(1,1,1,0)
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D, "modulate", Color(1,1,1,1), 2.0)
 	$CollisionShape2D.disabled = false
 	$Interactable/CollisionShape2D.disabled = false
 	$StaticBody2D/CollisionShape2D.disabled = false

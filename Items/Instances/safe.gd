@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var interactable: Area2D = $Interactable
 @export var unlocked = false
 
-@onready var code_entry: Container = $SafeCodeEntryBox/HBoxContainer
+@onready var code_entry: Container = $UI/SafeCodeEntryBox/HBoxContainer
 var line_edits = []
 
 
@@ -35,11 +35,12 @@ func examine():
 		TextManager.push_item_texts(name)
 
 func safe_enter_code(any: String):
-	$SafeCodeEntryBox.show()
+	$UI/SafeCodeEntryBox.show()
+	line_edits[0].edit()
 	return false
 
 func code_success():
-	$SafeCodeEntryBox.hide()
+	$UI/SafeCodeEntryBox.hide()
 	print("Safe says: that worked!")
 	TextManager.push_item_texts(name+"-unlocked")
 	$Sprite2D.visible = false
@@ -48,7 +49,7 @@ func code_success():
 	$Interactable/CollisionShape2D.disabled = true
 
 func code_failure():
-	$SafeCodeEntryBox.hide()
+	$UI/SafeCodeEntryBox.hide()
 
 	
 func _on_safe_text_submitted(new_text:String):   

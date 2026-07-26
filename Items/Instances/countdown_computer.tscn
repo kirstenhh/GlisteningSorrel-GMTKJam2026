@@ -26,6 +26,7 @@ script = ExtResource("1_jh3bq")
 metadata/_edit_group_ = true
 
 [node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("2_k31ym")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=772940234]
 shape = SubResource("CircleShape2D_2cqfq")
@@ -34,10 +35,12 @@ shape = SubResource("CircleShape2D_2cqfq")
 texture = SubResource("AtlasTexture_d13ii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939186236]
+visible = false
 position = Vector2(0, 1.4029636)
 shape = SubResource("RectangleShape2D_yaehf")
 
 [node name="Examinable" parent="." unique_id=1093012505 instance=ExtResource("4_la160")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=12196254]
 shape = SubResource("CapsuleShape2D_rrppv")

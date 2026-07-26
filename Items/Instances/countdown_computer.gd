@@ -19,3 +19,5 @@ func code_entry_dialog(any=false):
 	#var clock = get_node("/root/Main/UI/Clock")
 	#var code = clock.MachineCode
 	#clock.enterCode(code)
+
+	
