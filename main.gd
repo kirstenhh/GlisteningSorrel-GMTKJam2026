@@ -14,18 +14,19 @@ var next_state = Game_State.READING #-> updates current_state at the next proces
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TextManager.reset()
-	#$BunkerCamera.make_current() #start inside of bunker, so use this camera
-	#$Player.controlling = false #blocks player from moving during intro
-	#$UI/Clock/WhiteLight/Flash.play("UnFlash")
-	#$UI/Clock/WhiteLight.visible=true
-	#$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I?")
-	#await $UI/Clock/WhiteLight/Flash.animation_finished
-	#$UI/Clock/WhiteLight.visible=false
-	#$UI/TextPanel.show_message("(press E to examine, press R to interact or pick up items)")
-	#TextManager.push_item_texts("(A (?) bubble indicates that you can examine something, ")
-	#TextManager.push_item_texts("a (!) bubble indicates that you can also interact with or grab it)")
-	#TextManager.push_item_texts("Hold on... I kind of recognize this place. It's a laboratory... but what for?")
-	#TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
+	#Startup "cinematic"
+	$BunkerCamera.make_current() #start inside of bunker, so use this camera
+	$Player.controlling = false #blocks player from moving during intro
+	$UI/Clock/WhiteLight/Flash.play("UnFlash")
+	$UI/Clock/WhiteLight.visible=true
+	$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I?")
+	await $UI/Clock/WhiteLight/Flash.animation_finished
+	$UI/Clock/WhiteLight.visible=false
+	$UI/TextPanel.show_message("(press E to examine, press R to interact or pick up items)")
+	TextManager.push_item_texts("(A (?) bubble indicates that you can examine something, ")
+	TextManager.push_item_texts("a (!) bubble indicates that you can also interact with or grab it)")
+	TextManager.push_item_texts("Hold on... I kind of recognize this place. It's a laboratory... but what for?")
+	TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
 func _input(event: InputEvent) -> void:
 	
