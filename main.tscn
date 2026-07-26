@@ -97,7 +97,7 @@ region = Rect2(803.79224, 313.6168, 33.919067, 16.523346)
 size = Vector2(32, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
-size = Vector2(32, 11.75)
+size = Vector2(32, 29.75)
 
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
@@ -246,7 +246,7 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=1083153903]
 z_index = 1003
-position = Vector2(2619, -228.99994)
+position = Vector2(694.99976, 355)
 rotation = 0.2932153
 metadata/_edit_group_ = true
 
@@ -323,7 +323,7 @@ shape = SubResource("RectangleShape2D_a6jrf")
 [node name="Deck" type="Area2D" parent="PickupItems" unique_id=70233442]
 z_index = 1100
 z_as_relative = false
-position = Vector2(1166, -1575)
+position = Vector2(1166, -1480)
 scale = Vector2(1.5, 1.5)
 metadata/_edit_group_ = true
 
@@ -446,7 +446,7 @@ scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CapsuleShape2D_facbu")
 
 [node name="WaterFall" type="Node2D" parent="MiscExamines" unique_id=308334736]
-position = Vector2(-2226, -1355)
+position = Vector2(-2256, -1351)
 metadata/_edit_group_ = true
 
 [node name="Examinable" parent="MiscExamines/WaterFall" unique_id=1007464785 instance=ExtResource("9_4c57u")]
@@ -573,7 +573,7 @@ position = Vector2(6, -20)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-position = Vector2(6, -63.875)
+position = Vector2(6, -54.875)
 shape = SubResource("RectangleShape2D_xuqvo")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
