@@ -41,6 +41,7 @@ texture = ExtResource("5_ebt08")
 shape = SubResource("RectangleShape2D_pijmw")
 
 [node name="SafeCodeEntryBox" type="Panel" parent="." unique_id=1686976419]
+visible = false
 z_index = 2000
 anchors_preset = 8
 anchor_left = 0.5
