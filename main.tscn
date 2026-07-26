@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dwmy7ddhjf44g" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cvscrqxlmu5ql" path="res://text_panel.gd" id="4_5vw27"]
 [ext_resource type="Theme" uid="uid://c2rwjauxmsgrp" path="res://examples/resources/themes/expedition.tres" id="4_efxa6"]
+[ext_resource type="Theme" uid="uid://6xmfbb60g7fi" path="res://examples/resources/themes/gravity.tres" id="4_ok6jj"]
 [ext_resource type="PackedScene" uid="uid://b42kpinsh6qol" path="res://Items/pickable.tscn" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_vivmo"]
 [ext_resource type="Script" uid="uid://d3ad7qmcrpbx3" path="res://code_entry_box.gd" id="7_074og"]
@@ -140,13 +141,14 @@ anchor_right = 1.0
 offset_left = -77.0
 offset_bottom = 28.0
 grow_horizontal = 0
-theme = ExtResource("4_efxa6")
+theme = ExtResource("4_ok6jj")
 
 [node name="TimeLeft" type="Label" parent="UI/TimerCorner" unique_id=246613689]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 19.0
+offset_right = 77.0
+offset_bottom = 27.0
 theme = ExtResource("4_efxa6")
+theme_override_colors/font_color = Color(0.15184814, 0.6874128, 0.19358367, 1)
 theme_override_font_sizes/font_size = 22
 text = "108"
 horizontal_alignment = 1
