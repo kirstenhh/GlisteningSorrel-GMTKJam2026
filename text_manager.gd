@@ -4,6 +4,7 @@ var text_queue = []
 # Called when the node enters the scene tree for the first time.
 
 var text_sets = {
+	"CountdownComputer":["That computer shows a countdown timer...","and what looks like an input prompt'>....'"],
 	"Bookshelf": ["There's a strange book here! It's missing a page...","The previous page has some text, though.", "It says, 'Turn the safe dial clockwise, counterclockwise", "and clockwise to the following values: ...","Then the torn page. The rest of the book is empty."],
 	#Digits 1-4
 	"Calendar": ["A wall calendar for September 2004.", "Oh! There's a torn Post-it here: ","The starting code is $code0 $code1 $code2 $code3 ...", "and then the end is torn off."],
