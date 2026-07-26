@@ -22,6 +22,7 @@ func _ready() -> void:
 	#await $UI/Clock/WhiteLight/Flash.animation_finished
 	#$UI/Clock/WhiteLight.visible=false
 	#$UI/TextPanel.show_message("(press E to Examine/Read text, press R to Interact/grab items)")
+	#TextManager.push_item_texts("(A (?) bubble indicate you can examine something, a (!) bubble indicate you can also interact or grab it)")
 	#TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
 	#TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
