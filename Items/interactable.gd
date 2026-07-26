@@ -1,9 +1,6 @@
 extends Area2D
 
 @export var item_name = "blank"
-@export var examinable = false
-@export var pickable = false
-@export var interactable = true
 # Interaction item: general category
 # can take an argument -> can be used to interact with objects
 # Or can be used for single interactions, e.g. bunker door and countdown computer

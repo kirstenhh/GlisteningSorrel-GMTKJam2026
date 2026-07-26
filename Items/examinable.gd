@@ -3,9 +3,6 @@ extends Area2D
 @export var item_name = "blank"
 
 #TODO something marginally more elegant
-@export var examinable = true
-@export var pickable = false
-@export var interactable = false
 # Examine item: just pops up text
 # Used for revealing codes and clues, etc.
 var examine: Callable = func():

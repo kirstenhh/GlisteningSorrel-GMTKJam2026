@@ -88,6 +88,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="interaction"
+2d_physics/layer_3="doors"
 
 [maaacks_game_template]
 

@@ -22,9 +22,11 @@ https://opengameart.org/content/lpc-but-not-really-bean-bag-and-really-old-tv
 https://opengameart.org/content/wooden-house-with-animated-door-pixel-art
 https://opengameart.org/content/speech-bubbles-with-alert-and-question-signs
 
-
-
 Music & sounds:
 https://opengameart.org/content/the-ascent
 https://opengameart.org/content/weird-rocket-launch-sound
 https://opengameart.org/content/mandatory-overtime
+
+Ending cinematic: 
+https://www.pexels.com/video/serene-aerial-view-of-pristine-island-beach-38649072/
+https://opengameart.org/content/helicopter-sfx
