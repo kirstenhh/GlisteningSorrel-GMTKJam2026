@@ -58,7 +58,8 @@ func _input(event: InputEvent) -> void:
 				pass # In case the user tries to type text
 			Game_State.GAME_OVER:
 				print("GAME OVER. ")
-		
+	elif event.is_action_pressed("pause"):
+		print("Pausing")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
