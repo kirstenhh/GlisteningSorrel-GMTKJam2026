@@ -104,7 +104,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2674.316, -204.57518)
+position = Vector2(2692, -218)
 speed = 100
 metadata/_edit_group_ = true
 
