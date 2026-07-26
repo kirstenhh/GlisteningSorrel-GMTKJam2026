@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dtcp83ic7dj4w" path="res://Graphics/Character/oldman_attack_sheet.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://8cmrn0ykq7wy" path="res://Graphics/Character/16x32 Interact-Sheet.png" id="4_b26j0"]
 [ext_resource type="Texture2D" uid="uid://bvaq7ptokma07" path="res://Graphics/Character/16x32 Walk-Sheet.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://bt1fgcltkau5r" path="res://Graphics/Character/question.png" id="9_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://ogk3mbx2y0c1" path="res://Graphics/Character/surprise.png" id="10_nvl01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpaae"]
 radius = 24.020824
@@ -612,6 +614,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgtwv"]
+atlas = ExtResource("9_n7ghd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc14p"]
+atlas = ExtResource("10_nvl01")
+region = Rect2(64, 0, 16, 16)
+
 [node name="Player" type="CharacterBody2D" unique_id=381903264]
 script = ExtResource("1_hqtel")
 
@@ -638,6 +648,16 @@ frame_progress = 0.48148748
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1741964471]
 zoom = Vector2(2, 2)
+
+[node name="ExamineSprite" type="Sprite2D" parent="." unique_id=774755185]
+position = Vector2(12, -20)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_lgtwv")
+
+[node name="InteractSprite" type="Sprite2D" parent="." unique_id=669915661]
+position = Vector2(12, -20)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_cc14p")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]

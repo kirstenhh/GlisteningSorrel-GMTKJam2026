@@ -11,6 +11,10 @@ var available_examinations = []
 var available_pickups = []
 var available_interactions = []
 var prev_direction = Vector2(-1,0) # For controlling the Idle animation
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$ExamineSprite.visible = false
+	$InteractSprite.visible = false
 
 func _input(event: InputEvent) -> void:
 	if controlling and event.is_action_pressed("interact"):
@@ -80,10 +84,16 @@ func handle_animation(action: String, direction: Vector2):
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
 	if area.examinable:
+		
+		$ExamineSprite.visible = true
 		available_examinations.push_back(area)
 	if area.pickable:
+		$ExamineSprite.visible = false
+		$InteractSprite.visible = true
 		available_pickups.push_back(area)
 	if area.interactable:
+		$ExamineSprite.visible = false
+		$InteractSprite.visible = true
 		available_interactions.push_back(area)
 	# TODO combinable
 
@@ -95,6 +105,8 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 		available_pickups.erase(area)
 	if area.interactable:
 		available_interactions.erase(area)
+	$ExamineSprite.visible = false
+	$InteractSprite.visible = false
 
 
 func nearest(a1, a2):
