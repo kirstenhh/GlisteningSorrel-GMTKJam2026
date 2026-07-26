@@ -35,7 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bef7gbxw0epqt" path="res://Items/Instances/HiddenDoor.tscn" id="28_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://de3ao5d8xmj0n" path="res://Graphics/Atlas/base_out_atlas.png" id="29_ok6jj"]
+[ext_resource type="PackedScene" uid="uid://bbffr4kdvmmn4" path="res://Items/Instances/FinalComputer.tscn" id="31_facbu"]
 [ext_resource type="AudioStream" uid="uid://bf708qcx70rkp" path="res://Sounds/Mandatory Overtime.mp3" id="35_0rl1p"]
+[ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="38_b1qrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
@@ -60,12 +62,6 @@ size = Vector2(6, 7)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq2sk"]
 atlas = ExtResource("17_kq58d")
 region = Rect2(99.138794, 119.77595, 21.067062, 24.224052)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jq2sk"]
-size = Vector2(6, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k2k6"]
-size = Vector2(6, 6)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82xsv"]
 radius = 10.692871
@@ -105,7 +101,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2853, -211)
+position = Vector2(2646, -242)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -263,9 +259,27 @@ texture = ExtResource("15_xuqvo")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/PostIt" unique_id=50078950]
 polygon = PackedVector2Array(-1.734375, -5.7440186, 4.0095215, -7.4781494, 7.188965, 3.0523682, 2.402588, 4.4974365)
 
+[node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=1705548022]
+z_index = 1003
+position = Vector2(-263, 309)
+rotation = 0.2932153
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/JournalPage" unique_id=1261120593 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/JournalPage/Pickable" unique_id=1555433260]
+polygon = PackedVector2Array(-8.056107, -5.9243927, 2.474411, -9.103737, 7.188965, 3.0523682, -4.009659, 7.478073)
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/JournalPage" unique_id=1647049920]
+rotation = -0.29321527
+texture = ExtResource("13_074og")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/JournalPage" unique_id=2129214272]
+polygon = PackedVector2Array(-8.056107, -5.9243927, 3.1427002, -10.35009, 8.435501, 3.7206726, -4.677948, 8.724426)
+
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
-position = Vector2(561, -1140)
+position = Vector2(604, -1089)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
@@ -358,24 +372,6 @@ texture = SubResource("AtlasTexture_jq2sk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/MP3Player" unique_id=714109037]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_htxhm")
-
-[node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=857816856]
-z_index = 999
-position = Vector2(-262, 306)
-scale = Vector2(2, 2)
-metadata/_edit_group_ = true
-
-[node name="Pickable" parent="PickupItems/JournalPage" unique_id=807303915 instance=ExtResource("5_4c57u")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/JournalPage/Pickable" unique_id=163814150]
-shape = SubResource("RectangleShape2D_jq2sk")
-
-[node name="Sprite2D" type="Sprite2D" parent="PickupItems/JournalPage" unique_id=1668157269]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("13_074og")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/JournalPage" unique_id=972495392]
-shape = SubResource("RectangleShape2D_4k2k6")
 
 [node name="MiscExamines" type="Node2D" parent="." unique_id=675754514]
 position = Vector2(2499, -327)
@@ -539,6 +535,10 @@ z_index = -1
 position = Vector2(1, -19)
 texture = SubResource("AtlasTexture_facbu")
 
+[node name="FinalComputer" parent="BunkerItems" unique_id=766613258 instance=ExtResource("31_facbu")]
+z_index = 1100
+position = Vector2(-52, -247)
+
 [node name="BunkerDoor" type="Area2D" parent="." unique_id=817404009]
 z_index = 900
 position = Vector2(227, 156)
@@ -602,17 +602,37 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
+[node name="Ending" type="AspectRatioContainer" parent="." unique_id=1290554887]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2514.0
+offset_top = -342.0
+offset_right = 2514.0
+offset_bottom = -342.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="Cinematic" type="VideoStreamPlayer" parent="Ending" unique_id=176356175]
+z_index = 3000
+layout_mode = 2
+stream = ExtResource("38_b1qrp")
+expand = true
+
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/PostIt/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/JournalPage/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="body_entered" from="BunkerItems/HiddenDoor" to="BunkerItems/HiddenDoor" method="_on_body_entered"]
 [connection signal="reveal_hidden_room" from="BunkerItems/HiddenDoor" to="." method="_on_reveal_hidden_room"]
+[connection signal="game_won" from="BunkerItems/FinalComputer" to="." method="_on_game_won"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="body_entered" from="BunkerStairs" to="BunkerStairs" method="_on_body_entered"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
