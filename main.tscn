@@ -104,7 +104,7 @@ script = ExtResource("1_ig7tw")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2679, -211)
+position = Vector2(2676, -215)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -687,6 +687,7 @@ expand = true
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/MP3Player/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="safe_text_submitted" from="BunkerItems/Safe" to="." method="_on_safe_text_submitted"]
 [connection signal="body_entered" from="BunkerItems/HiddenDoor" to="BunkerItems/HiddenDoor" method="_on_body_entered"]
