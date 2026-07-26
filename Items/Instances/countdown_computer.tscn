@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://gy4ygfrwtb4q" path="res://Items/Instances/countdown_computer.gd" id="1_jh3bq"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_k31ym"]
 [ext_resource type="Texture2D" uid="uid://c1ggybemrpx2t" path="res://Graphics/Items/lab.png" id="3_o1wu7"]
+[ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="4_la160"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
 radius = 22.437576
@@ -13,6 +14,10 @@ region = Rect2(224, 128, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
 size = Vector2(26, 27.194073)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrppv"]
+radius = 21.0
+height = 68.0
 
 [node name="CountdownComputer" type="StaticBody2D" unique_id=560938793]
 z_index = 1001
@@ -31,3 +36,8 @@ texture = SubResource("AtlasTexture_d13ii")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1939186236]
 position = Vector2(0, 1.4029636)
 shape = SubResource("RectangleShape2D_yaehf")
+
+[node name="Examinable" parent="." unique_id=1093012505 instance=ExtResource("4_la160")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=12196254]
+shape = SubResource("CapsuleShape2D_rrppv")
