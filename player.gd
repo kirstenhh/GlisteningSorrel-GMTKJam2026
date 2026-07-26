@@ -88,15 +88,15 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		available_examinations.push_back(area)
 	if area.name == "Pickable":
 		available_examinations.push_back(area)
-		$ExamineSprite.visible = false
+		$ExamineSprite.visible = true
 		$InteractSprite.visible = true
 		available_pickups.push_back(area)
 	if area.name == "Interactable":
-		$ExamineSprite.visible = false
 		$InteractSprite.visible = true
 		available_interactions.push_back(area)
 	if area.name == "BunkerStairs":
 		print("entering Door")
+		
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:

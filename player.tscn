@@ -656,9 +656,10 @@ scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_lgtwv")
 
 [node name="InteractSprite" type="Sprite2D" parent="." unique_id=669915661]
-position = Vector2(12, -20)
+position = Vector2(-12, -20)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_cc14p")
+flip_h = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
