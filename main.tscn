@@ -47,12 +47,6 @@ size = Vector2(9, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6jrf"]
 size = Vector2(18, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp4k"]
-size = Vector2(7, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq58d"]
-size = Vector2(5, 10)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seu75"]
 size = Vector2(6, 8)
 
@@ -250,6 +244,25 @@ metadata/_edit_lock_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
 polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
+[node name="PostIt" type="Area2D" parent="PickupItems" unique_id=1083153903]
+z_index = 1003
+position = Vector2(2619, -228.99994)
+rotation = 0.2932153
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/PostIt" unique_id=1648569063 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/PostIt/Pickable" unique_id=407302700]
+polygon = PackedVector2Array(-1.4453125, -4.786621, 3.052246, -7.189087, 7.188965, 3.0523682, 2.4023438, 4.4975586)
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=645511199]
+rotation = -0.29321527
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("15_xuqvo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/PostIt" unique_id=50078950]
+polygon = PackedVector2Array(-1.734375, -5.7440186, 4.0095215, -7.4781494, 7.188965, 3.0523682, 2.402588, 4.4974365)
+
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
 position = Vector2(561, -1140)
@@ -306,26 +319,6 @@ texture = ExtResource("14_0odxb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/VinylPlayer/Pickable" unique_id=735499638]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_a6jrf")
-
-[node name="PostIt" type="Area2D" parent="PickupItems" unique_id=184713537]
-z_index = 1400
-z_as_relative = false
-position = Vector2(2787, 64)
-metadata/_edit_group_ = true
-
-[node name="Pickable" parent="PickupItems/PostIt" unique_id=1778024735 instance=ExtResource("5_4c57u")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt/Pickable" unique_id=353488691]
-position = Vector2(2.5, -0.5)
-shape = SubResource("RectangleShape2D_qsp4k")
-
-[node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=645511199]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("15_xuqvo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/PostIt" unique_id=799605513]
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_kq58d")
 
 [node name="Deck" type="Area2D" parent="PickupItems" unique_id=70233442]
 z_index = 1100
@@ -613,6 +606,7 @@ parameters/looping = true
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
 [connection signal="picked_up" from="PickupItems/Photo/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/PostIt/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]

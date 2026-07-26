@@ -36,17 +36,20 @@ func examine():
 
 func safe_enter_code(any: String):
 	$SafeCodeEntryBox.show()
-	
-	#TextManager.text_queue.push_back("Wow, I can combine these!")
 	return false
 
 func code_success():
-	print("Safe says: that worked!")
 	$SafeCodeEntryBox.hide()
+	print("Safe says: that worked!")
 	TextManager.push_item_texts(name+"-unlocked")
 	$Sprite2D.visible = false
 	$Sprite2D_after.visible = true
 	unlocked = true
+
+func code_failure():
+	$SafeCodeEntryBox.hide()
+	TextManager.push_item_texts("That doesn't seem to have worked.")
+
 	
 func _on_safe_text_submitted(new_text:String):   
 	safe_text_submitted.emit(line_edits[0].text,line_edits[1].text,line_edits[2].text)

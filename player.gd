@@ -82,6 +82,7 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 	if area.name == "Examinable":
 		available_examinations.push_back(area)
 	if area.name == "Pickable":
+		available_examinations.push_back(area)
 		available_pickups.push_back(area)
 	if area.name == "Interactable":
 		available_interactions.push_back(area)
@@ -93,6 +94,7 @@ func _on_interact_area_area_exited(area: Area2D) -> void:
 	if  area.name == "Examinable":
 		available_examinations.erase(area)
 	if area.name == "Pickable":
+		available_examinations.erase(area)
 		available_pickups.erase(area)
 	if area.name == "Interactable":
 		available_interactions.erase(area)
