@@ -81,6 +81,17 @@ height = 34.78897
 radius = 13.365723
 height = 47.4395
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok6jj"]
+radius = 101.59239
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_facbu"]
+radius = 54.35428
+height = 108.70856
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1qrp"]
+radius = 86.97241
+height = 230.87222
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
 
@@ -299,7 +310,7 @@ shape = SubResource("RectangleShape2D_a6jrf")
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=184713537]
 z_index = 1400
 z_as_relative = false
-position = Vector2(2785, 83)
+position = Vector2(2787, 64)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=1778024735 instance=ExtResource("5_4c57u")]
@@ -319,7 +330,7 @@ shape = SubResource("RectangleShape2D_kq58d")
 [node name="Deck" type="Area2D" parent="PickupItems" unique_id=70233442]
 z_index = 1100
 z_as_relative = false
-position = Vector2(1037, -1510)
+position = Vector2(1166, -1575)
 scale = Vector2(1.5, 1.5)
 metadata/_edit_group_ = true
 
@@ -357,7 +368,7 @@ shape = SubResource("RectangleShape2D_htxhm")
 
 [node name="JournalPage" type="Area2D" parent="PickupItems" unique_id=857816856]
 z_index = 999
-position = Vector2(-271, 313)
+position = Vector2(-262, 306)
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
@@ -414,6 +425,59 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/Shelf/Examinable" unique_id=723745982]
 scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CapsuleShape2D_ok6jj")
+
+[node name="CutWood" type="Node2D" parent="MiscExamines" unique_id=1758297549]
+position = Vector2(-1266, -1194)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/CutWood" unique_id=1256619135 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/CutWood/Examinable" unique_id=1141841878]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CircleShape2D_ok6jj")
+
+[node name="IpodPond" type="Node2D" parent="MiscExamines" unique_id=2005432234]
+position = Vector2(-2228, -1184)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/IpodPond" unique_id=1657170028 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/IpodPond/Examinable" unique_id=442568129]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_facbu")
+
+[node name="WaterFall" type="Node2D" parent="MiscExamines" unique_id=308334736]
+position = Vector2(-2226, -1355)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/WaterFall" unique_id=1007464785 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/WaterFall/Examinable" unique_id=1579198229]
+rotation = 1.5707964
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_b1qrp")
+
+[node name="Statue" type="Node2D" parent="MiscExamines" unique_id=882980851]
+position = Vector2(-1655, 829)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/Statue" unique_id=1091786954 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/Statue/Examinable" unique_id=710124598]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_facbu")
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 position = Vector2(2676, -208)
