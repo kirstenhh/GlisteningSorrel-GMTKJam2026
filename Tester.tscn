@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="5_8nctw"]
 [ext_resource type="PackedScene" uid="uid://c22agsn8ju2y" path="res://white_light.tscn" id="6_hpn03"]
 [ext_resource type="Script" uid="uid://d3ad7qmcrpbx3" path="res://code_entry_box.gd" id="7_8pavy"]
+[ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="8_5llda"]
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="8_a2oqo"]
 [ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_dyxuo"]
 [ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="10_h5g8q"]
@@ -34,6 +35,10 @@
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="23_27ykt"]
 [ext_resource type="PackedScene" uid="uid://cn4pseeackm84" path="res://Items/Instances/VideoPlayer.tscn" id="24_3f0ui"]
 [ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="34_yocob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfpot"]
+atlas = ExtResource("8_5llda")
+region = Rect2(260, 2, 12, 14)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpaae"]
 font_size = 26
@@ -158,6 +163,25 @@ autostart = true
 [node name="WhiteLight" parent="UI/Clock" unique_id=2066108550 instance=ExtResource("6_hpn03")]
 visible = false
 
+[node name="Photo" type="Area2D" parent="UI/Clock" unique_id=1696666641]
+z_index = 1003
+position = Vector2(2619, -283)
+rotation = 0.2932153
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="UI/Clock/Photo" unique_id=2007570362 instance=ExtResource("10_kfea7")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/Clock/Photo/Pickable" unique_id=603252029]
+polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Clock/Photo" unique_id=438169393]
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_qfpot")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/Clock/Photo" unique_id=1275731163]
+polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
+
 [node name="CodeEntryBox" type="Panel" parent="UI" unique_id=450718812]
 visible = false
 anchors_preset = 8
@@ -226,7 +250,7 @@ label_settings = SubResource("LabelSettings_vpaae")
 z_index = 999
 position = Vector2(592, 205)
 
-[node name="Pickable" parent="PickupItems/Vinyl" unique_id=2007570362 instance=ExtResource("10_kfea7")]
+[node name="Pickable" parent="PickupItems/Vinyl" unique_id=260426977 instance=ExtResource("10_kfea7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl/Pickable" unique_id=2074346785]
 shape = SubResource("RectangleShape2D_pijmw")

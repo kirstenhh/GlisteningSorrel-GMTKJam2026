@@ -150,6 +150,8 @@ func _on_code_entry_submitted(new_text: String) -> void:
 			print("Full code has been entered!")
 			$BunkerItems.get_node("HiddenDoor").turn_on()
 			$Map/SecretDoor.enabled = false
+			$UI/Clock.stop_timing()
+			
 	else:
 		print("Code was incorrect")
 		$UI/TextPanel.show_message("Crap that didn't work...")
@@ -173,9 +175,7 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 	else:
 		print("Nope")
 		$UI/TextPanel.show_message("That doesn't seem to have worked.")
-		
 		$BunkerItems/Safe.code_failure()
-
 
 func _on_reveal_hidden_room() -> void:
 	print("Revealing the hidden room")
