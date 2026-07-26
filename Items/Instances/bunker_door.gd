@@ -26,6 +26,7 @@ func move_to_bunker(any=false):
 	#move_through_door.emit(to_bunker)
 
 
-func _on_area_entered(area: Area2D) -> void:
-	print("entered")
-	move_through_door.emit(to_bunker)
+func _on_body_entered(body: Node2D) -> void:
+	if body.get_class() == "CharacterBody2D":
+		move_through_door.emit(to_bunker)
+	

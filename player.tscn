@@ -613,6 +613,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=381903264]
+collision_layer = 5
 script = ExtResource("1_hqtel")
 
 [node name="CarryItem" type="Node2D" parent="." unique_id=668863539]

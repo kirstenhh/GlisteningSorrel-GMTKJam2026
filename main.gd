@@ -6,7 +6,8 @@ enum Game_State{
 	PLAYING, #Player has control and is moving about
 	READING, #Text box is on screen
 	TYPING, #Interact with UI elements (entering code)
-	GAME_OVER
+	GAME_OVER,
+	GAME_WON
 }
 var current_state = Game_State.NEW_GAME
 var next_state = Game_State.PLAYING #-> updates current_state at the next process tick
@@ -14,14 +15,14 @@ var next_state = Game_State.PLAYING #-> updates current_state at the next proces
 func _ready() -> void:
 	TextManager.reset()
 	$BunkerCamera.make_current() #start inside of bunker, so use this camera
-	$UI/Clock/WhiteLight/Flash.play("UnFlash")
-	$UI/Clock/WhiteLight.visible=true
-	$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I? $code0$code1$code2$code3 ")
-	await $UI/Clock/WhiteLight/Flash.animation_finished
-	$UI/Clock/WhiteLight.visible=false
-	$UI/TextPanel.show_message("(press E to Examine/Read text, R to Interact/grab items)")
-	TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
-	TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
+	#$UI/Clock/WhiteLight/Flash.play("UnFlash")
+	#$UI/Clock/WhiteLight.visible=true
+	#$UI/TextPanel.show_message("What the hell was that Flash? Wait where am I? $code0$code1$code2$code3 ")
+	#await $UI/Clock/WhiteLight/Flash.animation_finished
+	#$UI/Clock/WhiteLight.visible=false
+	#$UI/TextPanel.show_message("(press E to Examine/Read text, R to Interact/grab items)")
+	#TextManager.push_item_texts("Hold-on, I kind of recognize this place, it's a laboratory... but what for?")
+	#TextManager.push_item_texts("Hey that large computer in the corner is beeping...")
 	
 func _input(event: InputEvent) -> void:
 	
@@ -36,15 +37,21 @@ func _input(event: InputEvent) -> void:
 					var text = TextManager.text_queue.pop_front()
 					$UI/TextPanel.show_message(text)
 			Game_State.READING:
-				print("reading: ")
-				
 				if TextManager.text_queue:
 					var text = TextManager.text_queue.pop_front()
-					print(text)
 					$UI/TextPanel.show_message(text)
 				else:
 					current_state = Game_State.PLAYING
 					$UI/TextPanel.hide_panel()
+			Game_State.GAME_WON:
+				print("win")
+				if TextManager.text_queue:
+					var text = TextManager.text_queue.pop_front()
+					$UI/TextPanel.show_message(text)
+				else:
+					$UI/TextPanel.show_message("RUN.")
+					$Ending/Cinematic.play()
+
 			Game_State.TYPING:
 				pass # In case the user tries to type text
 			Game_State.GAME_OVER:
@@ -55,11 +62,10 @@ func _input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Start and end the text tree
-	if not current_state==Game_State.READING and TextManager.text_queue: # start a text interaction
+	if current_state==Game_State.PLAYING and TextManager.text_queue: # start a text interaction
 		current_state=Game_State.READING
 	match current_state:
 		Game_State.NEW_GAME:
-			
 			current_state = Game_State.PLAYING
 			#$UI/TextPanel.hide_panel()
 		Game_State.PLAYING:
@@ -74,6 +80,8 @@ func _process(_delta: float) -> void:
 		Game_State.TYPING:
 			$Player.controlling = false
 			$UI/CodeEntryBox.show_panel()
+		Game_State.GAME_WON:
+			$Player.controlling = false
 		Game_State.GAME_OVER:
 			print("GAME OVER. ")
 	if next_state: 
@@ -89,18 +97,11 @@ func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 	print("Picking up " + my_name)
 	if carried:
 		var carried_item = $Player/CarryItem.get_child(0)
-		# Check interactions: if includes item's station, interact. 
 		carried_item.reparent($PickupItems)
 		carried_item.position.x+=10
 		carried_item.position.y+=10
 		
-		#$Player/CarryItem.remove_child(carried_item)
 		$Player.carrying = false
-		
-		# TODO
-		# Check if there is an interactable in area
-		# check if it's MY interactable
-		# If yes, trigger interactable.
 
 	else:	
 		var pickup_item = get_node("PickupItems/"+my_name)
@@ -110,13 +111,16 @@ func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 
 
 func _on_move_through_door(to_bunker: bool) -> void:
-	if to_bunker: 
+	if to_bunker and current_state == Game_State.PLAYING: 
 		$Player.global_position = $BunkerStairs.global_position # move character to bunker
 		$BunkerCamera.make_current()
-	else:
+	elif current_state == Game_State.PLAYING:
 		# move character to just outside door
 		$Player.position = $BunkerDoor.global_position
 		$Player/Camera2D.make_current()
+
+func _on_move_through_hidden_door()-> void:
+	print("Moving to camera")
 
 
 func _on_enter_code_requested() -> void:
@@ -162,7 +166,16 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 		print("success!")
 	$BunkerItems/Safe.code_success()
 
-func _on_hidden_room_reached():
+
+func _on_reveal_hidden_room() -> void:
 	print("Revealing the hidden room")
-	
-	
+	$SecretCamera.make_current()
+	#var tween = get_tree().create_tween()
+
+
+func _on_game_won() -> void:
+	current_state = Game_State.GAME_WON
+
+
+func _on_cinematic_finished() -> void:
+	pass

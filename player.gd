@@ -79,22 +79,25 @@ func handle_animation(action: String, direction: Vector2):
 		$AnimatedSprite2D.animation = action+"-down"
 
 func _on_interact_area_area_entered(area: Area2D) -> void:
-	if area.examinable:
+	if area.name == "Examinable":
 		available_examinations.push_back(area)
-	if area.pickable:
+	if area.name == "Pickable":
 		available_pickups.push_back(area)
-	if area.interactable:
+	if area.name == "Interactable":
 		available_interactions.push_back(area)
-	# TODO combinable
+	if area.name == "BunkerStairs":
+		print("entering Door")
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:
-	if area.examinable:
+	if  area.name == "Examinable":
 		available_examinations.erase(area)
-	if area.pickable:
+	if area.name == "Pickable":
 		available_pickups.erase(area)
-	if area.interactable:
+	if area.name == "Interactable":
 		available_interactions.erase(area)
+	if area.name == "BunkerStairs":
+		print("leaving Door")
 
 
 func nearest(a1, a2):

@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cl3bgl8xyni4" path="res://Graphics/Items/Deck of cards ( full cards ).png" id="14_bvv68"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="14_qfpot"]
 [ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="16_hpn03"]
+[ext_resource type="PackedScene" uid="uid://bbffr4kdvmmn4" path="res://Items/Instances/FinalComputer.tscn" id="18_3f0ui"]
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="18_8pavy"]
 [ext_resource type="PackedScene" uid="uid://bxaudy3mb6a8d" path="res://Items/Instances/FilingCabinet.tscn" id="18_smfxn"]
 [ext_resource type="PackedScene" uid="uid://6edkatwcu0iy" path="res://Items/Instances/Centrifuge.tscn" id="19_a2oqo"]
@@ -32,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="22_85cdj"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="23_27ykt"]
 [ext_resource type="PackedScene" uid="uid://cn4pseeackm84" path="res://Items/Instances/VideoPlayer.tscn" id="24_3f0ui"]
+[ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="34_yocob"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpaae"]
 font_size = 26
@@ -84,7 +86,7 @@ atlas = ExtResource("19_kfea7")
 region = Rect2(803.79224, 313.6168, 33.919067, 16.523346)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
-size = Vector2(50.5, 74)
+size = Vector2(50.5, 15)
 
 [node name="Tester" type="Node" unique_id=1576945948]
 script = ExtResource("1_2eit8")
@@ -92,7 +94,7 @@ script = ExtResource("1_2eit8")
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_brsvb")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2859, -231)
+position = Vector2(2864, -234)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -365,6 +367,9 @@ shape = SubResource("RectangleShape2D_77s7r")
 
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 
+[node name="FinalComputer" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_3f0ui")]
+position = Vector2(2753, -224)
+
 [node name="HiddenDoor" parent="BunkerItems" unique_id=1467128344 instance=ExtResource("2_dyxuo")]
 z_index = 1001
 position = Vector2(2575, -300)
@@ -380,7 +385,7 @@ position = Vector2(293, 86)
 [node name="Centrifuge" parent="BunkerItems" unique_id=2014265351 instance=ExtResource("19_a2oqo")]
 position = Vector2(429, 82)
 
-[node name="FilingCabinet" parent="BunkerItems" unique_id=570615803 instance=ExtResource("18_smfxn")]
+[node name="FilingCabinet" parent="BunkerItems" unique_id=1311413054 instance=ExtResource("18_smfxn")]
 position = Vector2(357, 76)
 
 [node name="Cabin" parent="BunkerItems" unique_id=94451146 instance=ExtResource("18_8pavy")]
@@ -433,11 +438,11 @@ script = ExtResource("21_tlyev")
 position = Vector2(220, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs/Interactable" unique_id=468398194]
-position = Vector2(3, -1)
+position = Vector2(3, -34)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerStairs" unique_id=1341317560]
-position = Vector2(219, -19)
+position = Vector2(220, -53)
 shape = SubResource("RectangleShape2D_vpaae")
 
 [node name="BunkerCamera" type="Camera2D" parent="." unique_id=969609349]
@@ -445,6 +450,24 @@ z_index = 3000
 position = Vector2(2514, -342)
 anchor_mode = 0
 zoom = Vector2(1.45, 1.45)
+
+[node name="Ending" type="AspectRatioContainer" parent="." unique_id=577019936]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2514.0
+offset_top = -342.0
+offset_right = 2514.0
+offset_bottom = -342.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="Cinematic" type="VideoStreamPlayer" parent="Ending" unique_id=1197792895]
+z_index = 3000
+layout_mode = 2
+stream = ExtResource("34_yocob")
+expand = true
 
 [node name="Map" parent="." unique_id=1269290182 instance=ExtResource("23_27ykt")]
 metadata/_edit_lock_ = true
@@ -460,7 +483,9 @@ metadata/_edit_lock_ = true
 [connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/MP3Player/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="game_won" from="BunkerItems/FinalComputer" to="." method="_on_game_won"]
 [connection signal="safe_text_submitted" from="BunkerItems/Safe" to="." method="_on_safe_text_submitted"]
 [connection signal="enter_code_requested" from="BunkerItems/CountdownComputer" to="." method="_on_enter_code_requested"]
 [connection signal="move_through_door" from="BunkerDoor" to="." method="_on_move_through_door"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
+[connection signal="finished" from="Ending/Cinematic" to="." method="_on_cinematic_finished"]

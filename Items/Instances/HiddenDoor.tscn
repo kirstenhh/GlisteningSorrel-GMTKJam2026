@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bef7gbxw0epqt"]
 
 [ext_resource type="Script" uid="uid://cg1nbcwole6au" path="res://Items/Instances/hidden_door.gd" id="1_bqcfa"]
-[ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="3_ey7bk"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="3_imf0e"]
 [ext_resource type="Texture2D" uid="uid://3i48kxflkj1n" path="res://Graphics/Items/Ship Airlock-animated.png" id="4_imf0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyxuo"]
 size = Vector2(37, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey7bk"]
+size = Vector2(37, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpaae"]
 size = Vector2(37, 26)
@@ -172,6 +174,7 @@ animations = [{
 }]
 
 [node name="HiddenDoor" type="Area2D" unique_id=1467128344]
+collision_mask = 5
 script = ExtResource("1_bqcfa")
 
 [node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("3_imf0e")]
@@ -179,16 +182,9 @@ script = ExtResource("1_bqcfa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1281638608]
 shape = SubResource("RectangleShape2D_dyxuo")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687789038]
-visible = false
-position = Vector2(-1.1920929e-07, -2.3841858e-07)
-rotation = 1.5707964
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_ey7bk")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656686164]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_dyxuo")
+position = Vector2(0.5, -16)
+shape = SubResource("RectangleShape2D_ey7bk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=295326424]
 

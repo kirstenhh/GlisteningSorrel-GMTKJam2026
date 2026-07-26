@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c5cpcg65ja57j" path="res://Graphics/Items/ibm5150.png" id="4_p32w6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
-radius = 48.0
-height = 96.0
+radius = 18.0
+height = 46.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
-size = Vector2(66, 34.5)
+size = Vector2(24, 24)
 
 [node name="FinalComputer" type="StaticBody2D" unique_id=570615803]
 z_index = 999
@@ -29,9 +29,8 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_ugtri")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1520269502]
-scale = Vector2(2, 2)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_p32w6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1958392301]
-position = Vector2(0, 8.25)
 shape = SubResource("RectangleShape2D_pijmw")
