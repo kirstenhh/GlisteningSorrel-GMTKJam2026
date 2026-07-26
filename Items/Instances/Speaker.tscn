@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cc104sl46ihd2" path="res://Graphics/Items/speaker-vinyl.png" id="5_mje1s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugtri"]
-radius = 8.0
-height = 24.0
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pijmw"]
 size = Vector2(12, 18)

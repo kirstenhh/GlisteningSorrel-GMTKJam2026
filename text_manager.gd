@@ -50,7 +50,13 @@ var text_sets = {
 	"Cabin" : ["A wooden cabin !?", "I have a fuzzy memory of Oscar making a lot of trips outside. Is that what he was doing?","Dumbass forgot to add a door... how was he the Chief Engineer again?", "Oh good, I remember my teammates. Useful information on a desert island."], 
 	"GameWon": ["If you're reading this, you turned off the invisibility generator.", "You should not have done that.", "They'll be coming for you.","They sent Ben to try and sabotage us, so they could get access.","Now they can find you.", "Run, and don't look back."],
 	# Misc Texts
-	"BenLocker": ["The label on this locker says 'Benjamin ' and a blacked-out last name."],
+	
+	#Lockers
+	"FirstLocker": ["The label on this locker says 'Bernard' and a blacked-out last name.", "It's locked."],
+	"SecondLocker": ["The label on this locker says 'Charlotte' and a blacked-out last name.", "It's empty."],
+	"YourLocker": ["The label on this locker is completely blacked out", "Oh, but there's a scribbly little note in here.", "It says: POSTIT-ALBUM-CARDS-SONG-MP3-SAFE.", "Maybe it's a grocery list?"],
+	"FourthLocker": ["The label on this locker says 'Benjamin ' and a blacked-out last name."],
+	"BenLocker": ["The label on this locker says 'Oscar' and a blacked-out last name."],
 	"Shelf": ["Hmmm. 'Valis', 'After All These Years', 'Our Mutual Friend'...","quite the book collection! Doesn't seem to have any Stephen King, though..."],
 	"Statue": ["What is that statue doing here? It looks thousands of years old!","At least it's not a giant foot with 4 toes..."],
 	"IpodPond": ["Hey is that an MP3 player across the river?"],
