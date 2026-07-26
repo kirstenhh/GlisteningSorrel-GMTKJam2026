@@ -47,7 +47,10 @@ var text_sets = {
 	"PersonalComputer-unlocked":["This drive seems to be full of records of tests", "Mostly power measurements.","TODO this needs to be another clue!"],
 	
 	"Cabin" : ["A wooden cabin !? hold on... I seem to remember Oscar was making a lot of trips outside. Is that what he was doing?","Dumbass forgot about the door... how was he the Chief Engineer?"], 
-	"GameWon": ["If you're reading this, you turned off the invisibility generator.", "You should not have done that.", "They'll be coming for you.","They sent Ben to try and sabotage us, so they could get access.","Now they can find you.", "Run, and don't look back."]
+	"GameWon": ["If you're reading this, you turned off the invisibility generator.", "You should not have done that.", "They'll be coming for you.","They sent Ben to try and sabotage us, so they could get access.","Now they can find you.", "Run, and don't look back."],
+	# Misc Texts
+	"BenLocker": ["The label on this locker says 'Benjamin'"],
+	"Shelf": ["Hmmm, 'Valis', 'After All These Years', 'Our Mutual Friend', ","quite the book collection! Doesn't seem to have any Stephen King..."]
 }
 func _ready() -> void:
 	pass # Replace with function body.

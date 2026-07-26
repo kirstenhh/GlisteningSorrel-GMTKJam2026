@@ -77,6 +77,10 @@ size = Vector2(6, 6)
 radius = 10.692871
 height = 34.78897
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ok6jj"]
+radius = 13.365723
+height = 47.4395
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
 
@@ -369,6 +373,48 @@ texture = ExtResource("13_074og")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/JournalPage" unique_id=972495392]
 shape = SubResource("RectangleShape2D_4k2k6")
 
+[node name="MiscExamines" type="Node2D" parent="." unique_id=675754514]
+position = Vector2(2499, -327)
+
+[node name="BenLocker" type="Node2D" parent="MiscExamines" unique_id=1508630768]
+position = Vector2(446, 35)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/BenLocker" unique_id=532054259 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(0, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/BenLocker/Examinable" unique_id=1462549802]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_82xsv")
+
+[node name="Fridge" type="Node2D" parent="MiscExamines" unique_id=2003524835]
+position = Vector2(571, 51)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/Fridge" unique_id=475617507 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/Fridge/Examinable" unique_id=1914552799]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_82xsv")
+
+[node name="Shelf" type="Node2D" parent="MiscExamines" unique_id=1378347357]
+position = Vector2(122, 190)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="MiscExamines/Shelf" unique_id=1671862050 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(2, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiscExamines/Shelf/Examinable" unique_id=723745982]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_ok6jj")
+
 [node name="BunkerItems" type="Node2D" parent="." unique_id=840622567]
 position = Vector2(2676, -208)
 
@@ -378,9 +424,12 @@ position = Vector2(108, 140)
 [node name="Calendar" type="Area2D" parent="BunkerItems" unique_id=1162991957]
 z_index = 1001
 z_as_relative = false
-position = Vector2(310, -94)
+position = Vector2(309, -92)
+metadata/_edit_group_ = true
 
 [node name="Examinable" parent="BunkerItems/Calendar" unique_id=1918948692 instance=ExtResource("9_4c57u")]
+position = Vector2(-1, 1)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar/Examinable" unique_id=1444202143]
 visible = false
