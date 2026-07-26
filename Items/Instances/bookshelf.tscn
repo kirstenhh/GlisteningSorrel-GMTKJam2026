@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bp3s44iubjpnl"]
 
-[ext_resource type="Script" uid="uid://dmo66cjyh7o3h" path="res://Items/Instances/bookshelf.gd" id="1_7ue8p"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_c1t0j"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="3_dmqdl"]
 [ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="4_j4f8o"]
@@ -22,7 +21,6 @@ size = Vector2(13.896491, 21.771168)
 
 [node name="Bookshelf" type="StaticBody2D" unique_id=661832557]
 z_index = 100
-script = ExtResource("1_7ue8p")
 metadata/_edit_group_ = true
 
 [node name="Interactable" parent="." unique_id=532054259 instance=ExtResource("2_c1t0j")]
