@@ -17,7 +17,7 @@ var text_sets = {
 	#Digit 8
 	"Speaker": ["That's a big speaker, it's even got an amp.","but there's nothing to actually play music with."],
 	"VinylPlayer": ["Ah a Vinyl Player! I bet I can connect it to the speaker."],
-	"Speaker-first":["I put the record over here.", "The cover says it's the Top $code6 Rock Songs of 2004", "I really wish I could play it."],
+	"Speaker-first":["I put the record over here.", "The cover says it's the Top $code5 Rock Songs of 2004", "I really wish I could play it."],
 	"Speaker-second":["I've got a great sound setup here!", "A real old-school system...", "Now if only I had something to play on it."],
 	"Speaker-unlocked": ["Hold on, this isn't Rock & Roll, That's Beethoven Symphony No. $code7 !?","Why would someone put this in the sleeve for my rock album??"],
 	#Digit 9
