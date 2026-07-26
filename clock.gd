@@ -69,3 +69,7 @@ func _on_timeout() -> void:
 	
 	#both should set new codes
 	
+func stop_timing():
+	get_node("../TimerCorner").visible = false
+	stop()
+	
