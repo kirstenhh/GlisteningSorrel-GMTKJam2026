@@ -144,7 +144,7 @@ func _on_code_entry_submitted(new_text: String) -> void:
 	$UI/CodeEntryBox.visible = false
 	var correctCode = $UI/Clock.enterCode(new_text)
 	if correctCode: 
-		print("hi")
+		$ValidSound.play()
 		#$BunkerItems/CountdownComputer.green_flash()
 		if len(new_text)==10:
 			$BunkerItems.get_node("HiddenDoor").turn_on()
@@ -153,6 +153,7 @@ func _on_code_entry_submitted(new_text: String) -> void:
 			
 	else:
 		print("Code was incorrect")
+		$WrongSound.play()
 		$UI/TextPanel.show_message("Crap, that didn't work.")
 		TextManager.push_item_texts("Hopefully nobody here listens to cybersecurity advice, and they've written the code down somewhere...")
 		current_state = Game_State.READING

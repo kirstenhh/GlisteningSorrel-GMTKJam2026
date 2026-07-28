@@ -38,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://bbffr4kdvmmn4" path="res://Items/Instances/FinalComputer.tscn" id="31_facbu"]
 [ext_resource type="AudioStream" uid="uid://bf708qcx70rkp" path="res://Sounds/Mandatory Overtime.mp3" id="35_0rl1p"]
 [ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="38_b1qrp"]
+[ext_resource type="AudioStream" uid="uid://hywygd024bt8" path="res://Sounds/Valid.mp3" id="39_h8e4i"]
+[ext_resource type="AudioStream" uid="uid://b7omxdqju6wvq" path="res://Sounds/Error.mp3" id="40_4lmeg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
 atlas = ExtResource("11_ryguw")
@@ -677,6 +679,12 @@ z_index = 3000
 layout_mode = 2
 stream = ExtResource("38_b1qrp")
 expand = true
+
+[node name="ValidSound" type="AudioStreamPlayer" parent="." unique_id=699448075]
+stream = ExtResource("39_h8e4i")
+
+[node name="WrongSound" type="AudioStreamPlayer" parent="." unique_id=707318151]
+stream = ExtResource("40_4lmeg")
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
