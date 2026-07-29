@@ -12,18 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_getpj"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
-[ext_resource type="Texture2D" uid="uid://dtai50xbx7hfp" path="res://Graphics/Items/Messy_Furniture_32x32_Shadow.png" id="11_ryguw"]
-[ext_resource type="Texture2D" uid="uid://epwqaqyykwi3" path="res://Graphics/Items/key-grey.png" id="12_d13ii"]
 [ext_resource type="Texture2D" uid="uid://dtmbienfmbl22" path="res://Graphics/Ship Airlock.png" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://cenph67g31r2s" path="res://Graphics/Pickups/Photo.png" id="12_h8e4i"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://dm5f8piyxn0n2" path="res://Graphics/Items/Record.png" id="13_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://b52kjukpk8yvu" path="res://Graphics/Pickups/PostIt-right.png" id="13_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://dioccaxddm2pt" path="res://Graphics/Items/Wall-Note.png" id="13_074og"]
-[ext_resource type="Texture2D" uid="uid://cpqeayp0xxfh6" path="res://Graphics/Items/Turntable.png" id="14_0odxb"]
+[ext_resource type="Texture2D" uid="uid://borgdbtpsnvia" path="res://Graphics/Pickups/JournalPage.png" id="14_4lmeg"]
 [ext_resource type="PackedScene" uid="uid://cld3o7thej7mi" path="res://Items/Instances/countdown_computer.tscn" id="14_yaehf"]
-[ext_resource type="Texture2D" uid="uid://by7tb5g5guvfv" path="res://Graphics/Items/post-it-green-torn-right.png" id="15_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://biss21l61xk5x" path="res://Graphics/Pickups/Key.png" id="15_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://b74chucbui5kc" path="res://Graphics/Pickups/Vinyl.png" id="16_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://cl3bgl8xyni4" path="res://Graphics/Items/Deck of cards ( full cards ).png" id="16_qsp4k"]
-[ext_resource type="Texture2D" uid="uid://781wvgwp723g" path="res://Graphics/Items/post-it-green-torn-left.png" id="17_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://blanapvp5teab" path="res://Graphics/Pickups/VinylPlayer.png" id="17_d2t1y"]
 [ext_resource type="Texture2D" uid="uid://dompwuu401c25" path="res://Graphics/Items/pixel_icons_by_oceansdream.png" id="17_kq58d"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://16ijmre4q2qk" path="res://Items/Instances/Safe.tscn" id="19_htxhm"]
 [ext_resource type="PackedScene" uid="uid://cn4pseeackm84" path="res://Items/Instances/VideoPlayer.tscn" id="20_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://cxbl6o8o7qx0f" path="res://Items/Instances/Speaker.tscn" id="21_0odxb"]
+[ext_resource type="Texture2D" uid="uid://g82qk2g8qyix" path="res://Graphics/Pickups/PostIt-left.png" id="22_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://heaq8oqyjei4" path="res://Items/Instances/cabin.tscn" id="23_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bef7gbxw0epqt" path="res://Items/Instances/HiddenDoor.tscn" id="28_0rl1p"]
 [ext_resource type="Texture2D" uid="uid://de3ao5d8xmj0n" path="res://Graphics/Atlas/base_out_atlas.png" id="29_ok6jj"]
@@ -40,10 +41,6 @@
 [ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="38_b1qrp"]
 [ext_resource type="AudioStream" uid="uid://hywygd024bt8" path="res://Sounds/Valid.mp3" id="39_h8e4i"]
 [ext_resource type="AudioStream" uid="uid://b7omxdqju6wvq" path="res://Sounds/Error.mp3" id="40_4lmeg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
-atlas = ExtResource("11_ryguw")
-region = Rect2(260, 2, 12, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
 size = Vector2(9, 11)
@@ -228,8 +225,7 @@ position = Vector2(195, -14)
 
 [node name="Photo" type="Area2D" parent="PickupItems" unique_id=911791467]
 z_index = 1003
-position = Vector2(2821.9998, -287.00006)
-rotation = 0.2932153
+position = Vector2(2817, -287)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Photo" unique_id=2007570362 instance=ExtResource("5_4c57u")]
@@ -238,8 +234,8 @@ metadata/_edit_group_ = true
 polygon = PackedVector2Array(-6, -6, 7, -6, 7, 6, -6, 6)
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Photo" unique_id=1421000627]
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_d13ii")
+scale = Vector2(0.191, 0.191)
+texture = ExtResource("12_h8e4i")
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Photo" unique_id=635833049]
@@ -249,7 +245,6 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 z_index = 1003
 position = Vector2(648, 118)
 rotation = 0.2932153
-metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=1648569063 instance=ExtResource("5_4c57u")]
 
@@ -257,9 +252,10 @@ metadata/_edit_group_ = true
 polygon = PackedVector2Array(-1.4453125, -4.786621, 3.052246, -7.189087, 7.188965, 3.0523682, 2.4023438, 4.4975586)
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/PostIt" unique_id=645511199]
+position = Vector2(-0.73950195, -0.006164551)
 rotation = -0.29321527
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("15_xuqvo")
+scale = Vector2(0.17812413, 0.19248898)
+texture = ExtResource("13_4lmeg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/PostIt" unique_id=50078950]
 polygon = PackedVector2Array(-1.734375, -5.7440186, 4.0095215, -7.4781494, 7.188965, 3.0523682, 2.402588, 4.4974365)
@@ -277,7 +273,8 @@ polygon = PackedVector2Array(-8.056107, -5.9243927, 2.474411, -9.103737, 7.18896
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/JournalPage" unique_id=1647049920]
 rotation = -0.29321527
-texture = ExtResource("13_074og")
+scale = Vector2(0.207, 0.207)
+texture = ExtResource("14_4lmeg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/JournalPage" unique_id=2129214272]
 polygon = PackedVector2Array(-8.056107, -5.9243927, 3.1427002, -10.35009, 8.435501, 3.7206726, -4.677948, 8.724426)
@@ -294,8 +291,10 @@ position = Vector2(4, 7)
 polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Key" unique_id=1991149103]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_d13ii")
+rotation = -2.3492131
+scale = Vector2(0.258, 0.258)
+texture = ExtResource("15_4lmeg")
+flip_v = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Key" unique_id=447262044]
@@ -315,8 +314,8 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_lswn8")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/Vinyl" unique_id=1292383291]
-scale = Vector2(0.262, 0.262)
-texture = ExtResource("13_1u8w0")
+scale = Vector2(0.148, 0.148)
+texture = ExtResource("16_0cp0l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupItems/Vinyl" unique_id=634890182]
 shape = SubResource("RectangleShape2D_lswn8")
@@ -330,8 +329,8 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_a6jrf")
 
 [node name="Sprite2D" type="Sprite2D" parent="PickupItems/VinylPlayer" unique_id=359294740]
-scale = Vector2(0.298, 0.298)
-texture = ExtResource("14_0odxb")
+scale = Vector2(0.201, 0.201)
+texture = ExtResource("17_d2t1y")
 
 [node name="Pickable" parent="PickupItems/VinylPlayer" unique_id=100978763 instance=ExtResource("5_4c57u")]
 
@@ -553,8 +552,8 @@ texture = ExtResource("13_074og")
 [node name="Sprite2D_postit" type="Sprite2D" parent="BunkerItems/Calendar" unique_id=1798767554]
 z_index = 1
 position = Vector2(-8, 2)
-scale = Vector2(0.235, 0.235)
-texture = ExtResource("17_a6jrf")
+scale = Vector2(0.053, 0.053)
+texture = ExtResource("22_h8e4i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BunkerItems/Calendar" unique_id=41171291]
 visible = false
