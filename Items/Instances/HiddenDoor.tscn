@@ -173,6 +173,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpaae"]
+
 [node name="HiddenDoor" type="Area2D" unique_id=1467128344]
 collision_mask = 5
 script = ExtResource("1_bqcfa")
@@ -196,3 +198,6 @@ shape = SubResource("RectangleShape2D_vpaae")
 rotation = 1.5707964
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_vpaae")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1553619816]
+texture = SubResource("AtlasTexture_vpaae")

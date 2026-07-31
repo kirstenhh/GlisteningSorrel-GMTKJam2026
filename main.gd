@@ -13,6 +13,10 @@ var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#start_intro()
+	pass
+	
+func start_intro():
 	TextManager.reset()
 	# Startup "cinematic"
 	$BunkerCamera.make_current() #start inside of bunker, so use this camera
@@ -145,10 +149,13 @@ func _on_code_entry_submitted(new_text: String) -> void:
 	var correctCode = $UI/Clock.enterCode(new_text)
 	if correctCode: 
 		$ValidSound.play()
-		#$BunkerItems/CountdownComputer.green_flash()
+		$BunkerItems/CountdownComputer.green_flash()
 		if len(new_text)==10:
 			$BunkerItems.get_node("HiddenDoor").turn_on()
-			$Map/SecretDoor.enabled = false
+			$Map/SecretDoor.collision_enabled = false
+			var tween = create_tween()
+			tween.tween_property($Map/SecretDoor, "modulate", Color(1,1,1,0), 2.0)
+			tween.tween_callback($Map/SecretDoor.hide)
 			$UI/Clock.stop_timing()
 			
 	else:

@@ -19,5 +19,14 @@ func code_entry_dialog(any=false):
 	#var clock = get_node("/root/Main/UI/Clock")
 	#var code = clock.MachineCode
 	#clock.enterCode(code)
+func green_flash():
+	$Flash.visible = true
+	$Flash.modulate = Color(1,1,1,0)
+	var tween = get_tree().create_tween()
+	tween.tween_property($Flash, "modulate", Color(1,1,1,1), 0.2)
+	tween.tween_property($Flash, "modulate", Color(1,1,1,0), 0.2)
+	tween.tween_property($Flash, "modulate", Color(1,1,1,1), 0.2)
+	tween.tween_property($Flash, "modulate", Color(1,1,1,0), 0.9)
+	tween.tween_callback($Flash.hide)	
 
 	

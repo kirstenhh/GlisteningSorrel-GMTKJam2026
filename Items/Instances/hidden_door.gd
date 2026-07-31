@@ -15,9 +15,9 @@ func _process(_delta: float) -> void:
 
 func open_door(any):
 	$AnimatedSprite2D.animation = "open"
-	
 	$StaticBody2D/CollisionShape2D.disabled = true
 	$AnimatedSprite2D.play()
+	
 
 func turn_on():
 	$AnimatedSprite2D.visible = true

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="2_k31ym"]
 [ext_resource type="Texture2D" uid="uid://c1ggybemrpx2t" path="res://Graphics/Items/lab.png" id="3_o1wu7"]
 [ext_resource type="PackedScene" uid="uid://d3dbnvub6mf5h" path="res://Items/examinable.tscn" id="4_la160"]
+[ext_resource type="Texture2D" uid="uid://rdbhfb0nb7qu" path="res://Graphics/Items/screen-flash.png" id="5_rrppv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cqfq"]
 radius = 22.437576
@@ -44,3 +45,7 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Examinable" unique_id=12196254]
 shape = SubResource("CapsuleShape2D_rrppv")
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=85549360]
+visible = false
+texture = ExtResource("5_rrppv")
