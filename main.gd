@@ -7,7 +7,8 @@ enum Game_State{
 	READING, #Text box is on screen
 	TYPING, #Interact with UI elements (entering code)
 	GAME_OVER,
-	GAME_WON
+	GAME_WON,
+	CREDITS
 }
 var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
@@ -53,11 +54,18 @@ func _input(event: InputEvent) -> void:
 				else:
 					$UI/TextPanel.show_message("RUN.")
 					$Ending/Cinematic.play()
+					
 
 			Game_State.TYPING:
 				pass # In case the user tries to type text
 			Game_State.GAME_OVER:
 				print("GAME OVER. ")
+			Game_State.CREDITS:
+				print("Showing credits")
+				$AudioStreamPlayer.play() #background music
+				if event.is_action_pressed("pause") or event.is_action_pressed("ui_cancel"):
+					get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+					
 	elif event.is_action_pressed("pause"):
 		print("Pausing")
 
@@ -190,4 +198,7 @@ func _on_game_won() -> void:
 
 
 func _on_cinematic_finished() -> void:
-	pass
+	#Sends to Credits after finishing ending cinematic
+	current_state = Game_State.CREDITS
+	get_tree().change_scene_to_file("res://examples/scenes/credits/scrolling_credits.tscn") 
+	
