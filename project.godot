@@ -27,6 +27,7 @@ general/default_playback_type.web=0
 AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
 TextManager="*uid://d3qvsk17re04p"
+Globals="*uid://c6quv4ryutpqt"
 
 [display]
 
