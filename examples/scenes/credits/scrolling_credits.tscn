@@ -20,7 +20,7 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource("2_lvk23")
-scroll_vertical = 50
+scroll_vertical = 1559
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -139,3 +139,4 @@ layout_mode = 2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=591630987]
 stream = ExtResource("4_lvk23")
 autoplay = true
+parameters/looping = true

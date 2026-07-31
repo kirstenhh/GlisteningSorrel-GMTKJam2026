@@ -41,7 +41,6 @@
 [ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="38_b1qrp"]
 [ext_resource type="AudioStream" uid="uid://hywygd024bt8" path="res://Sounds/Valid.mp3" id="39_h8e4i"]
 [ext_resource type="AudioStream" uid="uid://b7omxdqju6wvq" path="res://Sounds/Error.mp3" id="40_4lmeg"]
-[ext_resource type="PackedScene" uid="uid://e7qn25tv1jxk" path="res://examples/scenes/credits/scrolling_credits.tscn" id="42_0cp0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
 size = Vector2(9, 11)
@@ -685,8 +684,6 @@ stream = ExtResource("39_h8e4i")
 
 [node name="WrongSound" type="AudioStreamPlayer" parent="." unique_id=707318151]
 stream = ExtResource("40_4lmeg")
-
-[node name="ScrollingCredits" parent="." unique_id=1162279489 instance=ExtResource("42_0cp0l")]
 
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
