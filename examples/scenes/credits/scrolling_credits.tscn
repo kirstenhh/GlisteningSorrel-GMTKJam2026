@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bwly3l83f7f0k" path="res://examples/scenes/credits/scrolling_credits.gd" id="1_bqqau"]
 [ext_resource type="PackedScene" uid="uid://ka4t6l58fgia" path="res://examples/scenes/credits/credits_label.tscn" id="2_8r0o7"]
+[ext_resource type="Theme" uid="uid://6xmfbb60g7fi" path="res://examples/resources/themes/gravity.tres" id="2_lvk23"]
+[ext_resource type="AudioStream" uid="uid://bf708qcx70rkp" path="res://Sounds/Mandatory Overtime.mp3" id="4_lvk23"]
 
 [node name="ScrollingCredits" type="Control" unique_id=1162279489]
 layout_mode = 3
@@ -17,6 +19,8 @@ unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource("2_lvk23")
+scroll_vertical = 50
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
@@ -26,14 +30,112 @@ size_flags_horizontal = 3
 
 [node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1552560353]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 648)
 layout_mode = 2
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=1486745388 instance=ExtResource("2_8r0o7")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1152, 0)
 layout_mode = 2
+text = "[font_size=48]Game Design By:[/font_size]
+
+Yorick Droz 
+Kirsten Hauck
+
+
+[font_size=48]Sources[/font_size]
+[font_size=32]Art[/font_size]
+[font_size=24][url=https://opengameart.org/content/lpc-tile-atlas]LPC Tile Atlas designers[/url][/font_size]
+Casper Nilsson
+Daniel Eddeland 
+Johann CHARLOT 
+Lanea Zimmerman 
+
+
+christian perich
+pixel-life-office-essentials: [url=https://christianperich.itch.io/pixel-life-office-essentials]itch.io[/url]
+
+kabukidanshi
+mystery-pack: [url=https://kabukidanshi.itch.io/pixel-art-32x32-detective-mystery-pack]itch.io[/url]
+
+erisesra
+[url=https://erisesra.itch.io/character-templates-pack]character-templates-pack[/url]
+futuristic-door: [url=https://opengameart.org/content/futuristic-door]OpenGameArt.org[/url]
+obsolete-computers: [url=https://opengameart.org/content/obsolete-computers]OpenGameArt.org[/url]
+pixel-art-laboratory-props: [url=https://opengameart.org/content/pixel-art-laboratory-props]OpenGameArt.org[/url]
+pixel-art-laboffice-tiles: [url=https://opengameart.org/content/pixel-art-laboffice-tiles]OpenGameArt.org[/url]
+0-mem0ry
+midcentury-modern-furniture-set-free: [url=https://0-mem0ry.itch.io/midcentury-modern-furniture-set-free]itch.io[/url]
+wooden-house-with-animated-door-pixel-art: [url=https://opengameart.org/content/wooden-house-with-animated-door-pixel-art]OpenGameArt.org[/url]
+speaker: [url=https://opengameart.org/content/speaker]OpenGameArt.org[/url]
+turntables: [url=https://opengameart.org/content/turntables-animated]OpenGameArt.org[/url]
+various-inventory-24-pixel-icon-set: [url=https://opengameart.org/content/various-inventory-24-pixel-icon-set]OpenGameArt.org[/url]
+ivoryred
+poker-cards: [url=https://ivoryred.itch.io/pixel-poker-cards]itch.io[/url]
+retro-items: [url=https://opengameart.org/content/retro-items]OpenGameArt.org[/url]
+really-old-tv: [url=https://opengameart.org/content/lpc-but-not-really-bean-bag-and-really-old-tv]OpenGameArt.org[/url]
+wooden-house: [url=https://opengameart.org/content/wooden-house-with-animated-door-pixel-art]OpenGameArt.org[/url]
+speech-bubbles: [url=https://opengameart.org/content/speech-bubbles-with-alert-and-question-signs]OpenGameArt.org[/url]
+
+[font_size=32]Font Family[/font_size]
+NerdFonts
+Font: CaskaydiaCove
+
+[font_size=32]Music[/font_size]
+[font_size=24]Background Music[/font_size]
+Artist: Josh
+Song: Mandatory Overtime
+[url=https://opengameart.org/content/mandatory-overtime]opengameart.org[/url]
+
+[font_size=24]SFX[/font_size]
+Artist: qzlocx
+Song: Weird Rocket Launch Sound
+[url=https://opengameart.org/content/weird-rocket-launch-sound]opengameart.org[/url]
+
+
+https://opengameart.org/content/gui-sound-effects-6
+
+Artist: WuxiaScrub
+Song: Helicopter SFX
+[url=https://opengameart.org/content/helicopter-sfx]opengameart.org[/url]
+
+
+[font_size=32]Ending cinematic: [/font_size]
+Florian Delée
+[url=https://www.pexels.com/video/serene-aerial-view-of-pristine-island-beach-38649072/]pexels.com[/url]
+
+
+
+[font_size=24]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///examples/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Godot Game Template[/font_size]
+[img=80]res:///examples/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///examples/assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+"
 
 [node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1703782196]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 648)
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=591630987]
+stream = ExtResource("4_lvk23")
+autoplay = true

@@ -28,6 +28,7 @@ func _on_resized() -> void:
 func _end_reached() -> void:
 	scroll_paused = true
 	end_reached.emit()
+	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
 
 func is_end_reached() -> bool:
 	var _end_of_credits_vertical = credits_label.size.y + header_space.size.y
