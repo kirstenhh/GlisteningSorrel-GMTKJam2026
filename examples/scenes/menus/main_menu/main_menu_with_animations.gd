@@ -79,3 +79,8 @@ func _on_level_select_button_pressed() -> void:
 func _on_new_game_confirmation_confirmed() -> void:
 	GameState.reset()
 	load_game_scene()
+
+
+func _on_difficulty_button_item_selected(index: int) -> void:
+	Globals.GameDifficulty = $MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/DifficultyButton.get_selected_id()
+	print("Difficulty is now ",Globals.GameDifficulty)

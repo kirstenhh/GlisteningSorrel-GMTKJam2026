@@ -14,11 +14,12 @@ var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#start_intro()
+	start_intro()
 	pass
 	
 func start_intro():
 	TextManager.reset()
+	
 	# Startup "cinematic"
 	$BunkerCamera.make_current() #start inside of bunker, so use this camera
 	$Player.controlling = false #blocks player from moving during intro

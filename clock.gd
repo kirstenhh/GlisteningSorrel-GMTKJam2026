@@ -1,7 +1,11 @@
 extends Timer
 
+
 var MachineCode = ResetCodes()
 var SafeCode = ResetSafeCode()
+## Game difficulty is set by this variable, a lower value is harder, 16 seems fair
+@export var Dificulty = 16
+
 signal GameOver
 func ResetCodes() -> String:
 	var val = ""
@@ -25,11 +29,12 @@ func GetCodeNumber(pos: int) -> String:
 	return MachineCode[pos]
 
 func enterCode(code: String):
+	var TimeMult = Globals.GameDifficulty #Medium difficulty, max 160 seconds
 	
 	#check each number
 	if len(code)>=4 and len(code)<=10:
 		if code == MachineCode.substr(0, len(code)):
-			wait_time = len(code)*16 #will end up with 160 seconds on final number
+			wait_time = len(code)*TimeMult 
 			start()
 			return true
 	return false

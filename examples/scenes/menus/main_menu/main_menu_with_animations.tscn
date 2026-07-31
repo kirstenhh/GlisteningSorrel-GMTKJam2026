@@ -360,13 +360,29 @@ modulate = Color(1, 1, 1, 0)
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0" unique_id=2017477786]
 lock = true
 
-[node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1206401873]
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1483181303]
+layout_mode = 2
+text = "Difficulty"
+horizontal_alignment = 1
+
+[node name="DifficultyButton" type="OptionButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=1339915157]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/id = 27
+popup/item_1/text = "Medium"
+popup/item_1/id = 16
+popup/item_2/text = "Hard"
+popup/item_2/id = 11
+
+[node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=1206401873]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "Continue"
 
-[node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=78300098]
+[node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="4" unique_id=78300098]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -374,6 +390,9 @@ text = "Level Select"
 
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(1732528471) index="0" unique_id=1603969262]
 modulate = Color(1, 1, 1, 0)
+
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
+text = "v1.1"
 
 [node name="NewGameConfirmation" parent="." index="7" unique_id=1747133399 instance=ExtResource("5_u6nv2")]
 unique_name_in_owner = true
@@ -403,6 +422,7 @@ metadata/_edit_lock_ = true
 [node name="ExitConfirmation" parent="." index="9" unique_id=912502155]
 ignore_siblings = false
 
+[connection signal="item_selected" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/DifficultyButton" to="." method="_on_difficulty_button_item_selected"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmation_confirmed"]
