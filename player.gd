@@ -88,7 +88,6 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		available_examinations.push_back(area)
 	if area.name == "Pickable":
 		available_examinations.push_back(area)
-		$ExamineSprite.visible = true
 		$InteractSprite.visible = true
 		available_pickups.push_back(area)
 	if area.name == "Interactable":
@@ -102,14 +101,23 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 func _on_interact_area_area_exited(area: Area2D) -> void:
 	if  area.name == "Examinable":
 		available_examinations.erase(area)
+		$ExamineSprite.visible = false
 	if area.name == "Pickable":
 		available_examinations.erase(area)
+		$InteractSprite.visible = false
 		available_pickups.erase(area)
 	if area.name == "Interactable":
 		available_interactions.erase(area)
-	$ExamineSprite.visible = false
-	$InteractSprite.visible = false
-
+		$InteractSprite.visible = false
+	var StillPresent = $InteractArea.get_overlapping_areas()
+	for item in StillPresent:
+		if item.name == "Examinable":
+			$ExamineSprite.visible = true
+		if item.name == "Pickable":
+			$InteractSprite.visible = true
+		if item.name == "Interactable":
+			$InteractSprite.visible = true
+	
 
 func nearest(a1, a2):
 	var a1_dist = global_position.distance_to(a1.global_position)
