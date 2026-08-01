@@ -14,9 +14,12 @@ var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
 @onready var overlay: ColorRect = $UI/BlackTransition  # full-viewport, black, alpha 0
 
+var BunkerCameraZoomTarget = Vector2(4.0,4.0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#start_intro()
+	#$AudioStreamPlayer.play()
+	start_intro()
 	pass
 	
 func start_intro():
@@ -111,7 +114,6 @@ func _process(_delta: float) -> void:
 	if next_state: 
 		current_state = next_state
 		next_state = null
-
 	#udpate timer on corner of screen
 	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
 
@@ -177,6 +179,11 @@ func _on_code_entry_submitted(new_text: String) -> void:
 			tween.tween_property($Map/SecretDoor, "modulate", Color(1,1,1,0), 2.0)
 			tween.tween_callback($Map/SecretDoor.hide)
 			$UI/Clock.stop_timing()
+			var twcam = create_tween()
+			#$DoorCamera.make_current()
+			#$BunkerCamera.position_smoothing_enabled = true	
+			#$BunkerCamera.position_smoothing_speed = 2.0
+			twcam.tween_property($BunkerCamera,"zoom",Vector2(2.7,2.7),2.0)
 			
 	else:
 		print("Code was incorrect")
@@ -204,13 +211,20 @@ func _on_safe_text_submitted(no1,no2,no3) -> void:
 		$UI/TextPanel.show_message("That doesn't seem to have worked.")
 		$BunkerItems/Safe.code_failure()
 
+##Actually means Getting inside Hidden room
 func _on_reveal_hidden_room() -> void:
 	var audioStream = $AudioStreamPlayer
 	var tween = create_tween()
-	tween.tween_property(audioStream, "volume_db",-80, 10.0)
+	#var tweenCAM = create_tween()
+	tween.tween_property(audioStream, "volume_db",-80, 5.0)
 	tween.tween_property(audioStream, "playing", false, 0.0)
-
-	$SecretCamera.make_current()
+	
+	# Uses Secret camera as target position, smooth the movement 
+	$BunkerCamera.position_smoothing_enabled = true	
+	$BunkerCamera.position_smoothing_speed = 2.0
+	var twcam = create_tween()
+	twcam.tween_property($BunkerCamera,"zoom",Vector2(4.0,4.0),1.0)
+	twcam.parallel().tween_property($BunkerCamera,"position",$SecretCamera.position,1.0)#$BunkerCamera.position = $SecretCamera.position
 
 func _on_game_won() -> void:
 	current_state = Game_State.GAME_WON
