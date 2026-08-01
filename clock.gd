@@ -80,8 +80,6 @@ func _on_timeout() -> void:
 	$WhiteLight.color.a=0
 	$WhiteLight.visible=true
 	await $WhiteLight/Flash.animation_finished
-	TextManager.text_queue.push_back("You have not entered the code in time, the world as we know it ended")
-	TextManager.text_queue.push_back("Press a button to go to the main menu")
 	
 	GameOver.emit()
 	#resets game

@@ -111,6 +111,7 @@ metadata/_edit_group_ = true
 
 [node name="TextPanel" type="Panel" parent="UI" unique_id=500023554]
 visible = false
+top_level = true
 z_index = 2000
 z_as_relative = false
 anchors_preset = 7

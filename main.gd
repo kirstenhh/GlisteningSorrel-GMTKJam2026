@@ -65,11 +65,13 @@ func _input(event: InputEvent) -> void:
 				pass # In case the user tries to type text
 			Game_State.GAME_OVER:
 				print("GAME OVER. ")
+				get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn") #to return to main menu
+	
 			Game_State.CREDITS:
 				print("Showing credits")
 				$AudioStreamPlayer.play() #background music
 				if event.is_action_pressed("pause") or event.is_action_pressed("ui_cancel"):
-					get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+					get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu_with_animations.tscn") #to return to main menu
 					
 	elif event.is_action_pressed("pause"):
 		print("Pausing")
@@ -100,7 +102,10 @@ func _process(_delta: float) -> void:
 		Game_State.GAME_WON:
 			$Player.controlling = false
 		Game_State.GAME_OVER:
+			$UI/TextPanel.show_message("You have not entered the code in time, the world as we know it ended")
+			# will go back to main menu when reading
 			print("GAME OVER. ")
+			
 	if next_state: 
 		current_state = next_state
 		next_state = null
@@ -146,9 +151,8 @@ func _on_enter_code_requested() -> void:
 
 func _on_clock_game_over() -> void:
 	#Handle resetting the whole game
-	current_state=Game_State.NEW_GAME
 	
-	get_tree().change_scene_to_file("res://examples/scenes/menus/main_menu/main_menu.tscn") #to return to main menu
+	current_state=Game_State.GAME_OVER
 	
 
 
