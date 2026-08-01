@@ -1,7 +1,5 @@
 extends StaticBody2D
 @onready var examinable: Area2D = $Examinable
-@onready var interactable: Area2D = $Interactable
-var interact_item = "Key"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
