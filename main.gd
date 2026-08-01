@@ -12,9 +12,11 @@ enum Game_State{
 }
 var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
+@onready var overlay: ColorRect = $UI/BlackTransition  # full-viewport, black, alpha 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_intro()
+	#start_intro()
 	pass
 	
 func start_intro():
@@ -134,12 +136,17 @@ func _on_pickable_picked_up(my_name: String, carried: bool) -> void:
 
 func _on_move_through_door(to_bunker: bool) -> void:
 	if to_bunker and current_state == Game_State.PLAYING: 
+		
 		$Player.global_position = $BunkerStairs.global_position # move character to bunker
 		$BunkerCamera.make_current()
+		fade_in(10.0,true)
+		fade_out(1.0,true)
 	elif current_state == Game_State.PLAYING:
 		# move character to just outside door
+		fade_in(10.0)
 		$Player.position = $BunkerDoor.global_position
 		$Player/Camera2D.make_current()
+		fade_out(2.0,true)
 
 
 
@@ -214,3 +221,17 @@ func _on_cinematic_finished() -> void:
 	current_state = Game_State.CREDITS
 	get_tree().change_scene_to_file("res://examples/scenes/credits/scrolling_credits.tscn") 
 	
+
+func fade_in(duration := 0.5,wait := false) -> void:
+	pass
+	#var mat: ShaderMaterial = overlay.material
+	#var t := create_tween()
+	#t.tween_method(func(v): overlay.size, 1.5, 0.0, duration)
+	#t.tween_method(func(v): mat.set_shader_parameter("radius", v), 1.5, 0.0, duration)
+	#await t.is_running()
+
+func fade_out(duration := 0.5,wait := false) -> void:
+	var mat: ShaderMaterial = overlay.material
+	var t := create_tween()
+	t.tween_method(func(v): mat.set_shader_parameter("radius", v), 0.0, 1.5, duration)
+	await t.finished
