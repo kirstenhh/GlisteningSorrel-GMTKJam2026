@@ -84,3 +84,8 @@ func _on_new_game_confirmation_confirmed() -> void:
 func _on_difficulty_button_item_selected(index: int) -> void:
 	Globals.GameDifficulty = $MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/DifficultyButton.get_selected_id()
 	print("Difficulty is now ",Globals.GameDifficulty)
+
+
+func _on_touch_enable_toggled(toggled_on: bool) -> void:
+	Globals.TouchEnable = $MenuContainer/MenuButtonsMargin/MenuButtonsContainer/TouchEnable.toggle_mode
+	pass # Replace with function body.

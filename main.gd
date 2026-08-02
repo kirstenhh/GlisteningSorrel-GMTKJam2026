@@ -13,12 +13,16 @@ enum Game_State{
 var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
 @onready var overlay: ColorRect = $UI/BlackTransition  # full-viewport, black, alpha 0
-
 var BunkerCameraZoomTarget = Vector2(4.0,4.0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#$AudioStreamPlayer.play()
+	if Globals.TouchEnable:
+		$UI/ExamButton.visible = true
+		$UI/InteractButton.visible = true
+		$UI/VirtualJoystick.visible = true
+		#$UI/TouchControls/VirtualJoystick.set_position($UI/TouchControls.position)
 	start_intro()
 	pass
 	
@@ -249,3 +253,13 @@ func fade_out(duration := 0.5,wait := false) -> void:
 	var t := create_tween()
 	t.tween_method(func(v): mat.set_shader_parameter("radius", v), 0.0, 1.5, duration)
 	await t.finished
+
+
+func _on_exam_pressed() -> void:
+	Input.action_press("examine")
+	pass # Replace with function body.
+
+
+func _on_interact_pressed() -> void:
+	Input.action_press("interact")
+	pass # Replace with function body.

@@ -1,6 +1,7 @@
 extends Node
 
 var GameDifficulty = 16
+var TouchEnable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

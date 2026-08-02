@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3atolv4vmmo1" path="res://examples/scenes/windows/pause_menu_layer.tscn" id="9_getpj"]
 [ext_resource type="PackedScene" uid="uid://bcdwpojqqv6fx" path="res://clock.tscn" id="10_4c57u"]
 [ext_resource type="Shader" uid="uid://q6cgd4w8w2yr" path="res://CircleTransition.gdshader" id="11_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://bqnclmxlwxejv" path="res://Graphics/buttons.png" id="12_gngh3"]
 [ext_resource type="Texture2D" uid="uid://cenph67g31r2s" path="res://Graphics/Pickups/Photo.png" id="12_h8e4i"]
 [ext_resource type="Script" uid="uid://1mv6mpcly83k" path="res://Items/Instances/bunker_door.gd" id="12_w48qg"]
 [ext_resource type="PackedScene" uid="uid://dinkft77yv07x" path="res://Items/interactable.tscn" id="12_ycdy4"]
@@ -48,6 +49,14 @@
 shader = ExtResource("11_0cp0l")
 shader_parameter/radius = 1.5
 shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl8cw"]
+atlas = ExtResource("12_gngh3")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gngh3"]
+atlas = ExtResource("12_gngh3")
+region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lswn8"]
 size = Vector2(9, 11)
@@ -243,6 +252,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ExamButton" type="TouchScreenButton" parent="UI" unique_id=295623810]
+position = Vector2(1022, 419)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_tl8cw")
+action = "examine"
+
+[node name="InteractButton" type="TouchScreenButton" parent="UI" unique_id=1600751084]
+position = Vector2(1072, 342)
+scale = Vector2(4, 4)
+texture_normal = SubResource("AtlasTexture_gngh3")
+action = "interact"
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="UI" unique_id=2102065430]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 44.0
+offset_right = 145.0
+offset_bottom = 157.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+joystick_mode = 1
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_up"
+action_down = &"move_down"
 
 [node name="PickupItems" type="Node2D" parent="." unique_id=637926559]
 position = Vector2(195, -14)
