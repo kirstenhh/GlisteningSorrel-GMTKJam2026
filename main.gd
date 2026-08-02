@@ -23,7 +23,7 @@ func _ready() -> void:
 		$UI/ExamButton.visible = true
 		$UI/InteractButton.visible = true
 		$UI/VirtualJoystick.visible = true
-	#start_intro()
+	start_intro()
 	pass
 	
 func start_intro():
