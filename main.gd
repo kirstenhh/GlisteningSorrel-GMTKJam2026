@@ -14,16 +14,16 @@ var current_state = Game_State.NEW_GAME
 var next_state = Game_State.READING #-> updates current_state at the next process tick
 @onready var overlay: ColorRect = $UI/BlackTransition  # full-viewport, black, alpha 0
 var BunkerCameraZoomTarget = Vector2(4.0,4.0)
+var jumping = false
+@onready var pathFollow = $JumpingPoint/JumpPath/PathFollow2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#$AudioStreamPlayer.play()
 	if Globals.TouchEnable:
 		$UI/ExamButton.visible = true
 		$UI/InteractButton.visible = true
 		$UI/VirtualJoystick.visible = true
-		#$UI/TouchControls/VirtualJoystick.set_position($UI/TouchControls.position)
-	start_intro()
+	#start_intro()
 	pass
 	
 func start_intro():
@@ -125,6 +125,9 @@ func _process(_delta: float) -> void:
 		next_state = null
 	#udpate timer on corner of screen
 	$UI/TimerCorner/TimeLeft.set_text(str(int($UI/Clock.time_left)))
+	if jumping:
+		$Player.position = pathFollow.global_position
+	
 
 
 #--------Events------------------------------------------------------------
@@ -259,3 +262,18 @@ func fade_out(duration := 0.5,wait := false) -> void:
 	var t := create_tween()
 	t.tween_method(func(v): mat.set_shader_parameter("radius", v), 0.0, 1.5, duration)
 	await t.finished
+
+
+func _on_interactable_jumping() -> void:
+	
+	var tween = create_tween()
+	print("jumping!")
+	$Player.controlling = false
+	$JumpingPoint.global_position = $Player.position
+	#$JumpingPoint.position = $Player.position
+	jumping = true
+	tween.tween_property(pathFollow, "progress_ratio", 1.0, 0.6) 
+	await  tween.finished
+	jumping = false
+	$Player.controlling = true
+	

@@ -50,7 +50,7 @@ var text_sets = {
 	"Cabin" : ["A wooden cabin !?", "I have a fuzzy memory of Oscar making a lot of trips outside. Is that what he was doing?","Dumbass forgot to add a door... how was he the Chief Engineer again?", "Oh good, I remember my teammates. Useful information on a desert island."], 
 	"GameWon": ["If you're reading this, you turned off the invisibility generator.", "You should not have done that.", "They'll be coming for you.","They sent Ben to try and sabotage us, so they could get access.","Now they can find you.", "Run, and don't look back."],
 	# Misc Texts
-	
+	"JumpingPoint": ["mmhhhh, I could jump into this without breaking a bone!"],
 	#Lockers
 	"FirstLocker": ["The label on this locker says 'Bernard' and a blacked-out last name.", "It's locked."],
 	"SecondLocker": ["The label on this locker says 'Charlotte' and a blacked-out last name.", "It's empty."],

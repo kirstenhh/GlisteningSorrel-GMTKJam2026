@@ -95,6 +95,8 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		available_interactions.push_back(area)
 	if area.name == "BunkerStairs":
 		print("entering Door")
+	if area.name == "JumpPoint":
+		print("Jump here?")
 		
 
 

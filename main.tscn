@@ -44,6 +44,7 @@
 [ext_resource type="VideoStream" uid="uid://cj027ix8xiwyj" path="res://Graphics/HelicopterComing.ogv" id="38_b1qrp"]
 [ext_resource type="AudioStream" uid="uid://hywygd024bt8" path="res://Sounds/Valid.mp3" id="39_h8e4i"]
 [ext_resource type="AudioStream" uid="uid://b7omxdqju6wvq" path="res://Sounds/Error.mp3" id="40_4lmeg"]
+[ext_resource type="Script" uid="uid://bt7k54ca76080" path="res://Items/Jumping.gd" id="45_0n3wm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b4t85"]
 shader = ExtResource("11_0cp0l")
@@ -119,13 +120,27 @@ size = Vector2(32, 45)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuqvo"]
 size = Vector2(32, 39.75)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gngh3"]
+radius = 6.2373734
+height = 55.34607
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0n3wm"]
+radius = 6.0
+height = 51.0
+
+[sub_resource type="Curve2D" id="Curve2D_gngh3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -33.307938, 5.239502, 0, 0, 0, 0, -19.778748, -13.970032, 0, 0, 0, 0, -7.7787476, -30.970032, 0, 0, 0, 0, 2.2212524, -33.97003, 0, 0, 0, 0, 10.221252, -34.97003, 0, 0, 0, 0, 28.221252, -22.970032, 0, 0, 0, 0, 45.221252, 10.029968)
+}
+point_count = 7
+
 [node name="Main" type="Node" unique_id=1576945948]
 script = ExtResource("1_ig7tw")
 
 [node name="Player" parent="." unique_id=381903264 instance=ExtResource("2_0xm2m")]
 z_index = 1002
 z_as_relative = false
-position = Vector2(2677.548, -207.79756)
+position = Vector2(-265.28232, -395.9312)
 speed = 100
 metadata/_edit_group_ = true
 
@@ -771,6 +786,37 @@ stream = ExtResource("39_h8e4i")
 [node name="WrongSound" type="AudioStreamPlayer" parent="." unique_id=707318151]
 stream = ExtResource("40_4lmeg")
 
+[node name="JumpingPoint" type="Node2D" parent="." unique_id=1046311591]
+position = Vector2(-137, -301)
+metadata/_edit_group_ = true
+
+[node name="Examinable" parent="JumpingPoint" unique_id=289758731 instance=ExtResource("9_4c57u")]
+z_index = 2000
+position = Vector2(0, -1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpingPoint/Examinable" unique_id=230331714]
+scale = Vector2(1.122267, 1.2647688)
+shape = SubResource("CapsuleShape2D_gngh3")
+
+[node name="Interactable" parent="JumpingPoint" unique_id=1958621861 instance=ExtResource("12_ycdy4")]
+script = ExtResource("45_0n3wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpingPoint/Interactable" unique_id=376675303]
+position = Vector2(9, 0.5)
+shape = SubResource("CapsuleShape2D_0n3wm")
+
+[node name="JumpPath" type="Path2D" parent="JumpingPoint" unique_id=1926731880]
+z_index = 3000
+z_as_relative = false
+position = Vector2(33.07083, -6.5719604)
+rotation = -0.040142573
+curve = SubResource("Curve2D_gngh3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="JumpingPoint/JumpPath" unique_id=1143700428]
+position = Vector2(-33.307938, 5.239502)
+rotation = -0.95719326
+
 [connection signal="GameOver" from="UI/Clock" to="." method="_on_clock_game_over"]
 [connection signal="text_submitted" from="UI/CodeEntryBox" to="." method="_on_code_entry_submitted"]
 [connection signal="text_submitted" from="UI/CodeEntryBox/LineEdit" to="." method="_on_code_entry_submitted"]
@@ -792,3 +838,4 @@ stream = ExtResource("40_4lmeg")
 [connection signal="body_entered" from="BunkerStairs" to="BunkerStairs" method="_on_body_entered"]
 [connection signal="move_through_door" from="BunkerStairs" to="." method="_on_move_through_door"]
 [connection signal="finished" from="Ending/Cinematic" to="." method="_on_cinematic_finished"]
+[connection signal="jumping" from="JumpingPoint/Interactable" to="." method="_on_interactable_jumping"]
