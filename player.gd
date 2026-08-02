@@ -62,6 +62,7 @@ func _physics_process(_delta: float) -> void:
 		else:
 			handle_animation("walk", direction)
 		prev_direction = direction
+		velocity = velocity.normalized() * speed
 	else:
 		handle_animation("idle", prev_direction)
 		velocity.x = move_toward(velocity.x, 0, speed)

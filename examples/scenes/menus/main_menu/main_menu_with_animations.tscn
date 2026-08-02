@@ -375,6 +375,8 @@ popup/item_1/text = "Hard"
 popup/item_1/id = 16
 popup/item_2/text = "Ultra"
 popup/item_2/id = 11
+popup/item_2/text = "Lost Cause"
+popup/item_2/id = 12
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=1206401873]
 unique_name_in_owner = true

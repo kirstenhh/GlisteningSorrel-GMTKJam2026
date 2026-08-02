@@ -67,6 +67,11 @@ func _input(event: InputEvent) -> void:
 					$UI/TextPanel.show_message(text)
 				else:
 					$UI/TextPanel.show_message("RUN.")
+					#hides TouchControls
+					$UI/ExamButton.visible = false
+					$UI/InteractButton.visible = false
+					$UI/VirtualJoystick.visible = false
+					#Start cinematic
 					$Ending/Cinematic.play()
 					
 
@@ -231,6 +236,7 @@ func _on_reveal_hidden_room() -> void:
 	twcam.parallel().tween_property($BunkerCamera,"position",$SecretCamera.position,1.0)#$BunkerCamera.position = $SecretCamera.position
 
 func _on_game_won() -> void:
+	
 	current_state = Game_State.GAME_WON
 
 
@@ -253,13 +259,3 @@ func fade_out(duration := 0.5,wait := false) -> void:
 	var t := create_tween()
 	t.tween_method(func(v): mat.set_shader_parameter("radius", v), 0.0, 1.5, duration)
 	await t.finished
-
-
-func _on_exam_pressed() -> void:
-	Input.action_press("examine")
-	pass # Replace with function body.
-
-
-func _on_interact_pressed() -> void:
-	Input.action_press("interact")
-	pass # Replace with function body.
