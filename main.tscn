@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b74chucbui5kc" path="res://Graphics/Pickups/Vinyl.png" id="16_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://cl3bgl8xyni4" path="res://Graphics/Items/Deck of cards ( full cards ).png" id="16_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://blanapvp5teab" path="res://Graphics/Pickups/VinylPlayer.png" id="17_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://bg7fl4m6g3de6" path="res://Graphics/Items/casette.png" id="17_gngh3"]
 [ext_resource type="Texture2D" uid="uid://dompwuu401c25" path="res://Graphics/Items/pixel_icons_by_oceansdream.png" id="17_kq58d"]
 [ext_resource type="PackedScene" uid="uid://casv0d80buk7a" path="res://tile_map_layer.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://bp3s44iubjpnl" path="res://Items/Instances/bookshelf.tscn" id="18_d13ii"]
@@ -305,7 +306,7 @@ polygon = PackedVector2Array(-8.056107, -5.9243927, 3.1427002, -10.35009, 8.4355
 
 [node name="Key" type="Area2D" parent="PickupItems" unique_id=1159360130]
 z_index = 1003
-position = Vector2(604, -1089)
+position = Vector2(615, -387)
 metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/Key" unique_id=1845494322 instance=ExtResource("5_4c57u")]
@@ -324,6 +325,28 @@ metadata/_edit_lock_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Key" unique_id=447262044]
 position = Vector2(4, 7)
 polygon = PackedVector2Array(-12, -13, 7, -12, 6, -2, -11, -4)
+
+[node name="Film" type="Area2D" parent="PickupItems" unique_id=1437116630]
+z_index = 1003
+position = Vector2(538, -1147)
+metadata/_edit_group_ = true
+
+[node name="Pickable" parent="PickupItems/Film" unique_id=1287710811 instance=ExtResource("5_4c57u")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Film/Pickable" unique_id=1152526388]
+position = Vector2(4, 7)
+polygon = PackedVector2Array(-7, -13, 0, -12, 1, -3, -9, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="PickupItems/Film" unique_id=1112288506]
+rotation = -2.3492131
+scale = Vector2(0.258, 0.258)
+texture = ExtResource("17_gngh3")
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupItems/Film" unique_id=1390540204]
+position = Vector2(4, 7)
+polygon = PackedVector2Array(-7, -11, 0, -11, 1, -2, -9, -7)
 
 [node name="Vinyl" type="Area2D" parent="PickupItems" unique_id=1158253289]
 z_index = 999
@@ -715,6 +738,7 @@ stream = ExtResource("40_4lmeg")
 [connection signal="picked_up" from="PickupItems/PostIt/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/JournalPage/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Key/Pickable" to="." method="_on_pickable_picked_up"]
+[connection signal="picked_up" from="PickupItems/Film/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Vinyl/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/VinylPlayer/Pickable" to="." method="_on_pickable_picked_up"]
 [connection signal="picked_up" from="PickupItems/Deck/Pickable" to="." method="_on_pickable_picked_up"]
