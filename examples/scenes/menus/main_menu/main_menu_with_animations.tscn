@@ -367,14 +367,14 @@ horizontal_alignment = 1
 
 [node name="DifficultyButton" type="OptionButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=1339915157]
 layout_mode = 2
-selected = 1
+selected = 0
 item_count = 3
-popup/item_0/text = "Easy"
+popup/item_0/text = "Normal"
 popup/item_0/id = 27
-popup/item_1/text = "Medium"
+popup/item_1/text = "Hard"
 popup/item_1/id = 16
-popup/item_2/text = "Hard"
-popup/item_2/id = 11
+popup/item_2/text = "Lost Cause"
+popup/item_2/id = 12
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=1206401873]
 unique_name_in_owner = true
