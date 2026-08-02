@@ -87,8 +87,8 @@ radius = 54.35428
 height = 108.70856
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1qrp"]
-radius = 86.97241
-height = 230.87222
+radius = 69.57794
+height = 139.15588
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(22, 15)
@@ -266,8 +266,9 @@ polygon = PackedVector2Array(-5, -6, 5, -6, 5, 6, -5, 6)
 
 [node name="PostIt" type="Area2D" parent="PickupItems" unique_id=1083153903]
 z_index = 1003
-position = Vector2(648, 118)
+position = Vector2(-240, -385)
 rotation = 0.2932153
+metadata/_edit_group_ = true
 
 [node name="Pickable" parent="PickupItems/PostIt" unique_id=1648569063 instance=ExtResource("5_4c57u")]
 
@@ -382,7 +383,7 @@ shape = SubResource("RectangleShape2D_come4")
 
 [node name="MP3Player" type="Area2D" parent="PickupItems" unique_id=50341540]
 z_index = 999
-position = Vector2(151, -1547)
+position = Vector2(27, -1692)
 scale = Vector2(2, 2)
 metadata/_edit_group_ = true
 
@@ -495,7 +496,7 @@ scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CapsuleShape2D_ok6jj")
 
 [node name="CutWood" type="Node2D" parent="MiscExamines" unique_id=1758297549]
-position = Vector2(-1266, -1194)
+position = Vector2(-1213, -1195)
 metadata/_edit_group_ = true
 
 [node name="Examinable" parent="MiscExamines/CutWood" unique_id=1256619135 instance=ExtResource("9_4c57u")]
@@ -508,7 +509,7 @@ scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CircleShape2D_ok6jj")
 
 [node name="IpodPond" type="Node2D" parent="MiscExamines" unique_id=2005432234]
-position = Vector2(-2228, -1184)
+position = Vector2(-2302, -1248)
 metadata/_edit_group_ = true
 
 [node name="Examinable" parent="MiscExamines/IpodPond" unique_id=1657170028 instance=ExtResource("9_4c57u")]
@@ -521,7 +522,7 @@ scale = Vector2(1.122267, 1.2647688)
 shape = SubResource("CapsuleShape2D_facbu")
 
 [node name="WaterFall" type="Node2D" parent="MiscExamines" unique_id=308334736]
-position = Vector2(-2256, -1351)
+position = Vector2(-2205, -1328)
 metadata/_edit_group_ = true
 
 [node name="Examinable" parent="MiscExamines/WaterFall" unique_id=1007464785 instance=ExtResource("9_4c57u")]

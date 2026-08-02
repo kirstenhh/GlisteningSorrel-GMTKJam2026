@@ -59,7 +59,7 @@ var text_sets = {
 	"BenLocker": ["The label on this locker says 'Oscar' and a blacked-out last name."],
 	"Shelf": ["Hmmm. 'Valis', 'After All These Years', 'Our Mutual Friend'...","quite the book collection! Doesn't seem to have any Stephen King, though..."],
 	"Statue": ["What is that statue doing here? It looks thousands of years old!","At least it's not a giant foot with 4 toes..."],
-	"IpodPond": ["Hey is that an MP3 player across the river?"],
+	"IpodPond": ["Hey is that an MP3 player next to that waterfall?"],
 	"CutWood": ["Why were all these trees cut down?", "That must have been a lot of work in the middle of nowhere", "Maybe someone got bored... Very bored."],
 	"Fridge" : ["Nothing interesting in that fridge...", "Which is a real shame... I could go for a sandwich."],
 	"WaterFall": ["If this was a video game, you'd bet there would be a hidden cave behind that waterfall."],
