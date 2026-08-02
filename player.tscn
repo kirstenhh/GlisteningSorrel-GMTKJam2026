@@ -651,11 +651,13 @@ frame_progress = 0.48148748
 zoom = Vector2(2, 2)
 
 [node name="ExamineSprite" type="Sprite2D" parent="." unique_id=774755185]
+z_index = 1000
 position = Vector2(12, -20)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_lgtwv")
 
 [node name="InteractSprite" type="Sprite2D" parent="." unique_id=669915661]
+z_index = 1000
 position = Vector2(-12, -20)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_cc14p")
