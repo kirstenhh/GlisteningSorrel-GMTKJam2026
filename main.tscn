@@ -621,12 +621,12 @@ position = Vector2(263, 150)
 position = Vector2(460, -80)
 
 [node name="Speaker" parent="BunkerItems" unique_id=747544108 instance=ExtResource("21_0odxb")]
-position = Vector2(123, 192)
+position = Vector2(-15.000015, 139)
 scale = Vector2(1.242, 1.242)
 metadata/_edit_group_ = true
 
 [node name="VideoPlayer" parent="BunkerItems" unique_id=1663984713 instance=ExtResource("20_jq2sk")]
-position = Vector2(38, 148)
+position = Vector2(42, 149)
 scale = Vector2(1.0000001, 1.0000001)
 
 [node name="HiddenDoor" parent="BunkerItems" unique_id=1467128344 instance=ExtResource("28_0rl1p")]
